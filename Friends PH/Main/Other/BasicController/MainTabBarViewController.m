@@ -8,7 +8,7 @@
 
 #import "MainTabBarViewController.h"
 #import "TabbarView.h"
-@interface MainTabBarViewController ()<TabbarViewDelegat>
+@interface MainTabBarViewController ()<TabbarViewDelegate,UITableViewDataSource>
 
 @end
 
@@ -31,31 +31,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     self.tabBar.selectedImageTintColor = [UIColor orangeColor];
+    // self.tabBar.selectedImageTintColor = [UIColor orangeColor];
     
     
     self.tabBar.hidden = YES;
     TabbarView *tabbar = [[TabbarView alloc]init];
     tabbar.delegate = self;
-    tabbar.imageArray = @[[UIImage imageNamed:@"btn0"],[UIImage imageNamed:@"btn1"],[UIImage imageNamed:@"btnAdd0"],[UIImage imageNamed:@"btn2"],[UIImage imageNamed:@"btn3"],];
-    
-    tabbar.selectedImageArray = @[[UIImage imageNamed:@"btn0s"],[UIImage imageNamed:@"btn1s"],[UIImage imageNamed:@"btnAdd0"],[UIImage imageNamed:@"btn2s"],[UIImage imageNamed:@"btn3s"],];
+    tabbar.itemCount = 3;
+//    tabbar.imageArray = @[[UIImage imageNamed:@"btn0"],[UIImage imageNamed:@"btn1"],[UIImage imageNamed:@"btnAdd0"],[UIImage imageNamed:@"btn2"],[UIImage imageNamed:@"btn3"],];
+//    
+//    tabbar.selectedImageArray = @[[UIImage imageNamed:@"btn0s"],[UIImage imageNamed:@"btn1s"],[UIImage imageNamed:@"btnAdd0"],[UIImage imageNamed:@"btn2s"],[UIImage imageNamed:@"btn3s"],];
     [tabbar showInView:self.view];
+}
+
+- (TabbarViewItem *)tabbar:(TabbarView *)tabbarView cellForRowAtIndex:(NSInteger)index {
+    TabbarViewItem * item = [tabbarView dequeueReusableCellWithIdentifier:@"item"];
+    
+    item.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1];
+    return item;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

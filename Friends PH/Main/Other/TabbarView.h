@@ -8,23 +8,34 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol TabbarViewDelegat;
+@protocol TabbarViewDelegate;
+@class TabbarViewItem;
 
 @interface TabbarView : UIView
 
-@property(nonatomic,strong) NSArray *imageArray;
-@property(nonatomic,strong) NSArray *selectedImageArray;
-@property(nonatomic,weak) id<TabbarViewDelegat>delegate;
+@property(nonatomic,assign) NSInteger itemCount;
+@property(nonatomic,weak) id<TabbarViewDelegate> delegate;
 
 
 - (void)updateRedIconWithShow:(BOOL)isShow atIndex:(NSInteger)index;
+
 - (void)showInView:(UIView *)view;
+
+- (TabbarViewItem *)dequeueReusableCellWithIdentifier:(NSString *)idfentifier;
+
 @end
 
-@protocol TabbarViewDelegat <NSObject>
+@protocol TabbarViewDelegate <NSObject>
 
+@required
+
+- (TabbarViewItem *)tabbar:(TabbarView *)tabbarView cellForRowAtIndex:(NSInteger)index;
 @optional
 - (void)tabbar:(TabbarView *)tabbarView didSeletedRowAtIndex:(NSInteger)index;
 
 @end
 
+@interface  TabbarViewItem: UIView
+
+
+@end

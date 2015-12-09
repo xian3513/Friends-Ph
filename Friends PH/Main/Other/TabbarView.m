@@ -45,60 +45,86 @@
     ButtonImageView *addBtnImageView;
     ButtonImageView *currentBtnImv;
     
-    NSMutableArray *btnImageArray;
+    NSMutableArray *_itemsArray;
+    //NSMutableDictionary *_itemsDictionary;
 }
 
 -(instancetype)init {
     if(self = [super init]) {
         
-        
         self.frame = CGRectMake(0, SCREEN_HEIGHT-49, SCREEN_WIDTH, 49);
-        btnImageArray = [[NSMutableArray alloc]initWithCapacity:0];
+        _itemsArray = [[NSMutableArray alloc]initWithCapacity:0];
+       // _itemsDictionary = [[NSMutableDictionary alloc]initWithCapacity:0];
     }
     return self;
 }
 
-- (void)updateRedIconWithShow:(BOOL)isShow atIndex:(NSInteger)index {
-    if(isShow){
-        ButtonImageView *imageView = [btnImageArray objectAtIndex:index];
-        imageView.haveRedIcon = YES;
-    }else {
-        ButtonImageView *imageView = [btnImageArray objectAtIndex:index];
-        imageView.haveRedIcon = NO;
-    }
+- (TabbarViewItem *)dequeueReusableCellWithIdentifier:(NSString *)idfentifier {
+//    TabbarViewItem *item = [_itemsDictionary objectForKey:idfentifier];
+//    if(!item) {
+     return [[TabbarViewItem alloc]init];
+//    }
 }
 
+//- (void)updateRedIconWithShow:(BOOL)isShow atIndex:(NSInteger)index {
+//    if(isShow){
+//        ButtonImageView *imageView = [btnImageArray objectAtIndex:index];
+//        imageView.haveRedIcon = YES;
+//    }else {
+//        ButtonImageView *imageView = [btnImageArray objectAtIndex:index];
+//        imageView.haveRedIcon = NO;
+//    }
+//}
+
 - (void)showInView:(UIView *)view {
-    if(self.imageArray.count == self.selectedImageArray.count){
-        
-        NSInteger count = self.imageArray.count;
-        CGFloat width = SCREEN_WIDTH/count;
-        
-        for(int i=0;i<count;i++){
-            ButtonImageView *imageView = [[ButtonImageView alloc]initWithFrame:CGRectMake(width*i, 0, width, self.height)];
+    
+    
+//    if(self.imageArray.count == self.selectedImageArray.count){
+//        
+//        NSInteger count = self.imageArray.count;
+//        CGFloat width = SCREEN_WIDTH/count;
+//        
+//        for(int i=0;i<count;i++){
+//            ButtonImageView *imageView = [[ButtonImageView alloc]initWithFrame:CGRectMake(width*i, 0, width, self.height)];
+//            
+//            imageView.tag          = i;
+//            imageView.isSelected = NO;
+//            imageView.userInteractionEnabled = YES;
+//            imageView.image        = [self.imageArray objectAtIndex:i];
+//            [self addSubview:imageView];
+//            
+//            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageViewPress:)];
+//            [imageView addGestureRecognizer:tap];
+//            
+//            if(i == count/2){
+//                addBtnImageView = [[ButtonImageView alloc]initWithImage:[UIImage imageNamed:@"btnAdd1"]];
+//                addBtnImageView.frame = CGRectMake(0, 0, imageView.width, imageView.height);
+//                addBtnImageView.center = CGPointMake(imageView.width/2, imageView.height/2);
+//                [imageView addSubview:addBtnImageView];
+//            } else if (i == 0){
+//                currentBtnImv = imageView;
+//               
+//                currentBtnImv.image = [self.selectedImageArray objectAtIndex:i];
+//            }else if(i == 4){
+//                imageView.haveRedIcon = YES;
+//            }
+//            [btnImageArray addObject:imageView];
+//        }
+//    }
+//
+   
+    if([self.delegate respondsToSelector:@selector(tabbar:cellForRowAtIndex:)]){
             
-            imageView.tag          = i;
-            imageView.isSelected = NO;
-            imageView.userInteractionEnabled = YES;
-            imageView.image        = [self.imageArray objectAtIndex:i];
-            [self addSubview:imageView];
+        for(int i=0;i<_itemCount;i++){
+            TabbarViewItem *item = [self.delegate tabbar:self cellForRowAtIndex:i];
+            CGFloat itemWidth    = (CGFloat)self.width / _itemCount;
+            item.frame           = CGRectMake(itemWidth*i, 0, itemWidth, self.height);
+            item.tag             = i;
             
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageViewPress:)];
-            [imageView addGestureRecognizer:tap];
-            
-            if(i == count/2){
-                addBtnImageView = [[ButtonImageView alloc]initWithImage:[UIImage imageNamed:@"btnAdd1"]];
-                addBtnImageView.frame = CGRectMake(0, 0, imageView.width, imageView.height);
-                addBtnImageView.center = CGPointMake(imageView.width/2, imageView.height/2);
-                [imageView addSubview:addBtnImageView];
-            } else if (i == 0){
-                currentBtnImv = imageView;
-               
-                currentBtnImv.image = [self.selectedImageArray objectAtIndex:i];
-            }else if(i == 4){
-                imageView.haveRedIcon = YES;
-            }
-            [btnImageArray addObject:imageView];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(itemPress:)];
+            [item addGestureRecognizer:tap];
+            [self addSubview:item];
+            [_itemsArray addObject:item];
         }
     }
     
@@ -106,40 +132,50 @@
 
 }
 
-- (void)imageViewPress:(UITapGestureRecognizer *)tap {
-    ButtonImageView *tapView = (ButtonImageView *)tap.view;
-    
-    
-    
-    if(tapView.tag == self.imageArray.count/2){//如果是 点击了中间的按钮
-        if(!addBtnImageView.isSelected){
-            [UIView animateWithDuration:0.3 animations:^(){
-                addBtnImageView.transform = CGAffineTransformMakeRotation(-M_2_PI*3);
-                addBtnImageView.isSelected = YES;
-                currentBtnImv.image = [self.imageArray objectAtIndex:currentBtnImv.tag];
-                //addBtnImageView.image = [UIImage imageNamed:@"closeBtn"];
-            }];
-        }else {
-            [UIView animateWithDuration:0.3 animations:^(){
-                addBtnImageView.transform = CGAffineTransformIdentity;
-                addBtnImageView.isSelected = NO;
-                currentBtnImv.image = [self.selectedImageArray objectAtIndex:currentBtnImv.tag];
-                //addBtnImageView.image = [UIImage imageNamed:@"btnAdd1"];
-            }];
-        }
-       
-    }else {
-        if(currentBtnImv.tag != tapView.tag){//判断两次点击是否为同一个image
-            currentBtnImv.image = [self.imageArray objectAtIndex:currentBtnImv.tag];
-            currentBtnImv = tapView;
-            currentBtnImv.image = [self.selectedImageArray objectAtIndex:tapView.tag];
-        }
-    }
+- (void)itemPress:(UITapGestureRecognizer *)tap {
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    TabbarViewItem *item = (TabbarViewItem *)tap.view;
     
     if([self.delegate respondsToSelector:@selector(tabbar:didSeletedRowAtIndex:)]){
-        [self.delegate tabbar:self didSeletedRowAtIndex:tapView.tag];
+        [self.delegate tabbar:self didSeletedRowAtIndex:item.tag];
     }
 }
+
+//- (void)imageViewPress:(UITapGestureRecognizer *)tap {
+//    ButtonImageView *tapView = (ButtonImageView *)tap.view;
+//    
+//    
+//    
+//    if(tapView.tag == self.imageArray.count/2){//如果是 点击了中间的按钮
+//        if(!addBtnImageView.isSelected){
+//            [UIView animateWithDuration:0.3 animations:^(){
+//                addBtnImageView.transform = CGAffineTransformMakeRotation(-M_2_PI*3);
+//                addBtnImageView.isSelected = YES;
+//                currentBtnImv.image = [self.imageArray objectAtIndex:currentBtnImv.tag];
+//                //addBtnImageView.image = [UIImage imageNamed:@"closeBtn"];
+//            }];
+//        }else {
+//            [UIView animateWithDuration:0.3 animations:^(){
+//                addBtnImageView.transform = CGAffineTransformIdentity;
+//                addBtnImageView.isSelected = NO;
+//                currentBtnImv.image = [self.selectedImageArray objectAtIndex:currentBtnImv.tag];
+//                //addBtnImageView.image = [UIImage imageNamed:@"btnAdd1"];
+//            }];
+//        }
+//       
+//    }else {
+//        if(currentBtnImv.tag != tapView.tag){//判断两次点击是否为同一个image
+//            currentBtnImv.image = [self.imageArray objectAtIndex:currentBtnImv.tag];
+//            currentBtnImv = tapView;
+//            currentBtnImv.image = [self.selectedImageArray objectAtIndex:tapView.tag];
+//        }
+//    }
+//    
+//    if([self.delegate respondsToSelector:@selector(tabbar:didSeletedRowAtIndex:)]){
+//        [self.delegate tabbar:self didSeletedRowAtIndex:tapView.tag];
+//    }
+//}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -148,4 +184,26 @@
 }
 */
 
+
+
+@end
+
+@implementation TabbarViewItem {
+    id _target;
+    SEL _action;
+}
+
+- (void)addTarget:(id)target action:(SEL)action{
+    _target = target;
+    _action = action;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(itemTap:)];
+    [self addGestureRecognizer:tap];
+}
+
+- (void)itemTap:(UITapGestureRecognizer *)tap {
+    if(_target && _action) {
+        [_target performSelector:_action withObject:self];
+    }
+    
+}
 @end

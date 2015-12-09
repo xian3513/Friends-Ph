@@ -8,7 +8,7 @@
 
 #import "BasicViewController.h"
 #import "CommonMacros.h"
-@interface BasicViewController ()
+@interface BasicViewController ()<UITableViewDataSource>
 
 @end
 
@@ -16,26 +16,25 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]){
-        [self defaultDataAndView];
+    
     }
     return self;
 }
 
 - (instancetype)init {
     if(self = [super init]){
-        [self defaultDataAndView];
+      
     }
     return self;
 }
-- (void)defaultDataAndView {
 
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = RGBA(235, 235, 235, 1);
     // Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
