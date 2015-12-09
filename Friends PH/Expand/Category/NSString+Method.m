@@ -11,6 +11,17 @@
 
 @implementation NSString (Method)
 
+- (NSMutableAttributedString *)getAttributedStringWithSubString:(NSString *)subString range:(NSRange)range fontSize:(CGFloat)size {
+    NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@",self,subString]];
+    
+//    //设置行间距
+//    NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
+//    [paragraphStyle1 setLineSpacing:space];
+//    [attributedString1 addAttribute:NSParagraphStyleAttributeName value:paragraphStyle1 range:NSMakeRange(0, [string length])];
+    
+     [attributedString1 addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Arial" size:size] range:range];
+    return attributedString1;
+}
 //md5 encode
 -(NSString *) md5:(NSString *)str
 {

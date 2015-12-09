@@ -1,40 +1,23 @@
 //
-//  BasicViewController.m
-//  ChildFine
+//  MeViewController.m
+//  Friends PH
 //
-//  Created by xian on 15/11/2.
+//  Created by xian on 15/12/9.
 //  Copyright © 2015年 xian. All rights reserved.
 //
 
-#import "BasicViewController.h"
-#import "CommonMacros.h"
-@interface BasicViewController ()
+#import "MeViewController.h"
+
+@interface MeViewController ()
 
 @end
 
-@implementation BasicViewController
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    if(self = [super initWithCoder:aDecoder]){
-    
-    }
-    return self;
-}
-
-- (instancetype)init {
-    if(self = [super init]){
-      
-    }
-    return self;
-}
-
+@implementation MeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = RGBA(235, 235, 235, 1);
     // Do any additional setup after loading the view.
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

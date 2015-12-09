@@ -36,6 +36,6 @@
 @end
 
 @interface  TabbarViewItem: UIView
-
+@property(nonatomic,copy) NSString *itemTitle;
 
 @end

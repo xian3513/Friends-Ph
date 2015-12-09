@@ -9,7 +9,8 @@
 #import "TabbarView.h"
 #import "CommonMacros.h"
 #import "UIView+Frame.h"
-
+#import "Masonry.h"
+#import "NSString+Method.h"
 @interface ButtonImageView :UIImageView
 @property(nonatomic,assign) BOOL isSelected;
 @property(nonatomic,assign) BOOL haveRedIcon;
@@ -77,41 +78,6 @@
 //}
 
 - (void)showInView:(UIView *)view {
-    
-    
-//    if(self.imageArray.count == self.selectedImageArray.count){
-//        
-//        NSInteger count = self.imageArray.count;
-//        CGFloat width = SCREEN_WIDTH/count;
-//        
-//        for(int i=0;i<count;i++){
-//            ButtonImageView *imageView = [[ButtonImageView alloc]initWithFrame:CGRectMake(width*i, 0, width, self.height)];
-//            
-//            imageView.tag          = i;
-//            imageView.isSelected = NO;
-//            imageView.userInteractionEnabled = YES;
-//            imageView.image        = [self.imageArray objectAtIndex:i];
-//            [self addSubview:imageView];
-//            
-//            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageViewPress:)];
-//            [imageView addGestureRecognizer:tap];
-//            
-//            if(i == count/2){
-//                addBtnImageView = [[ButtonImageView alloc]initWithImage:[UIImage imageNamed:@"btnAdd1"]];
-//                addBtnImageView.frame = CGRectMake(0, 0, imageView.width, imageView.height);
-//                addBtnImageView.center = CGPointMake(imageView.width/2, imageView.height/2);
-//                [imageView addSubview:addBtnImageView];
-//            } else if (i == 0){
-//                currentBtnImv = imageView;
-//               
-//                currentBtnImv.image = [self.selectedImageArray objectAtIndex:i];
-//            }else if(i == 4){
-//                imageView.haveRedIcon = YES;
-//            }
-//            [btnImageArray addObject:imageView];
-//        }
-//    }
-//
    
     if([self.delegate respondsToSelector:@selector(tabbar:cellForRowAtIndex:)]){
             
@@ -133,7 +99,6 @@
 }
 
 - (void)itemPress:(UITapGestureRecognizer *)tap {
-    NSLog(@"%@",NSStringFromSelector(_cmd));
     TabbarViewItem *item = (TabbarViewItem *)tap.view;
     
     if([self.delegate respondsToSelector:@selector(tabbar:didSeletedRowAtIndex:)]){
@@ -189,21 +154,28 @@
 @end
 
 @implementation TabbarViewItem {
-    id _target;
-    SEL _action;
+    UILabel *_titleLab;
 }
 
-- (void)addTarget:(id)target action:(SEL)action{
-    _target = target;
-    _action = action;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(itemTap:)];
-    [self addGestureRecognizer:tap];
-}
-
-- (void)itemTap:(UITapGestureRecognizer *)tap {
-    if(_target && _action) {
-        [_target performSelector:_action withObject:self];
+- (instancetype)init {
+    if(self = [super init]) {
+        _titleLab = [[UILabel alloc]init];
+        _titleLab.numberOfLines = 2;
+        _titleLab.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:_titleLab];
+        
+        UIEdgeInsets edge = UIEdgeInsetsMake(0, 0, 0, 0);
+        [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(_titleLab.superview).insets(edge);
+        }];
     }
-    
+    return self;
 }
+
+- (void)setItemTitle:(NSString *)itemTitle {
+    
+    _titleLab.font = [UIFont systemFontOfSize:13];
+    _titleLab.attributedText = [itemTitle getAttributedStringWithSubString:@"cos" range:NSMakeRange(0, itemTitle.length) fontSize:17];
+}
+
 @end

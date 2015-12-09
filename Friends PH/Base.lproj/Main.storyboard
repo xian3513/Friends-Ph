@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QUS-KY-LkB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QUS-KY-LkB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--实景-->
@@ -27,7 +28,7 @@
         <!--我-->
         <scene sceneID="Per-EM-xlM">
             <objects>
-                <viewController id="sq7-Pf-eC9" sceneMemberID="viewController">
+                <viewController id="sq7-Pf-eC9" customClass="MeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IAl-Yh-SnP"/>
                         <viewControllerLayoutGuide type="bottom" id="tdl-3V-rQV"/>
@@ -47,7 +48,7 @@
         <!--圈子-->
         <scene sceneID="gXG-xC-WFZ">
             <objects>
-                <viewController id="HpZ-xO-BHt" sceneMemberID="viewController">
+                <viewController id="HpZ-xO-BHt" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JIU-uD-xdA"/>
                         <viewControllerLayoutGuide type="bottom" id="Ji6-Ut-LRk"/>
@@ -55,14 +56,67 @@
                     <view key="view" contentMode="scaleToFill" id="qvi-07-gmW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WKD-rk-ep0">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Zbw-WQ-6Wh">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zbw-WQ-6Wh" id="dea-3M-hgK">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HpZ-xO-BHt" id="zHF-pL-qso"/>
+                                    <outlet property="delegate" destination="HpZ-xO-BHt" id="vzm-aD-mIs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WKD-rk-ep0" firstAttribute="leading" secondItem="qvi-07-gmW" secondAttribute="leadingMargin" constant="-20" id="B5a-OX-c92"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WKD-rk-ep0" secondAttribute="trailing" constant="-20" id="P3I-Nq-voP"/>
+                            <constraint firstItem="Ji6-Ut-LRk" firstAttribute="top" secondItem="WKD-rk-ep0" secondAttribute="bottom" id="Phv-ae-gKA"/>
+                            <constraint firstItem="WKD-rk-ep0" firstAttribute="top" secondItem="JIU-uD-xdA" secondAttribute="bottom" id="qsB-CS-zRO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="WKD-rk-ep0"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="B5a-OX-c92"/>
+                                <exclude reference="P3I-Nq-voP"/>
+                                <exclude reference="qsB-CS-zRO"/>
+                                <exclude reference="Phv-ae-gKA"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="WKD-rk-ep0"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="B5a-OX-c92"/>
+                                <include reference="P3I-Nq-voP"/>
+                                <include reference="qsB-CS-zRO"/>
+                                <include reference="Phv-ae-gKA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="圈子" id="T9e-pL-0Gx" userLabel="圈子"/>
+                    <connections>
+                        <outlet property="tabView" destination="WKD-rk-ep0" id="qjU-jR-NJQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7B-jk-sMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="88"/>
+            <point key="canvasLocation" x="1143" y="90"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="r4o-bj-vQz">
@@ -88,7 +142,6 @@
         <!--Navigation Controller-->
         <scene sceneID="9PI-7u-MMr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P5J-yn-e3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="QUS-KY-LkB" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LVz-sM-K4r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -99,6 +152,7 @@
                         <segue destination="ld6-lL-Q8w" kind="relationship" relationship="rootViewController" id="bsA-k2-tZ6"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P5J-yn-e3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-516" y="659"/>
         </scene>
