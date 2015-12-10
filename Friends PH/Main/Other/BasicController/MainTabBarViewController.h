@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TabbarView.h"
 
 @interface MainTabBarViewController : UITabBarController
+
+@property(nonatomic,strong) TabbarView *tabbarView;
+
+- (void)showAnimation;
+- (void)hideAnimation;
+@end
+
+@interface UIViewController (MyTabBarController)
+
+@property (readonly,nonatomic)MainTabBarViewController *myTabBarController;
 
 @end

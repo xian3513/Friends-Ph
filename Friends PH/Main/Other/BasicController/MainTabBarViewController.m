@@ -7,13 +7,16 @@
 //
 
 #import "MainTabBarViewController.h"
-#import "TabbarView.h"
+#import "UIView+Frame.h"
 @interface MainTabBarViewController ()<TabbarViewDelegate>
 
 @end
 
 @implementation MainTabBarViewController {
     NSArray *_itemTitleArr;
+    
+    BOOL _tabbarDown;
+    CGFloat _tabbarAnimationInterval;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -29,19 +32,42 @@
     return self;
 }
 
+- (void)hideAnimation {
+    if(!_tabbarDown) {
+        NSLog(@"%@",NSStringFromSelector(_cmd));
+        [UIView animateWithDuration:_tabbarAnimationInterval animations:^(){
+            CGRect rect = CGRectMake(self.tabbarView.left, self.view.height, self.tabbarView.width, self.tabbarView.height);
+            self.tabbarView.frame = rect;
+        } completion:^(BOOL finish){
+            _tabbarDown = YES;
+        }];
+    }
+  
+}
+
+- (void)showAnimation {
+    if(_tabbarDown){
+         NSLog(@"%@",NSStringFromSelector(_cmd));
+        [UIView animateWithDuration:_tabbarAnimationInterval animations:^(){
+            CGRect rect = CGRectMake(self.tabbarView.left, self.view.height-49, self.tabbarView.width, self.tabbarView.height);
+            self.tabbarView.frame = rect;
+        } completion:^(BOOL finish){
+            _tabbarDown = NO;
+        }];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // self.tabBar.selectedImageTintColor = [UIColor orangeColor];
     _itemTitleArr = @[@"天气",@"实景",@"我"];
-    
+    _tabbarAnimationInterval = 0.2;
     self.tabBar.hidden = YES;
-    TabbarView *tabbar = [[TabbarView alloc]init];
-    tabbar.delegate = self;
-    tabbar.itemCount = 3;
-
-    [tabbar showInView:self.view];
+    self.tabbarView = [[TabbarView alloc]init];
+    self.tabbarView.delegate = self;
+    self.tabbarView.itemCount = 3;
+    [self.tabbarView showInView:self.view];
 }
 
 - (TabbarViewItem *)tabbar:(TabbarView *)tabbarView cellForRowAtIndex:(NSInteger)index {
@@ -59,4 +85,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+@end
+
+@implementation UIViewController (MyTabBarController)
+
+-(MainTabBarViewController *)myTabBarController
+{
+    if ([self.tabBarController isMemberOfClass:[MainTabBarViewController class]]) {
+        return (MainTabBarViewController*)self.tabBarController;
+    }
+    return nil;
+}
 @end
