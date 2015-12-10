@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QUS-KY-LkB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -66,6 +67,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zbw-WQ-6Wh" id="dea-3M-hgK">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -91,10 +93,10 @@
                                 <exclude reference="WKD-rk-ep0"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Phv-ae-gKA"/>
                                 <exclude reference="B5a-OX-c92"/>
                                 <exclude reference="P3I-Nq-voP"/>
                                 <exclude reference="qsB-CS-zRO"/>
-                                <exclude reference="Phv-ae-gKA"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -102,10 +104,10 @@
                                 <include reference="WKD-rk-ep0"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Phv-ae-gKA"/>
                                 <include reference="B5a-OX-c92"/>
                                 <include reference="P3I-Nq-voP"/>
                                 <include reference="qsB-CS-zRO"/>
-                                <include reference="Phv-ae-gKA"/>
                             </mask>
                         </variation>
                     </view>
