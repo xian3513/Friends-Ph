@@ -9,6 +9,11 @@
 #import "HomeViewController.h"
 #import "HomeHeaderView.h"
 #import "MainTabBarViewController.h"
+
+#import "HttpTool.h"
+#import "NSObject+Method.h"
+#import "BasicModel.h"
+#import "ForecastModel.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tabView;
 
@@ -22,47 +27,42 @@
     [super viewDidLoad];
     _tabView.tableHeaderView = [[HomeHeaderView alloc]init];
 
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_night_snow.jpg"]];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_yellow@2x"]];
     self.tabView.backgroundView = imageView;
-    // Do any additional setup after loading the view.
-//    UIPanGestureRecognizer *panGesture = [[]];
     
-    
-
-    
-    NSString *str =@"@@Vn@ak°a±@¥@UUI@aUmlwUUxb@¥XU@mmI@a@Kn@@_W@@WI@mUVVXUl@XaV@K@I@aLX@aVI°K@KVLUUwyXkK@kKÆbXnlK@k@aJlU@w@U@»@aXKWn_JXkVKn@°LlKXW@¯U@aUK@kmJUwVIUJkmLK@kka@wUVm@@am@UkUbkK@nmVÒ¯VUWVVmIULk@ma@kkK@nUbUamU`UUVUkKVkkW@@bkmnmUXVKXVL@VbUmbVXJ@nmKÅI@KWKUXVJUL@VUKUX@KUKWL@LUJmaXXm@kVVV@L@VUL@VlK@L@V@LUK@VUb@UUU@°@nVxU`Lkn@`@XVJ@XVmk@UKmV¯LVVn±Wm@Ub@JlLUl@VLk@lmVVn@bnV@V°IVaVJXI°K°V@XXVlVVUnKVlUbWXnV@bV`U@@m@@@nxmn@bXVlL@¤nbUl¦VVUnJVUVl@@bÞL";
-    
-  //  "encodeOffsets": [[118418, 34392]]
-    //decodePolygon(str,118418,34392);
-    NSLog(@"decode:%@",decodePolygon(str,118418,34392));
-}
-
-NSArray* decodePolygon(NSString *coordinate,int xx,int yy) {
-    NSMutableArray *marr = [[NSMutableArray alloc] initWithCapacity:0];
-    
-
-    long int prevX = xx;
-    long int prevY = yy;
-    for (int i = 0; i < coordinate.length; i += 2) {
+    ForecastModel *model = [[ForecastModel alloc]init];
+    [HttpTool getWeatherSuccess:^(id responseObject) {
        
-        int x = [coordinate characterAtIndex:i] - 64;
-        int y = [coordinate characterAtIndex:i+1] - 64;
-       
-        x = x>>1^-(x & 1);
-        y = y>>1^-(y & 1);
-        x += prevX;
-        y += prevY;
-        prevX = x;
-        prevY = y;
-      //  NSLog(@"x = %d  y = %d",x,y);
-        [marr addObject:@[[NSString stringWithFormat:@"x= %f",x/1024.0],[NSString stringWithFormat:@"y = %f",y/1024.0]]];
-        //result.push([x / 1024, y / 1024])
-    }
+        NSError *error;
+        id resObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
+        // NSLog(@"responseObject:%@",resObject);
     
-    
-    return marr;
+        ForecastModel *model1 = [[ForecastModel alloc]init];
+        NSArray *arr = [resObject objectForKey:@"HeWeather data service 3.0"];
+        // NSLog(@"weather:%@",[arr objectAtIndex:0]);
+        model1 = [model1 modelTransferWithData:[arr objectAtIndex:0]];
+        model1.basicModel = [model1.basicModel modelTransferWithData:model1.basic];
+        
+        NSLog(@"arr:%@, dict:%@ status:%@",model1.daily_forecast,model1.basicModel,model1.status);
+        
+    } failure:^(NSError *error) {
+        
+    }];
+//        NSDictionary *dict = @{
+//                               @"name" : @"Jack",
+//                               @"icon" : @"lufy.png",
+//                               @"age" : @20,
+//                               @"height" : @"1.55",
+//                               @"money" : @100.9,
+//                               @"gay" : @"true",
+//                               @"daily_forecast":@{@"t":@{@"o":@"oooo"}},
+//                               @"basic":@[@"1234"]
+//                               //   @"gay" : @"1"
+//                               //   @"gay" : @"NO"
+//                               };
+//  model =  [self modelTransferWithData:dict modelClass:[ForecastModel class]];
+//    NSLog(@"dict:%@, arr:%@",model.daily_forecast,model.basic);
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -71,33 +71,29 @@ NSArray* decodePolygon(NSString *coordinate,int xx,int yy) {
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
    
     CGFloat delta = scrollView.contentOffset.y;
+   // NSLog(@"lastpace:%f  delta:%f  = %f",lastpace,delta,lastpace-delta);
+    if(delta <= 0){
+        return;
+    }
     if((lastpace - delta) > 0){
          [self.myTabBarController showAnimation];
       
     } else {
          [self.myTabBarController hideAnimation];
     }
-    
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+    lastpace = delta;
 }
+
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+//{
+//    return YES;
+//}
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if(decelerate){
-        NSLog(@"%@ YES",NSStringFromSelector(_cmd));
-    }else {
-        NSLog(@"%@ NO",NSStringFromSelector(_cmd));
+    if(!decelerate) {
+        [self.myTabBarController showAnimation];
     }
 }
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    NSLog(@"%@",NSStringFromSelector(_cmd));
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
- NSLog(@"%@",NSStringFromSelector(_cmd));
-    [self.myTabBarController hideAnimation];
-   
-}
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self.myTabBarController showAnimation];
     NSLog(@"%@",NSStringFromSelector(_cmd));

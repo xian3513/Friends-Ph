@@ -62,7 +62,7 @@
     // Do any additional setup after loading the view.
     // self.tabBar.selectedImageTintColor = [UIColor orangeColor];
     _itemTitleArr = @[@"天气",@"实景",@"我"];
-    _tabbarAnimationInterval = 0.2;
+    _tabbarAnimationInterval = 0.15;
     self.tabBar.hidden = YES;
     self.tabbarView = [[TabbarView alloc]init];
     self.tabbarView.delegate = self;
