@@ -7,8 +7,7 @@
 //
 
 #import "BasicModel.h"
-
+#import "MJExtension.h"
 @implementation BasicModel
-
 
 @end

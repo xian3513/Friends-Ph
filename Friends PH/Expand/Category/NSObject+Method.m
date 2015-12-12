@@ -7,29 +7,34 @@
 //
 
 #import "NSObject+Method.h"
-#import "MJExtension.h"
+
 
 @implementation NSObject (Method)
 
+#pragma -mark outside method
 - (NSArray *)arrayTransferWithData:(id)data model:(NSObject *)model{
     NSMutableArray *arr = [[NSMutableArray alloc]initWithCapacity:0];
     
     return arr;
 }
 
-- (id)modelTransferWithData:(id)data {
+- (id)modelTransferWithData:(id)data model:(NSObject *)model{
     
-    return [self modelConfirmDataType:data];
+    return [self modelConfirmDataType:data model:model mapTpye:nil];
 }
 
-- (id)modelConfirmDataType:(id)data {
+- (id)modelTransferWithData:(id)data model:(NSObject *)model mapTpye:(NSDictionary *)map {
+    return [self modelConfirmDataType:data model:model mapTpye:map];
+}
+#pragma -mark inside method
+- (id)modelConfirmDataType:(id)data model:(NSObject *)model mapTpye:(NSDictionary *)map{
     
     id tmp = nil;
     if([data isKindOfClass:[NSString class]]) {//如果数据是 nsstring类型
         NSString *str = (NSString *)data;
-       tmp = [self modelWithStringData:str];
+       tmp = [self modelWithStringData:str model:model mapTpye:map];
     } else if ([data isKindOfClass:[NSDictionary class]]){
-        tmp = [self modelWithStringData:data];
+        tmp = [self modelWithStringData:data model:model mapTpye:map];
     }
     
     return tmp;
@@ -37,9 +42,21 @@
 
 
 
-- (id)modelWithStringData:(NSString *)data {
-    //[self initModel:[[self class] mj_objectWithKeyValues:data]];
-    return [[self class] mj_objectWithKeyValues:data];
+- (id)modelWithStringData:(NSString *)data model:(NSObject *)model mapTpye:(NSDictionary *)map{
+    [[model class] mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"daily_forecast" : @"Daily_forecast",
+                 // @"statuses" : [Status class],
+                 //  @"ads" : @"Ad"
+                 // @"ads" : [Ad class]
+                 };
+    }];
+    if(map){
+        [[model class] mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return map;
+        }];
+    }
+    return [[model class] mj_objectWithKeyValues:data];
 }
 
 @end

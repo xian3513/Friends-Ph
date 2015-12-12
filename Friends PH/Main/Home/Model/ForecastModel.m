@@ -14,12 +14,16 @@
 {
     self = [super init];
     if (self) {
-        self.basicModel = [[Basic alloc]init];
+        self.basic = [[Basic alloc]init];
+        //self.daily_forecast = [[Daily_forecast alloc]init];
     }
     return self;
 }
 @end
 
 @implementation Basic
+
+@end
+@implementation Daily_forecast
 
 @end

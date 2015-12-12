@@ -18,11 +18,14 @@
 @property(nonatomic,copy) NSDictionary *update;
 @end
 
+@interface Daily_forecast : NSObject
+@property(nonatomic,copy) NSString *date;
+@end
 
 @interface ForecastModel : NSObject
 
 @property(nonatomic,strong) NSArray *daily_forecast;
-@property(nonatomic,strong) Basic *basicModel;
-@property(nonatomic,strong) NSDictionary *basic;
+@property(nonatomic,strong) Basic *basic;
+@property(nonatomic,copy) NSString *testDate;
 @property(nonatomic,copy) NSString *status;
 @end

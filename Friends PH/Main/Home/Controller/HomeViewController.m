@@ -21,6 +21,7 @@
 
 @implementation HomeViewController {
     CGFloat lastpace;
+    ForecastModel *_model;
 }
 
 - (void)viewDidLoad {
@@ -30,20 +31,20 @@
     UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_yellow@2x"]];
     self.tabView.backgroundView = imageView;
     
-    ForecastModel *model = [[ForecastModel alloc]init];
+    _model = [[ForecastModel alloc]init];
     [HttpTool getWeatherSuccess:^(id responseObject) {
        
         NSError *error;
         id resObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
-        // NSLog(@"responseObject:%@",resObject);
+      //  NSLog(@"responseObject:%@",resObject);
     
-        ForecastModel *model1 = [[ForecastModel alloc]init];
+        
         NSArray *arr = [resObject objectForKey:@"HeWeather data service 3.0"];
         // NSLog(@"weather:%@",[arr objectAtIndex:0]);
-        model1 = [model1 modelTransferWithData:[arr objectAtIndex:0]];
-        model1.basicModel = [model1.basicModel modelTransferWithData:model1.basic];
+      
+        _model = [self modelTransferWithData:[arr objectAtIndex:0] model:_model mapTpye:nil];
         
-        NSLog(@"arr:%@, dict:%@ status:%@",model1.daily_forecast,model1.basicModel,model1.status);
+        NSLog(@"daily_forecast:%@, basic:%@ status:%@",_model.daily_forecast,_model.basic.update,_model.status);
         
     } failure:^(NSError *error) {
         
