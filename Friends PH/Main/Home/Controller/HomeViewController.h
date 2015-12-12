@@ -6,8 +6,8 @@
 //  Copyright © 2015年 xian. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BasicViewController.h"
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController :BasicViewController
 
 @end

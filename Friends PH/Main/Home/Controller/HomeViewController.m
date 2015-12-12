@@ -8,11 +8,10 @@
 
 #import "HomeViewController.h"
 #import "HomeHeaderView.h"
-#import "MainTabBarViewController.h"
-
+#import "BasicTabBarViewController.h"
+#import "BasicNavigationController.h"
 #import "HttpTool.h"
 #import "NSObject+Method.h"
-#import "BasicModel.h"
 #import "ForecastModel.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tabView;
@@ -20,84 +19,47 @@
 @end
 
 @implementation HomeViewController {
-    CGFloat lastpace;
+  
     ForecastModel *_model;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+   // self.MyNavigationController.navigationBar.barTintColor = [UIColor clearColor];
+   // self.gradientOffset = 300;
+    [self followScrollView:_tabView];
     _tabView.tableHeaderView = [[HomeHeaderView alloc]init];
 
     UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_yellow@2x"]];
     self.tabView.backgroundView = imageView;
     
     _model = [[ForecastModel alloc]init];
+    
+    
     [HttpTool getWeatherSuccess:^(id responseObject) {
        
         NSError *error;
         id resObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
       //  NSLog(@"responseObject:%@",resObject);
     
-        
         NSArray *arr = [resObject objectForKey:@"HeWeather data service 3.0"];
-        // NSLog(@"weather:%@",[arr objectAtIndex:0]);
-      
-        _model = [self modelTransferWithData:[arr objectAtIndex:0] model:_model mapTpye:nil];
+         //NSLog(@"weather:%@",[arr objectAtIndex:0]);
+          NSDictionary *object = @{
+               @"daily_forecast" : @"Daily_forecast",//  @“arrayName”：@“className”  如  @"ads" : [Ad class]
+              };
+        _model = [self modelTransferWithData:[arr objectAtIndex:0] model:_model objectInArray:object];
         
         NSLog(@"daily_forecast:%@, basic:%@ status:%@",_model.daily_forecast,_model.basic.update,_model.status);
         
     } failure:^(NSError *error) {
         
     }];
-//        NSDictionary *dict = @{
-//                               @"name" : @"Jack",
-//                               @"icon" : @"lufy.png",
-//                               @"age" : @20,
-//                               @"height" : @"1.55",
-//                               @"money" : @100.9,
-//                               @"gay" : @"true",
-//                               @"daily_forecast":@{@"t":@{@"o":@"oooo"}},
-//                               @"basic":@[@"1234"]
-//                               //   @"gay" : @"1"
-//                               //   @"gay" : @"NO"
-//                               };
-//  model =  [self modelTransferWithData:dict modelClass:[ForecastModel class]];
-//    NSLog(@"dict:%@, arr:%@",model.daily_forecast,model.basic);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-   
-    CGFloat delta = scrollView.contentOffset.y;
-   // NSLog(@"lastpace:%f  delta:%f  = %f",lastpace,delta,lastpace-delta);
-    if(delta <= 0){
-        return;
-    }
-    if((lastpace - delta) > 0){
-         [self.myTabBarController showAnimation];
-      
-    } else {
-         [self.myTabBarController hideAnimation];
-    }
-    lastpace = delta;
-}
-
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-//{
-//    return YES;
-//}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if(!decelerate) {
-        [self.myTabBarController showAnimation];
-    }
-}
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self.myTabBarController showAnimation];
-    NSLog(@"%@",NSStringFromSelector(_cmd));
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

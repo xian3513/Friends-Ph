@@ -10,4 +10,7 @@
 
 @interface HomeHeaderView : UIView
 
+@property(nonatomic,copy) NSString *updateTime;
+@property(nonatomic,copy) NSString *cond;
+@property(nonatomic,copy) NSString *temperature;
 @end

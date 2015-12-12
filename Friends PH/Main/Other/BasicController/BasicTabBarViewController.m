@@ -6,13 +6,13 @@
 //  Copyright © 2015年 xian. All rights reserved.
 //
 
-#import "MainTabBarViewController.h"
+#import "BasicTabBarViewController.h"
 #import "UIView+Frame.h"
-@interface MainTabBarViewController ()<TabbarViewDelegate>
+@interface BasicTabBarViewController ()<TabbarViewDelegate>
 
 @end
 
-@implementation MainTabBarViewController {
+@implementation BasicTabBarViewController {
     NSArray *_itemTitleArr;
     
     BOOL _tabbarDown;
@@ -89,10 +89,10 @@
 
 @implementation UIViewController (MyTabBarController)
 
--(MainTabBarViewController *)myTabBarController
+-(BasicTabBarViewController *)myTabBarController
 {
-    if ([self.tabBarController isMemberOfClass:[MainTabBarViewController class]]) {
-        return (MainTabBarViewController*)self.tabBarController;
+    if ([self.tabBarController isMemberOfClass:[BasicTabBarViewController class]]) {
+        return (BasicTabBarViewController*)self.tabBarController;
     }
     return nil;
 }

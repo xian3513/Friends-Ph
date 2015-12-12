@@ -20,40 +20,48 @@
 
 - (id)modelTransferWithData:(id)data model:(NSObject *)model{
     
-    return [self modelConfirmDataType:data model:model mapTpye:nil];
+    return [self modelConfirmDataType:data model:model replacedKeyName:nil objectInArray:nil];
 }
 
-- (id)modelTransferWithData:(id)data model:(NSObject *)model mapTpye:(NSDictionary *)map {
-    return [self modelConfirmDataType:data model:model mapTpye:map];
+- (id)modelTransferWithData:(id)data model:(NSObject *)model objectInArray:(NSDictionary *)object {
+    return [self modelTransferWithData:data model:model replacedKeyName:nil objectInArray:object];
+}
+- (id)modelTransferWithData:(id)data model:(NSObject *)model replacedKeyName:(NSDictionary *)name{
+    return [self modelConfirmDataType:data model:model replacedKeyName:name objectInArray:nil];
+}
+
+- (id)modelTransferWithData:(id)data model:(NSObject *)model replacedKeyName:(NSDictionary *)name objectInArray:(NSDictionary *)object {
+    
+    return [self modelWithStringData:data model:model replacedKeyName:name objectInArray:object];
 }
 #pragma -mark inside method
-- (id)modelConfirmDataType:(id)data model:(NSObject *)model mapTpye:(NSDictionary *)map{
+- (id)modelConfirmDataType:(id)data model:(NSObject *)model replacedKeyName:(NSDictionary *)name objectInArray:(NSDictionary *)object {
     
     id tmp = nil;
     if([data isKindOfClass:[NSString class]]) {//如果数据是 nsstring类型
+        
         NSString *str = (NSString *)data;
-       tmp = [self modelWithStringData:str model:model mapTpye:map];
+       tmp = [self modelWithStringData:str model:model replacedKeyName:name objectInArray:object];
+        
     } else if ([data isKindOfClass:[NSDictionary class]]){
-        tmp = [self modelWithStringData:data model:model mapTpye:map];
+        
+        tmp = [self modelWithStringData:data model:model replacedKeyName:name objectInArray:object];
     }
     
     return tmp;
 }
 
-
-
-- (id)modelWithStringData:(NSString *)data model:(NSObject *)model mapTpye:(NSDictionary *)map{
-    [[model class] mj_setupObjectClassInArray:^NSDictionary *{
-        return @{
-                 @"daily_forecast" : @"Daily_forecast",
-                 // @"statuses" : [Status class],
-                 //  @"ads" : @"Ad"
-                 // @"ads" : [Ad class]
-                 };
-    }];
-    if(map){
+- (id)modelWithStringData:(NSString *)data model:(NSObject *)model replacedKeyName:(NSDictionary *)name objectInArray:(NSDictionary *)object {
+   
+    if(object) {
+        [[model class] mj_setupObjectClassInArray:^NSDictionary *{
+            return object;
+        }];
+    }
+   
+    if(name){
         [[model class] mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return map;
+            return name;
         }];
     }
     return [[model class] mj_objectWithKeyValues:data];

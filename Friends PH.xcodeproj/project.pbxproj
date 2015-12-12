@@ -21,7 +21,6 @@
 		90AFB3F91C1A77F200B70395 /* bg_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AFB3F81C1A77F200B70395 /* bg_yellow@2x.png */; };
 		90AFB3FC1C1A83D000B70395 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB3FB1C1A83D000B70395 /* HttpTool.m */; };
 		90AFB4031C1AAB4B00B70395 /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4021C1AAB4B00B70395 /* BasicModel.m */; };
-		90AFB40C1C1AAD4F00B70395 /* NSArray+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB40B1C1AAD4F00B70395 /* NSArray+Method.m */; };
 		90AFB4251C1AC4B100B70395 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB40F1C1AC4B100B70395 /* MJDictionaryCache.m */; };
 		90AFB4261C1AC4B100B70395 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4121C1AC4B100B70395 /* MJExtensionConst.m */; };
 		90AFB4271C1AC4B100B70395 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4141C1AC4B100B70395 /* MJFoundation.m */; };
@@ -48,7 +47,7 @@
 		90E0C7401C16D2EF003B41A2 /* Friends_PHUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C73F1C16D2EF003B41A2 /* Friends_PHUITests.m */; };
 		90E0C75F1C16D87C003B41A2 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C75A1C16D87C003B41A2 /* BasicViewController.m */; };
 		90E0C7601C16D87C003B41A2 /* BasicNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C75C1C16D87C003B41A2 /* BasicNavigationController.m */; };
-		90E0C7611C16D87C003B41A2 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C75E1C16D87C003B41A2 /* MainTabBarViewController.m */; };
+		90E0C7611C16D87C003B41A2 /* BasicTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C75E1C16D87C003B41A2 /* BasicTabBarViewController.m */; };
 		90E0C7661C16D88B003B41A2 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C7631C16D88B003B41A2 /* UIView+Frame.m */; };
 		90E0C7671C16D88B003B41A2 /* NSString+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C7651C16D88B003B41A2 /* NSString+Method.m */; };
 		90E0C76B1C16D8A1003B41A2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C76A1C16D8A1003B41A2 /* Reachability.m */; };
@@ -114,8 +113,6 @@
 		90AFB3FB1C1A83D000B70395 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		90AFB4011C1AAB4B00B70395 /* BasicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicModel.h; sourceTree = "<group>"; };
 		90AFB4021C1AAB4B00B70395 /* BasicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicModel.m; sourceTree = "<group>"; };
-		90AFB40A1C1AAD4F00B70395 /* NSArray+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Method.h"; sourceTree = "<group>"; };
-		90AFB40B1C1AAD4F00B70395 /* NSArray+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Method.m"; sourceTree = "<group>"; };
 		90AFB40E1C1AC4B100B70395 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
 		90AFB40F1C1AC4B100B70395 /* MJDictionaryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDictionaryCache.m; sourceTree = "<group>"; };
 		90AFB4101C1AC4B100B70395 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -168,8 +165,8 @@
 		90E0C75A1C16D87C003B41A2 /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
 		90E0C75B1C16D87C003B41A2 /* BasicNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicNavigationController.h; sourceTree = "<group>"; };
 		90E0C75C1C16D87C003B41A2 /* BasicNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicNavigationController.m; sourceTree = "<group>"; };
-		90E0C75D1C16D87C003B41A2 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
-		90E0C75E1C16D87C003B41A2 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
+		90E0C75D1C16D87C003B41A2 /* BasicTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTabBarViewController.h; sourceTree = "<group>"; };
+		90E0C75E1C16D87C003B41A2 /* BasicTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTabBarViewController.m; sourceTree = "<group>"; };
 		90E0C7621C16D88B003B41A2 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		90E0C7631C16D88B003B41A2 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		90E0C7641C16D88B003B41A2 /* NSString+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Method.h"; sourceTree = "<group>"; };
@@ -491,8 +488,6 @@
 				90E0C7631C16D88B003B41A2 /* UIView+Frame.m */,
 				90E0C7641C16D88B003B41A2 /* NSString+Method.h */,
 				90E0C7651C16D88B003B41A2 /* NSString+Method.m */,
-				90AFB40A1C1AAD4F00B70395 /* NSArray+Method.h */,
-				90AFB40B1C1AAD4F00B70395 /* NSArray+Method.m */,
 				9025BCF11C1AF3DE002CE5D5 /* NSObject+Method.h */,
 				9025BCF21C1AF3DE002CE5D5 /* NSObject+Method.m */,
 			);
@@ -541,8 +536,8 @@
 				90E0C75A1C16D87C003B41A2 /* BasicViewController.m */,
 				90E0C75B1C16D87C003B41A2 /* BasicNavigationController.h */,
 				90E0C75C1C16D87C003B41A2 /* BasicNavigationController.m */,
-				90E0C75D1C16D87C003B41A2 /* MainTabBarViewController.h */,
-				90E0C75E1C16D87C003B41A2 /* MainTabBarViewController.m */,
+				90E0C75D1C16D87C003B41A2 /* BasicTabBarViewController.h */,
+				90E0C75E1C16D87C003B41A2 /* BasicTabBarViewController.m */,
 			);
 			path = BasicController;
 			sourceTree = "<group>";
@@ -713,9 +708,8 @@
 				90B379021C192C1300305870 /* HomeHeaderView.m in Sources */,
 				90AFB42A1C1AC4B100B70395 /* MJPropertyType.m in Sources */,
 				90AFB42C1C1AC4B100B70395 /* NSObject+MJCoding.m in Sources */,
-				90AFB40C1C1AAD4F00B70395 /* NSArray+Method.m in Sources */,
 				90E0C7861C16D8AC003B41A2 /* AFURLResponseSerialization.m in Sources */,
-				90E0C7611C16D87C003B41A2 /* MainTabBarViewController.m in Sources */,
+				90E0C7611C16D87C003B41A2 /* BasicTabBarViewController.m in Sources */,
 				90AFB42B1C1AC4B100B70395 /* NSObject+MJClass.m in Sources */,
 				90AFB4031C1AAB4B00B70395 /* BasicModel.m in Sources */,
 				90AFB42E1C1AC4B100B70395 /* NSObject+MJProperty.m in Sources */,

@@ -17,8 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"themeBackground"] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.titleTextAttributes = @{UITextAttributeTextColor: [UIColor whiteColor]};
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
 }
 
 - (void)addPromptAndQRCodeOnRightBarButtonItemWith:(UIViewController *)target action:(SEL)action {
@@ -110,12 +116,6 @@
         }
     }
 }
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-  
-}
-
 
 - (void)addButtonPress:(UIButton *)sender {
     

@@ -11,5 +11,8 @@
 
 @interface BasicViewController : UIViewController
 
-
+#pragma mark - navbarGradientColor
+@property(nonatomic) CGFloat gradientOffset; //defult 0 means unGradient
+#pragma mark - tabbarAnimation method
+- (void)followScrollView:(UIScrollView *)scrollableView;
 @end
