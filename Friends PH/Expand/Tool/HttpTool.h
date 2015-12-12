@@ -12,4 +12,6 @@
 
 + (void)getWithUrl:(NSString *)URLString parameters:(NSDictionary *)parametters;
 + (void)getWeatherSuccess:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure;
+
++ (void)getForeignExchangeSuccess:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure;
 @end

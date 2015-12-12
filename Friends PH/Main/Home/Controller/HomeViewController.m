@@ -26,9 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-   // self.MyNavigationController.navigationBar.barTintColor = [UIColor clearColor];
-   // self.gradientOffset = 300;
+
     [self followScrollView:_tabView];
     _tabView.tableHeaderView = [[HomeHeaderView alloc]init];
 
@@ -37,25 +35,29 @@
     
     _model = [[ForecastModel alloc]init];
     
-    
-    [HttpTool getWeatherSuccess:^(id responseObject) {
-       
-        NSError *error;
-        id resObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
-      //  NSLog(@"responseObject:%@",resObject);
-    
-        NSArray *arr = [resObject objectForKey:@"HeWeather data service 3.0"];
-         //NSLog(@"weather:%@",[arr objectAtIndex:0]);
-          NSDictionary *object = @{
-               @"daily_forecast" : @"Daily_forecast",//  @“arrayName”：@“className”  如  @"ads" : [Ad class]
-              };
-        _model = [self modelTransferWithData:[arr objectAtIndex:0] model:_model objectInArray:object];
-        
-        NSLog(@"daily_forecast:%@, basic:%@ status:%@",_model.daily_forecast,_model.basic.update,_model.status);
-        
+    [HttpTool getForeignExchangeSuccess:^(id responseObject) {
+        NSLog(@"res:%@",responseObject);
     } failure:^(NSError *error) {
         
     }];
+//    [HttpTool getWeatherSuccess:^(id responseObject) {
+//       
+//        NSError *error;
+//        id resObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
+//      //  NSLog(@"responseObject:%@",resObject);
+//    
+//        NSArray *arr = [resObject objectForKey:@"HeWeather data service 3.0"];
+//         //NSLog(@"weather:%@",[arr objectAtIndex:0]);
+//          NSDictionary *object = @{
+//               @"daily_forecast" : @"Daily_forecast",//  @“arrayName”：@“className”  如  @"ads" : [Ad class]
+//              };
+//        _model = [self modelTransferWithData:[arr objectAtIndex:0] model:_model objectInArray:object];
+//        
+//        NSLog(@"daily_forecast:%@, basic:%@ status:%@",_model.daily_forecast,_model.basic.update,_model.status);
+//        
+//    } failure:^(NSError *error) {
+//        
+//    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

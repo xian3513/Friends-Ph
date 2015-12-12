@@ -61,6 +61,7 @@
 		90E0C7861C16D8AC003B41A2 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C77C1C16D8AC003B41A2 /* AFURLResponseSerialization.m */; };
 		90E0C7871C16D8AC003B41A2 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C77E1C16D8AC003B41A2 /* AFURLSessionManager.m */; };
 		90E0C78A1C16DE65003B41A2 /* TabbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C7891C16DE65003B41A2 /* TabbarView.m */; };
+		90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +196,8 @@
 		90E0C77E1C16D8AC003B41A2 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		90E0C7881C16DE65003B41A2 /* TabbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarView.h; sourceTree = "<group>"; };
 		90E0C7891C16DE65003B41A2 /* TabbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarView.m; sourceTree = "<group>"; };
+		90FCA7391C1C2138001751C8 /* FonExchangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FonExchangeModel.h; sourceTree = "<group>"; };
+		90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FonExchangeModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +301,8 @@
 			children = (
 				90AFB4331C1ACC7000B70395 /* ForecastModel.h */,
 				90AFB4341C1ACC7000B70395 /* ForecastModel.m */,
+				90FCA7391C1C2138001751C8 /* FonExchangeModel.h */,
+				90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -694,6 +699,7 @@
 				90AED05E1C17CA8900D10D40 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				90AFB4351C1ACC7000B70395 /* ForecastModel.m in Sources */,
 				90AED0591C17CA8900D10D40 /* MASConstraintMaker.m in Sources */,
+				90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */,
 				90E0C7811C16D8AC003B41A2 /* AFHTTPSessionManager.m in Sources */,
 				90E0C7851C16D8AC003B41A2 /* AFURLRequestSerialization.m in Sources */,
 				90AED05A1C17CA8900D10D40 /* MASLayoutConstraint.m in Sources */,

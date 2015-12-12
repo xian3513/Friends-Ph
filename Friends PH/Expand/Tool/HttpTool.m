@@ -27,6 +27,29 @@
     
 }
 
++ (void)getForeignExchangeSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    
+    NSString *httpUrl = @"http://apis.baidu.com/apistore/currencyservice/currency";
+    NSString *httpArg = @"fromCurrency=CNY&toCurrency=PHP&amount=2";
+  
+        NSString *urlStr = [[NSString alloc]initWithFormat: @"%@?%@", httpUrl, httpArg];
+        NSURL *url = [NSURL URLWithString: urlStr];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
+        [request setHTTPMethod: @"GET"];
+        [request addValue: @"dd842df1563facaa01d26e9eb7139472" forHTTPHeaderField: @"apikey"];
+        [NSURLConnection sendAsynchronousRequest: request
+                                           queue: [NSOperationQueue mainQueue]
+                               completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
+                                   if (error) {
+                                       NSLog(@"Httperror: %@%ld", error.localizedDescription, error.code);
+                                   } else {
+                                       NSInteger responseCode = [(NSHTTPURLResponse *)response statusCode];
+                                       NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                     //  NSLog(@"HttpResponseCode:%ld", responseCode);
+                                       NSLog(@"HttpResponseBody %@",responseString);
+                                   }
+                               }];
+}
 + (void)getWeatherSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure {
     NSString *httpUrl = @"http://apis.baidu.com/heweather/weather/free";
     NSString *httpArg = @"city=beijing";
@@ -46,7 +69,7 @@
                                   // NSInteger responseCode = [(NSHTTPURLResponse *)response statusCode];
                                    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 //                                   NSLog(@"HttpResponseCode:%ld", responseCode);
-                                   NSLog(@"HttpResponseBody %@",responseString);
+                                   //NSLog(@"HttpResponseBody %@",responseString);
                                    success(data);
                                }
                            }];
