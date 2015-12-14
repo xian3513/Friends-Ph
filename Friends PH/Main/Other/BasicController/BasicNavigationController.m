@@ -10,14 +10,52 @@
 #import "CommonMacros.h"
 #import "Masonry.h"
 
-#define nav_title_fontSize 24
+#define navbar_title_fontSize 24
+#define navbar_button_width 44
+#define navbar_button_pace 5
 
 #pragma mark - CostomNavbarView
+@interface CostomNavbarView()
+@property(nonatomic,strong) NSMutableArray *leftArray;
+@property(nonatomic,strong) NSMutableArray *rightArray;
+@end
 @implementation CostomNavbarView {
 
     UILabel *_titleLab;
 }
 
+- (void)addRightButtonTarget:(id)target action:(SEL)action {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+        [self.rightView addSubview:button];
+        
+        UIButton *lastButton = self.rightArray.lastObject;
+        
+        //如果是第一个button 让其跟其superview做 layout
+        if(!lastButton){
+            lastButton = (UIButton *)self.rightView;
+        }
+        
+        [button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.equalTo(button.superview).offset(4);
+            make.trailing.equalTo(lastButton.mas_leading).offset(navbar_button_pace);
+            make.width.mas_equalTo(navbar_button_width);
+        }];
+        
+        
+        [self.rightArray addObject:button];
+        
+        [self.rightView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(navbar_button_width*self.rightArray.count+navbar_button_pace*(self.rightArray.count-1));
+        }];
+}
+
+- (void)addLeftButtonTarget:(id)target action:(SEL)action {
+  
+   
+}
+
+#pragma mark - lift cycle method
 - (instancetype)init
 {
     self = [super init];
@@ -37,9 +75,9 @@
     self.leftView           = [UIView new];
     self.rightView          = [UIView new];
     
-//    self.contentView.backgroundColor = [UIColor yellowColor];
-//    self.leftView.backgroundColor = [UIColor purpleColor];
-//    self.rightView.backgroundColor = [UIColor blueColor];
+    self.contentView.backgroundColor = [UIColor yellowColor];
+    self.leftView.backgroundColor = [UIColor purpleColor];
+    self.rightView.backgroundColor = [UIColor blueColor];
     
     [self addSubview:self.contentView];
     [self addSubview:self.leftView];
@@ -56,20 +94,20 @@
     [self.leftView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView);
         make.leading.bottom.equalTo(self);
-        make.width.mas_equalTo(44);
+        make.width.mas_equalTo(navbar_button_width);
     }];
     
     [self.rightView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.bottom.equalTo(self);
         make.top.equalTo(self.contentView);
-        make.width.mas_equalTo(44);
+        make.width.mas_equalTo(navbar_button_width);
     }];
     
     //contentView
     _titleLab                   = [UILabel new];
     _titleLab.textAlignment     = NSTextAlignmentCenter;
     _titleLab.textColor         = [UIColor whiteColor];
-    _titleLab.font              = [UIFont boldSystemFontOfSize:nav_title_fontSize];
+    _titleLab.font              = [UIFont boldSystemFontOfSize:navbar_title_fontSize];
     [self.contentView addSubview:_titleLab];
     
     [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -77,22 +115,39 @@
     }];
 }
 
+#pragma mark - get / set
 - (void)setTitle:(NSString *)title {
     _titleLab.text = title;
 }
+
+- (NSArray *)leftArray {
+    if(!_leftArray) {
+        _leftArray = [[NSMutableArray alloc]initWithCapacity:0];
+    }
+    return _leftArray;
+}
+
+- (NSArray *)rightArray {
+    if(!_rightArray){
+        _rightArray = [[NSMutableArray alloc]initWithCapacity:0];
+    }
+    return _rightArray;
+}
+
 @end
 
 #pragma mark - BasicNavigationController
 
 @interface BasicNavigationController ()
-
+@property(nonatomic,strong) CostomNavbarView *navbarView;
 @end
 
 @implementation BasicNavigationController
 
+#pragma mark - lift cycle method
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"themeBackground"] forBarMetrics:UIBarMetricsDefault];
    
@@ -103,13 +158,31 @@
      self.navigationBar.titleTextAttributes = @{UITextAttributeTextColor: [UIColor blackColor]};
 }
 
+#pragma mark - customNavbar
 - (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title {
-    CostomNavbarView *navbarView = [[CostomNavbarView alloc]init];
-    [self.view addSubview:navbarView];
-    navbarView.title = title;
+    
+    if(!self.navbarView) {
+        self.navbarView = [[CostomNavbarView alloc]init];
+    }
+
+    [self.view addSubview:self.navbarView];
+    self.navbarView.title = title;
     self.navigationBar.hidden = YES;
-    return navbarView;
+    return self.navbarView;
 }
+
+- (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action {
+    if(target && action) {
+      [self.navbarView addLeftButtonTarget:target action:action];
+    }
+}
+
+- (void)customNavbarAddRightbuttonTarget:(id)target action:(SEL)action {
+    if(target && action) {
+     [self.navbarView addRightButtonTarget:target action:action];
+    }
+}
+
 
 - (void)addPromptAndQRCodeOnRightBarButtonItemWith:(UIViewController *)target action:(SEL)action {
     

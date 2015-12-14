@@ -37,5 +37,6 @@
 
 @interface  TabbarViewItem: UIView
 @property(nonatomic,copy) NSString *itemTitle;
-
+- (void)highlighted;
+- (void)normal;
 @end

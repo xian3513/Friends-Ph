@@ -37,16 +37,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    self.title = @"天气";
     _model = [[ForecastModel alloc]init];
     _feModel = [[FonExchangeModel alloc]init];
     _headerView = [[HomeHeaderView alloc]init];
     [self followScrollView:_tabView];
     _tabView.tableHeaderView = _headerView;
-    [self.MyNavigationController showCustomNavbarViewWithTitle:@"天气"];
-
+   
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_night_snow.jpg"]];
+    
+     [self.MyNavigationController showCustomNavbarViewWithTitle:@"天气"];
+    [self.MyNavigationController customNavbarAddRightbuttonTarget:self action:@selector(navRightButtonPress:)];
+    
     [self http];
+}
+
+- (void)navRightButtonPress:(UIButton *)sender {
+
 }
 
 - (void)http {

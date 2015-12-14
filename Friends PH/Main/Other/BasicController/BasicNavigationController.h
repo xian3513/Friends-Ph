@@ -14,12 +14,17 @@
 @property(nonatomic,strong) UIView *contentView;
 @property(nonatomic,strong) UIView *leftView;
 @property(nonatomic,strong) UIView *rightView;
+
+- (void)addRightButtonTarget:(id)target action:(SEL)action;
+- (void)addLeftButtonTarget:(id)target action:(SEL)action;
 @end
 
 
 @interface BasicNavigationController : UINavigationController
 
 - (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title;
+- (void)customNavbarAddRightbuttonTarget:(id)target action:(SEL)action;
+- (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action;
 /**
  *  添加返回按钮
  */
