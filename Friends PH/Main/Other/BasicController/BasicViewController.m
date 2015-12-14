@@ -21,6 +21,11 @@
 }
 
 #pragma mark - lift cycle method
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super initWithCoder:aDecoder]){
     
@@ -82,10 +87,7 @@
     [self.myTabBarController showAnimation];
     NSLog(@"%@",NSStringFromSelector(_cmd));
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 /*
 #pragma mark - Navigation

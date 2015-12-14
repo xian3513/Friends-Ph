@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QUS-KY-LkB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -84,10 +83,10 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WKD-rk-ep0" firstAttribute="leading" secondItem="qvi-07-gmW" secondAttribute="leadingMargin" constant="-20" id="B5a-OX-c92"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="WKD-rk-ep0" secondAttribute="trailing" constant="-20" id="P3I-Nq-voP"/>
+                            <constraint firstItem="WKD-rk-ep0" firstAttribute="leading" secondItem="qvi-07-gmW" secondAttribute="leadingMargin" constant="-16" id="B5a-OX-c92"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WKD-rk-ep0" secondAttribute="trailing" constant="-16" id="P3I-Nq-voP"/>
                             <constraint firstItem="Ji6-Ut-LRk" firstAttribute="top" secondItem="WKD-rk-ep0" secondAttribute="bottom" id="Phv-ae-gKA"/>
-                            <constraint firstItem="WKD-rk-ep0" firstAttribute="top" secondItem="JIU-uD-xdA" secondAttribute="bottom" constant="-64" id="qsB-CS-zRO"/>
+                            <constraint firstItem="WKD-rk-ep0" firstAttribute="top" secondItem="JIU-uD-xdA" secondAttribute="bottom" id="qsB-CS-zRO"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">

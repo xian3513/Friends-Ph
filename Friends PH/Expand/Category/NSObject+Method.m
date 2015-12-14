@@ -37,18 +37,18 @@
 #pragma -mark inside method
 - (id)modelConfirmDataType:(id)data model:(NSObject *)model replacedKeyName:(NSDictionary *)name objectInArray:(NSDictionary *)object {
     
-    id tmp = nil;
-    if([data isKindOfClass:[NSString class]]) {//如果数据是 nsstring类型
-        
-        NSString *str = (NSString *)data;
-       tmp = [self modelWithStringData:str model:model replacedKeyName:name objectInArray:object];
-        
-    } else if ([data isKindOfClass:[NSDictionary class]]){
-        
-        tmp = [self modelWithStringData:data model:model replacedKeyName:name objectInArray:object];
-    }
+//    id tmp = nil;
+//    if([data isKindOfClass:[NSString class]]) {//如果数据是 nsstring类型
+//        
+//        NSString *str = (NSString *)data;
+//       tmp = [self modelWithStringData:str model:model replacedKeyName:name objectInArray:object];
+//        
+//    } else if ([data isKindOfClass:[NSDictionary class]]){
+//        
+//        tmp = [self modelWithStringData:data model:model replacedKeyName:name objectInArray:object];
+//    }
     
-    return tmp;
+    return [self modelWithStringData:data model:model replacedKeyName:name objectInArray:object];
 }
 
 - (id)modelWithStringData:(NSString *)data model:(NSObject *)model replacedKeyName:(NSDictionary *)name objectInArray:(NSDictionary *)object {

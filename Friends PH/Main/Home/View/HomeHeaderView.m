@@ -36,7 +36,7 @@
 - (instancetype)init {
     if(self = [super init]) {
         self.frame = CGRectMake(0, 0, 320, 650);
-        self.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.2];
+        self.backgroundColor = [UIColor clearColor];
         
         [self viewLayout];
     }
@@ -56,8 +56,8 @@
     _condLab.backgroundColor = [UIColor blackColor];
     _temLab.backgroundColor = [UIColor blueColor];
     _updateTimeLab.backgroundColor      = [UIColor yellowColor];
-    _hourlyView.backgroundColor         = [UIColor purpleColor];
-    _currentMainView.backgroundColor    = [UIColor redColor];
+    //_hourlyView.backgroundColor         = [UIColor purpleColor];
+    //_currentMainView.backgroundColor    = [UIColor redColor];
     
     [self addSubview:_daysView];
     [self addSubview:_hourlyView];
@@ -81,7 +81,7 @@
     //layout currentview  lab
     [_updateTimeLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_updateTimeLab.superview);
-        make.trailing.equalTo(_updateTimeLab.superview).offset(-5);
+        make.trailing.equalTo(_updateTimeLab.superview);
         make.width.mas_equalTo(120);
     }];
     [_condLab mas_makeConstraints:^(MASConstraintMaker *make) {

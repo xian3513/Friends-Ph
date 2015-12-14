@@ -13,6 +13,7 @@
 #import "HttpTool.h"
 #import "NSObject+Method.h"
 #import "ForecastModel.h"
+#import "FonExchangeModel.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tabView;
 
@@ -21,6 +22,7 @@
 @implementation HomeViewController {
   
     ForecastModel *_model;
+    FonExchangeModel *_feModel;
 }
 
 
@@ -30,13 +32,20 @@
     [self followScrollView:_tabView];
     _tabView.tableHeaderView = [[HomeHeaderView alloc]init];
 
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_yellow@2x"]];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_night_snow.jpg"]];
     self.tabView.backgroundView = imageView;
     
     _model = [[ForecastModel alloc]init];
-    
+   _feModel = [[FonExchangeModel alloc]init];
     [HttpTool getForeignExchangeSuccess:^(id responseObject) {
-        NSLog(@"res:%@",responseObject);
+       
+        NSDictionary *dict = @{
+                               @"fromCurrency":@"retData.fromCurrency",
+                               @"toCurrency":@"retData.toCurrency"
+                               };
+        _feModel = [self modelTransferWithData:responseObject model:_feModel replacedKeyName:dict];
+        
+        NSLog(@"hahah  %@   %@",_feModel.fromCurrency,_feModel.toCurrency);
     } failure:^(NSError *error) {
         
     }];

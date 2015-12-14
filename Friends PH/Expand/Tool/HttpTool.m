@@ -46,7 +46,8 @@
                                        NSInteger responseCode = [(NSHTTPURLResponse *)response statusCode];
                                        NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                      //  NSLog(@"HttpResponseCode:%ld", responseCode);
-                                       NSLog(@"HttpResponseBody %@",responseString);
+                                      // NSLog(@"HttpResponseBody %@",responseString);
+                                       success(data);
                                    }
                                }];
 }

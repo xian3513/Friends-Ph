@@ -73,7 +73,7 @@
 - (TabbarViewItem *)tabbar:(TabbarView *)tabbarView cellForRowAtIndex:(NSInteger)index {
     TabbarViewItem * item = [tabbarView dequeueReusableCellWithIdentifier:@"item"];
     item.itemTitle = _itemTitleArr[index];
-    item.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1];
+    item.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:0.3];
     return item;
 }
 
