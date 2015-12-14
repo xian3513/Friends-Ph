@@ -43,9 +43,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = RGBA(235, 235, 235, 1);
+    
+   
     // Do any additional setup after loading the view.
 }
 
+- (void)setBackgroundView:(UIView *)backgroundView {
+    
+    _backgroundView = backgroundView;
+    
+    if(backgroundView) {
+        _backgroundView.frame = self.view.bounds;
+        [self.view addSubview:_backgroundView];
+    }
+    
+}
 #pragma mark - tabbarAnimation method
 - (void)followScrollView:(UIScrollView *)scrollableView {
     _scrollView = scrollableView;

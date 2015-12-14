@@ -53,12 +53,18 @@
     _condLab         = [UILabel new];
     _temLab          = [UILabel new];
     
-    _condLab.backgroundColor = [UIColor blackColor];
-    _temLab.backgroundColor = [UIColor blueColor];
-    _updateTimeLab.backgroundColor      = [UIColor yellowColor];
+    //_condLab.backgroundColor = [UIColor blackColor];
+    //_temLab.backgroundColor = [UIColor blueColor];
+   // _updateTimeLab.backgroundColor      = [UIColor yellowColor];
     //_hourlyView.backgroundColor         = [UIColor purpleColor];
     //_currentMainView.backgroundColor    = [UIColor redColor];
     
+    _condLab.textColor          = [UIColor whiteColor];
+    _updateTimeLab.textColor    = [UIColor whiteColor];
+    _temLab.textColor           = [UIColor whiteColor];
+    
+    _temLab.font                = [UIFont fontWithName:@"Courier" size:90];
+    _updateTimeLab.font         = [UIFont systemFontOfSize:13];
     [self addSubview:_daysView];
     [self addSubview:_hourlyView];
     [self addSubview:_currentMainView];
@@ -80,24 +86,24 @@
     
     //layout currentview  lab
     [_updateTimeLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_updateTimeLab.superview);
-        make.trailing.equalTo(_updateTimeLab.superview);
-        make.width.mas_equalTo(120);
+        make.top.equalTo(_updateTimeLab.superview).offset(10);
+        make.trailing.equalTo(_updateTimeLab.superview).offset(-10);
+        //make.width.mas_equalTo(120);
     }];
     [_condLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(_condLab.superview);
+        make.leading.equalTo(_condLab.superview).offset(5);
         make.width.mas_equalTo(60);
         make.bottom.equalTo(_temLab.mas_top);
     }];
     [_temLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(_temLab.superview);
+        make.leading.equalTo(_temLab.superview).offset(5);
         make.bottom.equalTo(_temLab.superview.mas_bottom);
-        make.height.mas_equalTo(60);
+        make.height.mas_equalTo(70);
     }];
-    
-    _updateTimeLab.text = @"ddd";
-    _condLab.text = @"condlab";
-    _temLab.text = @"temLab";
+   
+//    _updateTimeLab.text = @"ddd";
+//    _condLab.text = @"condlab";
+//    _temLab.text = @"temLab";
 }
 /*
 // Only override drawRect: if you perform custom drawing.

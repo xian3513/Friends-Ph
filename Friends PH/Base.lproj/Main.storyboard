@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QUS-KY-LkB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--实景-->
         <scene sceneID="WSt-MB-34Q">
             <objects>
-                <viewController id="3xp-KQ-sph" sceneMemberID="viewController">
+                <viewController id="3xp-KQ-sph" customClass="SceneryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VHf-9x-Pui"/>
                         <viewControllerLayoutGuide type="bottom" id="Gs6-uY-65g"/>
@@ -28,7 +29,7 @@
         <!--我-->
         <scene sceneID="Per-EM-xlM">
             <objects>
-                <viewController id="sq7-Pf-eC9" customClass="MeViewController" sceneMemberID="viewController">
+                <viewController title="我" id="sq7-Pf-eC9" customClass="MeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IAl-Yh-SnP"/>
                         <viewControllerLayoutGuide type="bottom" id="tdl-3V-rQV"/>
@@ -60,10 +61,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WKD-rk-ep0">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.27416106550000002" green="1" blue="0.38857644429999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Zbw-WQ-6Wh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="Zbw-WQ-6Wh">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zbw-WQ-6Wh" id="dea-3M-hgK">
@@ -85,18 +86,16 @@
                         <constraints>
                             <constraint firstItem="WKD-rk-ep0" firstAttribute="leading" secondItem="qvi-07-gmW" secondAttribute="leadingMargin" constant="-16" id="B5a-OX-c92"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WKD-rk-ep0" secondAttribute="trailing" constant="-16" id="P3I-Nq-voP"/>
-                            <constraint firstItem="Ji6-Ut-LRk" firstAttribute="top" secondItem="WKD-rk-ep0" secondAttribute="bottom" id="Phv-ae-gKA"/>
-                            <constraint firstItem="WKD-rk-ep0" firstAttribute="top" secondItem="JIU-uD-xdA" secondAttribute="bottom" id="qsB-CS-zRO"/>
+                            <constraint firstItem="Ji6-Ut-LRk" firstAttribute="top" secondItem="WKD-rk-ep0" secondAttribute="bottom" id="efk-Rt-cCU"/>
+                            <constraint firstItem="WKD-rk-ep0" firstAttribute="top" secondItem="JIU-uD-xdA" secondAttribute="bottom" constant="44" id="zcr-Z8-UJY"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="WKD-rk-ep0"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Phv-ae-gKA"/>
                                 <exclude reference="B5a-OX-c92"/>
                                 <exclude reference="P3I-Nq-voP"/>
-                                <exclude reference="qsB-CS-zRO"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -104,10 +103,8 @@
                                 <include reference="WKD-rk-ep0"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Phv-ae-gKA"/>
                                 <include reference="B5a-OX-c92"/>
                                 <include reference="P3I-Nq-voP"/>
-                                <include reference="qsB-CS-zRO"/>
                             </mask>
                         </variation>
                     </view>
@@ -118,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7B-jk-sMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1143" y="90"/>
+            <point key="canvasLocation" x="1176" y="84"/>
         </scene>
         <!--Basic Tab Bar View Controller-->
         <scene sceneID="r4o-bj-vQz">
@@ -144,7 +141,8 @@
         <!--Basic Navigation Controller-->
         <scene sceneID="9PI-7u-MMr">
             <objects>
-                <navigationController id="QUS-KY-LkB" customClass="BasicNavigationController" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="QUS-KY-LkB" customClass="BasicNavigationController" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LVz-sM-K4r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

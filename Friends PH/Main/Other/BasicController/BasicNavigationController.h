@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@interface CostomNavbarView : UIView
+@property(nonatomic,strong) NSString *title;
+
+@property(nonatomic,strong) UIView *contentView;
+@property(nonatomic,strong) UIView *leftView;
+@property(nonatomic,strong) UIView *rightView;
+@end
+
+
 @interface BasicNavigationController : UINavigationController
 
+- (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title;
 /**
  *  添加返回按钮
  */

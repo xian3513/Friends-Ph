@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         self.basic = [[Basic alloc]init];
+        self.now = [Now new];
         //self.daily_forecast = [[Daily_forecast alloc]init];
     }
     return self;
@@ -28,5 +29,8 @@
 
 @end
 @implementation Hourly_forecast
+
+@end
+@implementation Now
 
 @end

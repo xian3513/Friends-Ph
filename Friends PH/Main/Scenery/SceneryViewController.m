@@ -1,22 +1,22 @@
 //
-//  MeViewController.m
+//  SceneryViewController.m
 //  Friends PH
 //
-//  Created by xian on 15/12/9.
+//  Created by xian on 15/12/14.
 //  Copyright © 2015年 xian. All rights reserved.
 //
 
-#import "MeViewController.h"
+#import "SceneryViewController.h"
 
-@interface MeViewController ()
+@interface SceneryViewController ()
 
 @end
 
-@implementation MeViewController
+@implementation SceneryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"我";
+    self.title = @"实景";
     // Do any additional setup after loading the view.
 }
 

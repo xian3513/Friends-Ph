@@ -8,6 +8,77 @@
 
 #import "BasicNavigationController.h"
 #import "CommonMacros.h"
+#import "Masonry.h"
+
+@implementation CostomNavbarView {
+
+    UILabel *_titleLab;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.frame              = CGRectMake(0, 0, SCREEN_WIDTH, 64);
+        self.backgroundColor    = [UIColor clearColor];
+        
+        [self viewLayout];
+    }
+    return self;
+}
+
+- (void)viewLayout {
+
+    //mainView
+    self.contentView        = [UIView new];
+    self.leftView           = [UIView new];
+    self.rightView          = [UIView new];
+    
+//    self.contentView.backgroundColor = [UIColor yellowColor];
+//    self.leftView.backgroundColor = [UIColor purpleColor];
+//    self.rightView.backgroundColor = [UIColor blueColor];
+    
+    [self addSubview:self.contentView];
+    [self addSubview:self.leftView];
+    [self addSubview:self.rightView];
+    
+    
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(20);
+        make.bottom.equalTo(self);
+        make.leading.equalTo(self.leftView.mas_trailing).offset(5);
+        make.trailing.equalTo(self.rightView.mas_leading).offset(-5);
+    }];
+    
+    [self.leftView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView);
+        make.leading.bottom.equalTo(self);
+        make.width.mas_equalTo(44);
+    }];
+    
+    [self.rightView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.trailing.bottom.equalTo(self);
+        make.top.equalTo(self.contentView);
+        make.width.mas_equalTo(44);
+    }];
+    
+    //contentView
+    _titleLab                   = [UILabel new];
+    _titleLab.textAlignment     = NSTextAlignmentCenter;
+    _titleLab.textColor         = [UIColor whiteColor];
+    _titleLab.font              = [UIFont boldSystemFontOfSize:18];
+    [self.contentView addSubview:_titleLab];
+    
+    [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.leading.trailing.bottom.equalTo(self.contentView).offset(0);
+    }];
+}
+
+- (void)setTitle:(NSString *)title {
+    _titleLab.text = title;
+}
+@end
+
 @interface BasicNavigationController ()
 
 @end
@@ -19,12 +90,20 @@
     
     
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"themeBackground"] forBarMetrics:UIBarMetricsDefault];
-    self.navigationBar.titleTextAttributes = @{UITextAttributeTextColor: [UIColor whiteColor]};
+   
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+     self.navigationBar.titleTextAttributes = @{UITextAttributeTextColor: [UIColor blackColor]};
+}
+
+- (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title {
+    CostomNavbarView *navbarView = [[CostomNavbarView alloc]init];
+    [self.view addSubview:navbarView];
+    navbarView.title = title;
+    self.navigationBar.hidden = YES;
+    return navbarView;
 }
 
 - (void)addPromptAndQRCodeOnRightBarButtonItemWith:(UIViewController *)target action:(SEL)action {

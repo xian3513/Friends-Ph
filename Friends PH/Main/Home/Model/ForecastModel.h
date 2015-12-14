@@ -34,7 +34,9 @@
 @end
 @interface Now : NSObject
 //@property(nonatomic,copy) NSString *cond_txt;
+@property(nonatomic,strong) NSDictionary *cond;
 @property(nonatomic,copy) NSString *tmp;
+@property(nonatomic,copy) NSString *fl;
 
 @end
 @interface ForecastModel : NSObject
@@ -42,7 +44,8 @@
 @property(nonatomic,strong) NSArray *daily_forecast;
 @property(nonatomic,strong) NSArray *hourly_forecast;
 @property(nonatomic,strong) Basic *basic;
-@property(nonatomic,strong) Now *now;
-@property(nonatomic,copy) NSString *testDate;
+@property(nonatomic,strong) Now * now;
+@property(nonatomic,copy) NSString *now_cond_txt;
+@property(nonatomic,copy) NSString *basic_update_loc;
 @property(nonatomic,copy) NSString *status;
 @end

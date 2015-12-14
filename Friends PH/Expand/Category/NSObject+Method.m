@@ -18,24 +18,24 @@
     return arr;
 }
 
-- (id)modelTransferWithData:(id)data model:(NSObject *)model{
+- (id)modelTransferWithData:(id)data {
     
-    return [self modelConfirmDataType:data model:model replacedKeyName:nil objectInArray:nil];
+    return [self modelConfirmDataType:data  replacedKeyName:nil objectInArray:nil];
 }
 
-- (id)modelTransferWithData:(id)data model:(NSObject *)model objectInArray:(NSDictionary *)object {
-    return [self modelTransferWithData:data model:model replacedKeyName:nil objectInArray:object];
+- (id)modelTransferWithData:(id)data  objectInArray:(NSDictionary *)object {
+    return [self modelTransferWithData:data  replacedKeyName:nil objectInArray:object];
 }
-- (id)modelTransferWithData:(id)data model:(NSObject *)model replacedKeyName:(NSDictionary *)name{
-    return [self modelConfirmDataType:data model:model replacedKeyName:name objectInArray:nil];
+- (id)modelTransferWithData:(id)data  replacedKeyName:(NSDictionary *)name{
+    return [self modelConfirmDataType:data  replacedKeyName:name objectInArray:nil];
 }
 
-- (id)modelTransferWithData:(id)data model:(NSObject *)model replacedKeyName:(NSDictionary *)name objectInArray:(NSDictionary *)object {
+- (id)modelTransferWithData:(id)data replacedKeyName:(NSDictionary *)name objectInArray:(NSDictionary *)object {
     
-    return [self modelWithStringData:data model:model replacedKeyName:name objectInArray:object];
+    return [self modelWithStringData:data replacedKeyName:name objectInArray:object];
 }
 #pragma -mark inside method
-- (id)modelConfirmDataType:(id)data model:(NSObject *)model replacedKeyName:(NSDictionary *)name objectInArray:(NSDictionary *)object {
+- (id)modelConfirmDataType:(id)data replacedKeyName:(NSDictionary *)name objectInArray:(NSDictionary *)object {
     
 //    id tmp = nil;
 //    if([data isKindOfClass:[NSString class]]) {//如果数据是 nsstring类型
@@ -48,23 +48,23 @@
 //        tmp = [self modelWithStringData:data model:model replacedKeyName:name objectInArray:object];
 //    }
     
-    return [self modelWithStringData:data model:model replacedKeyName:name objectInArray:object];
+    return [self modelWithStringData:data replacedKeyName:name objectInArray:object];
 }
 
-- (id)modelWithStringData:(NSString *)data model:(NSObject *)model replacedKeyName:(NSDictionary *)name objectInArray:(NSDictionary *)object {
+- (id)modelWithStringData:(NSString *)data replacedKeyName:(NSDictionary *)name objectInArray:(NSDictionary *)object {
    
     if(object) {
-        [[model class] mj_setupObjectClassInArray:^NSDictionary *{
+        [[self class] mj_setupObjectClassInArray:^NSDictionary *{
             return object;
         }];
     }
    
     if(name){
-        [[model class] mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        [[self class] mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return name;
         }];
     }
-    return [[model class] mj_objectWithKeyValues:data];
+    return [[self class] mj_objectWithKeyValues:data];
 }
 
 @end

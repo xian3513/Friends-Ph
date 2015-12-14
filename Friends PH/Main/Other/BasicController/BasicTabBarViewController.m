@@ -8,6 +8,8 @@
 
 #import "BasicTabBarViewController.h"
 #import "UIView+Frame.h"
+
+
 @interface BasicTabBarViewController ()<TabbarViewDelegate>
 
 @end
@@ -79,6 +81,7 @@
 
 - (void)tabbar:(TabbarView *)tabbarView didSeletedRowAtIndex:(NSInteger)index {
     NSLog(@"index:%ld",index);
+    self.selectedIndex = index;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

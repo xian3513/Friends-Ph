@@ -23,60 +23,93 @@
   
     ForecastModel *_model;
     FonExchangeModel *_feModel;
+    HomeHeaderView *_headerView;
+    
+}
+
+#pragma mark - lift cycle method
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self followScrollView:_tabView];
-    _tabView.tableHeaderView = [[HomeHeaderView alloc]init];
-
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_night_snow.jpg"]];
-    self.tabView.backgroundView = imageView;
-    
+   
+    self.title = @"天气";
     _model = [[ForecastModel alloc]init];
-   _feModel = [[FonExchangeModel alloc]init];
-//    [HttpTool getForeignExchangeSuccess:^(id responseObject) {
-//       
-//        NSDictionary *dict = @{
-//                               @"fromCurrency":@"retData.fromCurrency",
-//                               @"toCurrency":@"retData.toCurrency"
-//                               };
-//        _feModel = [self modelTransferWithData:responseObject model:_feModel replacedKeyName:dict];
-//        
-//        NSLog(@"hahah  %@   %@",_feModel.fromCurrency,_feModel.toCurrency);
-//    } failure:^(NSError *error) {
-//        
-//    }];
+    _feModel = [[FonExchangeModel alloc]init];
+    _headerView = [[HomeHeaderView alloc]init];
+    [self followScrollView:_tabView];
+    _tabView.tableHeaderView = _headerView;
+    [self.MyNavigationController showCustomNavbarViewWithTitle:@"天气"];
+
+    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_night_snow.jpg"]];
+    [self http];
+}
+
+- (void)http {
+    //    [HttpTool getForeignExchangeSuccess:^(id responseObject) {
+    //
+    //        NSDictionary *dict = @{
+    //                               @"fromCurrency":@"retData.fromCurrency",
+    //                               @"toCurrency":@"retData.toCurrency"
+    //                               };
+    //        _feModel = [self modelTransferWithData:responseObject model:_feModel replacedKeyName:dict];
+    //
+    //        NSLog(@"hahah  %@   %@",_feModel.fromCurrency,_feModel.toCurrency);
+    //    } failure:^(NSError *error) {
+    //
+    //    }];
     [HttpTool getWeatherSuccess:^(id responseObject) {
-       
+        
         NSError *error;
         id resObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
-      //  NSLog(@"responseObject:%@",resObject);
-    
-        NSArray *arr = [resObject objectForKey:@"HeWeather data service 3.0"];
-         //NSLog(@"weather:%@",[arr objectAtIndex:0]);
-        NSDictionary *replaceKey = @{
-                                  // @"now":@"now.tmp",
-                                   };
-          NSDictionary *object = @{
-               @"daily_forecast" : @"Daily_forecast",//  @“arrayName”：@“className”  如  @"ads" : [Ad class]
-               @"hourly_forecast":@"Hourly_forecast",
-              };
-        _model = [self modelTransferWithData:[arr objectAtIndex:0] model:_model replacedKeyName:nil objectInArray:object];
-        Hourly_forecast *hour = [_model.hourly_forecast objectAtIndex:0];
-        NSLog(@"daily_forecast:%@, now:%@ status:%@",_model.daily_forecast,_model.now,_model.status);
+        //  NSLog(@"responseObject:%@",resObject);
         
+        NSArray *arr = [resObject objectForKey:@"HeWeather data service 3.0"];
+        //NSLog(@"weather:%@",[arr objectAtIndex:0]);
+        NSDictionary *replaceKey = @{
+                                     @"now_cond_txt":@"now.cond.txt",
+                                     @"basic_update_loc":@"basic.update.loc",
+                                     };
+        NSDictionary *object = @{
+                                 @"daily_forecast" : @"Daily_forecast",//  @“arrayName”：@“className”  如  @"ads" : [Ad class]
+                                 @"hourly_forecast":@"Hourly_forecast",
+                                 };
+        _model = [ForecastModel modelTransferWithData:[arr objectAtIndex:0] replacedKeyName:replaceKey objectInArray:object];
+       
+//        NSLog(@"daily_forecast:%@, now:%@ status:%@",_model.daily_forecast,_model.now_cond_txt,_model.basic_update_loc);
+        [self viewUpdateData:_model];
     } failure:^(NSError *error) {
         
     }];
+
+   
 }
+
+- (void)viewUpdateData:(ForecastModel *)model {
+    _headerView.cond = _model.now_cond_txt;
+    _headerView.temperature = _model.now.tmp;
+    _headerView.updateTime = [NSString stringWithFormat:@"%0.0f分钟前发布",[self updateTimeInterval:_model.basic_update_loc]];
+}
+
+- (NSTimeInterval)updateTimeInterval:(NSString *)updateTime {
+    
+    NSDateFormatter* formater = [[NSDateFormatter alloc] init];
+    [formater setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSDate* date = [formater dateFromString:updateTime];
+    
+    return ([[NSDate date] timeIntervalSince1970] - [date timeIntervalSince1970])/60;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - tableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 40;
 }

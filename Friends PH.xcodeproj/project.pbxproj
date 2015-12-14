@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9007BC2B1C1EB70100F23979 /* SceneryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007BC2A1C1EB70100F23979 /* SceneryViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9025BCF31C1AF3DE002CE5D5 /* NSObject+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 9025BCF21C1AF3DE002CE5D5 /* NSObject+Method.m */; };
 		90AED0571C17CA8900D10D40 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AED03F1C17CA8900D10D40 /* MASCompositeConstraint.m */; };
 		90AED0581C17CA8900D10D40 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AED0411C17CA8900D10D40 /* MASConstraint.m */; };
@@ -80,6 +81,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9007BC291C1EB70100F23979 /* SceneryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneryViewController.h; sourceTree = "<group>"; };
+		9007BC2A1C1EB70100F23979 /* SceneryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneryViewController.m; sourceTree = "<group>"; };
 		9025BCF11C1AF3DE002CE5D5 /* NSObject+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Method.h"; sourceTree = "<group>"; };
 		9025BCF21C1AF3DE002CE5D5 /* NSObject+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Method.m"; sourceTree = "<group>"; };
 		90AED03E1C17CA8900D10D40 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -221,6 +224,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9007BC281C1EB6E900F23979 /* Scenery */ = {
+			isa = PBXGroup;
+			children = (
+				9007BC291C1EB70100F23979 /* SceneryViewController.h */,
+				9007BC2A1C1EB70100F23979 /* SceneryViewController.m */,
+			);
+			path = Scenery;
+			sourceTree = "<group>";
+		};
 		90AED03D1C17CA8100D10D40 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				90CC64F01C187AD600E4F454 /* Home */,
+				9007BC281C1EB6E900F23979 /* Scenery */,
 				90CC64F11C187AE100E4F454 /* Me */,
 				90E0C7571C16D870003B41A2 /* Other */,
 			);
@@ -683,6 +696,7 @@
 				90AED0571C17CA8900D10D40 /* MASCompositeConstraint.m in Sources */,
 				90AED05B1C17CA8900D10D40 /* MASViewAttribute.m in Sources */,
 				90AFB3FC1C1A83D000B70395 /* HttpTool.m in Sources */,
+				9007BC2B1C1EB70100F23979 /* SceneryViewController.m in Sources */,
 				90AED0581C17CA8900D10D40 /* MASConstraint.m in Sources */,
 				90E0C7841C16D8AC003B41A2 /* AFURLConnectionOperation.m in Sources */,
 				90E0C78A1C16DE65003B41A2 /* TabbarView.m in Sources */,
@@ -860,6 +874,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Friends PH/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.com.Friends-PH";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -871,6 +886,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Friends PH/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.com.Friends-PH";
 				PRODUCT_NAME = "$(TARGET_NAME)";
