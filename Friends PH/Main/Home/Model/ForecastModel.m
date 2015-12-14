@@ -27,3 +27,6 @@
 @implementation Daily_forecast
 
 @end
+@implementation Hourly_forecast
+
+@end

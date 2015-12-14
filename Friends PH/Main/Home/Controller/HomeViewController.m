@@ -37,36 +37,40 @@
     
     _model = [[ForecastModel alloc]init];
    _feModel = [[FonExchangeModel alloc]init];
-    [HttpTool getForeignExchangeSuccess:^(id responseObject) {
-       
-        NSDictionary *dict = @{
-                               @"fromCurrency":@"retData.fromCurrency",
-                               @"toCurrency":@"retData.toCurrency"
-                               };
-        _feModel = [self modelTransferWithData:responseObject model:_feModel replacedKeyName:dict];
-        
-        NSLog(@"hahah  %@   %@",_feModel.fromCurrency,_feModel.toCurrency);
-    } failure:^(NSError *error) {
-        
-    }];
-//    [HttpTool getWeatherSuccess:^(id responseObject) {
+//    [HttpTool getForeignExchangeSuccess:^(id responseObject) {
 //       
-//        NSError *error;
-//        id resObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
-//      //  NSLog(@"responseObject:%@",resObject);
-//    
-//        NSArray *arr = [resObject objectForKey:@"HeWeather data service 3.0"];
-//         //NSLog(@"weather:%@",[arr objectAtIndex:0]);
-//          NSDictionary *object = @{
-//               @"daily_forecast" : @"Daily_forecast",//  @“arrayName”：@“className”  如  @"ads" : [Ad class]
-//              };
-//        _model = [self modelTransferWithData:[arr objectAtIndex:0] model:_model objectInArray:object];
+//        NSDictionary *dict = @{
+//                               @"fromCurrency":@"retData.fromCurrency",
+//                               @"toCurrency":@"retData.toCurrency"
+//                               };
+//        _feModel = [self modelTransferWithData:responseObject model:_feModel replacedKeyName:dict];
 //        
-//        NSLog(@"daily_forecast:%@, basic:%@ status:%@",_model.daily_forecast,_model.basic.update,_model.status);
-//        
+//        NSLog(@"hahah  %@   %@",_feModel.fromCurrency,_feModel.toCurrency);
 //    } failure:^(NSError *error) {
 //        
 //    }];
+    [HttpTool getWeatherSuccess:^(id responseObject) {
+       
+        NSError *error;
+        id resObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
+      //  NSLog(@"responseObject:%@",resObject);
+    
+        NSArray *arr = [resObject objectForKey:@"HeWeather data service 3.0"];
+         //NSLog(@"weather:%@",[arr objectAtIndex:0]);
+        NSDictionary *replaceKey = @{
+                                  // @"now":@"now.tmp",
+                                   };
+          NSDictionary *object = @{
+               @"daily_forecast" : @"Daily_forecast",//  @“arrayName”：@“className”  如  @"ads" : [Ad class]
+               @"hourly_forecast":@"Hourly_forecast",
+              };
+        _model = [self modelTransferWithData:[arr objectAtIndex:0] model:_model replacedKeyName:nil objectInArray:object];
+        Hourly_forecast *hour = [_model.hourly_forecast objectAtIndex:0];
+        NSLog(@"daily_forecast:%@, now:%@ status:%@",_model.daily_forecast,_model.now,_model.status);
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
