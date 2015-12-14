@@ -11,41 +11,39 @@
 #import "UIView+Frame.h"
 #import "Masonry.h"
 #import "NSString+Method.h"
-@interface ButtonImageView :UIImageView
-@property(nonatomic,assign) BOOL isSelected;
-@property(nonatomic,assign) BOOL haveRedIcon;
-@end
-@interface ButtonImageView ()
-@property(nonatomic,strong) UIImageView *redIcon;
-@end
-@implementation ButtonImageView {
-
-}
-- (void)setHaveRedIcon:(BOOL)haveRedIcon {
-    if(haveRedIcon){
-        [self addSubview:self.redIcon];
-    }else {
-        if(self.redIcon.superview){
-            [self.redIcon removeFromSuperview];
-        }
-    }
-    _haveRedIcon = haveRedIcon;
-}
--(UIImageView *)redIcon {
-    if(!_redIcon){
-        _redIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cancelSelectButtons"]];
-        _redIcon.frame = CGRectMake(0, 0, 8, 8);
-        _redIcon.center = CGPointMake(self.width/4*3-5, self.height/4+3);
-    }
-    return _redIcon;
-}
-
-@end
+//@interface ButtonImageView :UIImageView
+//@property(nonatomic,assign) BOOL isSelected;
+//@property(nonatomic,assign) BOOL haveRedIcon;
+//@end
+//@interface ButtonImageView ()
+//@property(nonatomic,strong) UIImageView *redIcon;
+//@end
+//@implementation ButtonImageView {
+//
+//}
+//- (void)setHaveRedIcon:(BOOL)haveRedIcon {
+//    if(haveRedIcon){
+//        [self addSubview:self.redIcon];
+//    }else {
+//        if(self.redIcon.superview){
+//            [self.redIcon removeFromSuperview];
+//        }
+//    }
+//    _haveRedIcon = haveRedIcon;
+//}
+//-(UIImageView *)redIcon {
+//    if(!_redIcon){
+//        _redIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"cancelSelectButtons"]];
+//        _redIcon.frame = CGRectMake(0, 0, 8, 8);
+//        _redIcon.center = CGPointMake(self.width/4*3-5, self.height/4+3);
+//    }
+//    return _redIcon;
+//}
+//
+//@end
 
 @implementation TabbarView {
-    ButtonImageView *addBtnImageView;
-    ButtonImageView *currentBtnImv;
-    
+
     NSMutableArray *_itemsArray;
     //NSMutableDictionary *_itemsDictionary;
 }

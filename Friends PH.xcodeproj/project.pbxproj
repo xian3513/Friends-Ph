@@ -42,8 +42,6 @@
 		90E0C7251C16D2EE003B41A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90E0C7231C16D2EE003B41A2 /* Main.storyboard */; };
 		90E0C7271C16D2EF003B41A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E0C7261C16D2EF003B41A2 /* Assets.xcassets */; };
 		90E0C72A1C16D2EF003B41A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90E0C7281C16D2EF003B41A2 /* LaunchScreen.storyboard */; };
-		90E0C7351C16D2EF003B41A2 /* Friends_PHTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C7341C16D2EF003B41A2 /* Friends_PHTests.m */; };
-		90E0C7401C16D2EF003B41A2 /* Friends_PHUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C73F1C16D2EF003B41A2 /* Friends_PHUITests.m */; };
 		90E0C75F1C16D87C003B41A2 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C75A1C16D87C003B41A2 /* BasicViewController.m */; };
 		90E0C7601C16D87C003B41A2 /* BasicNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C75C1C16D87C003B41A2 /* BasicNavigationController.m */; };
 		90E0C7611C16D87C003B41A2 /* BasicTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C75E1C16D87C003B41A2 /* BasicTabBarViewController.m */; };
@@ -62,23 +60,6 @@
 		90E0C78A1C16DE65003B41A2 /* TabbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C7891C16DE65003B41A2 /* TabbarView.m */; };
 		90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		90E0C7311C16D2EF003B41A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 90E0C70F1C16D2EE003B41A2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 90E0C7161C16D2EE003B41A2;
-			remoteInfo = "Friends PH";
-		};
-		90E0C73C1C16D2EF003B41A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 90E0C70F1C16D2EE003B41A2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 90E0C7161C16D2EE003B41A2;
-			remoteInfo = "Friends PH";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9007BC291C1EB70100F23979 /* SceneryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneryViewController.h; sourceTree = "<group>"; };
@@ -155,10 +136,8 @@
 		90E0C7261C16D2EF003B41A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90E0C7291C16D2EF003B41A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90E0C72B1C16D2EF003B41A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		90E0C7301C16D2EF003B41A2 /* Friends PHTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Friends PHTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E0C7341C16D2EF003B41A2 /* Friends_PHTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Friends_PHTests.m; sourceTree = "<group>"; };
 		90E0C7361C16D2EF003B41A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		90E0C73B1C16D2EF003B41A2 /* Friends PHUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Friends PHUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E0C73F1C16D2EF003B41A2 /* Friends_PHUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Friends_PHUITests.m; sourceTree = "<group>"; };
 		90E0C7411C16D2EF003B41A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90E0C7591C16D87C003B41A2 /* BasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicViewController.h; sourceTree = "<group>"; };
@@ -201,20 +180,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		90E0C7141C16D2EE003B41A2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		90E0C72D1C16D2EF003B41A2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		90E0C7381C16D2EF003B41A2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -366,8 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				90E0C7171C16D2EE003B41A2 /* Friends PH.app */,
-				90E0C7301C16D2EF003B41A2 /* Friends PHTests.xctest */,
-				90E0C73B1C16D2EF003B41A2 /* Friends PHUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -574,42 +537,6 @@
 			productReference = 90E0C7171C16D2EE003B41A2 /* Friends PH.app */;
 			productType = "com.apple.product-type.application";
 		};
-		90E0C72F1C16D2EF003B41A2 /* Friends PHTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 90E0C7471C16D2EF003B41A2 /* Build configuration list for PBXNativeTarget "Friends PHTests" */;
-			buildPhases = (
-				90E0C72C1C16D2EF003B41A2 /* Sources */,
-				90E0C72D1C16D2EF003B41A2 /* Frameworks */,
-				90E0C72E1C16D2EF003B41A2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				90E0C7321C16D2EF003B41A2 /* PBXTargetDependency */,
-			);
-			name = "Friends PHTests";
-			productName = "Friends PHTests";
-			productReference = 90E0C7301C16D2EF003B41A2 /* Friends PHTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		90E0C73A1C16D2EF003B41A2 /* Friends PHUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 90E0C74A1C16D2EF003B41A2 /* Build configuration list for PBXNativeTarget "Friends PHUITests" */;
-			buildPhases = (
-				90E0C7371C16D2EF003B41A2 /* Sources */,
-				90E0C7381C16D2EF003B41A2 /* Frameworks */,
-				90E0C7391C16D2EF003B41A2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				90E0C73D1C16D2EF003B41A2 /* PBXTargetDependency */,
-			);
-			name = "Friends PHUITests";
-			productName = "Friends PHUITests";
-			productReference = 90E0C73B1C16D2EF003B41A2 /* Friends PHUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -621,14 +548,6 @@
 				TargetAttributes = {
 					90E0C7161C16D2EE003B41A2 = {
 						CreatedOnToolsVersion = 7.0.1;
-					};
-					90E0C72F1C16D2EF003B41A2 = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = 90E0C7161C16D2EE003B41A2;
-					};
-					90E0C73A1C16D2EF003B41A2 = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = 90E0C7161C16D2EE003B41A2;
 					};
 				};
 			};
@@ -646,8 +565,6 @@
 			projectRoot = "";
 			targets = (
 				90E0C7161C16D2EE003B41A2 /* Friends PH */,
-				90E0C72F1C16D2EF003B41A2 /* Friends PHTests */,
-				90E0C73A1C16D2EF003B41A2 /* Friends PHUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -660,20 +577,6 @@
 				90E0C72A1C16D2EF003B41A2 /* LaunchScreen.storyboard in Resources */,
 				90E0C7271C16D2EF003B41A2 /* Assets.xcassets in Resources */,
 				90E0C7251C16D2EE003B41A2 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		90E0C72E1C16D2EF003B41A2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		90E0C7391C16D2EF003B41A2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,36 +639,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		90E0C72C1C16D2EF003B41A2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				90E0C7351C16D2EF003B41A2 /* Friends_PHTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		90E0C7371C16D2EF003B41A2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				90E0C7401C16D2EF003B41A2 /* Friends_PHUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		90E0C7321C16D2EF003B41A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 90E0C7161C16D2EE003B41A2 /* Friends PH */;
-			targetProxy = 90E0C7311C16D2EF003B41A2 /* PBXContainerItemProxy */;
-		};
-		90E0C73D1C16D2EF003B41A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 90E0C7161C16D2EE003B41A2 /* Friends PH */;
-			targetProxy = 90E0C73C1C16D2EF003B41A2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		90E0C7231C16D2EE003B41A2 /* Main.storyboard */ = {
@@ -823,6 +697,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Friends PH/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -861,6 +736,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Friends PH/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -874,7 +750,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Friends PH/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.com.Friends-PH";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -886,58 +762,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Friends PH/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.com.Friends-PH";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		90E0C7481C16D2EF003B41A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Friends PHTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.com.Friends-PHTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Friends PH.app/Friends PH";
-			};
-			name = Debug;
-		};
-		90E0C7491C16D2EF003B41A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Friends PHTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.com.Friends-PHTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Friends PH.app/Friends PH";
-			};
-			name = Release;
-		};
-		90E0C74B1C16D2EF003B41A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Friends PHUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.com.Friends-PHUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Friends PH";
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		90E0C74C1C16D2EF003B41A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Friends PHUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.com.Friends-PHUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Friends PH";
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -958,24 +786,6 @@
 			buildConfigurations = (
 				90E0C7451C16D2EF003B41A2 /* Debug */,
 				90E0C7461C16D2EF003B41A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		90E0C7471C16D2EF003B41A2 /* Build configuration list for PBXNativeTarget "Friends PHTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				90E0C7481C16D2EF003B41A2 /* Debug */,
-				90E0C7491C16D2EF003B41A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		90E0C74A1C16D2EF003B41A2 /* Build configuration list for PBXNativeTarget "Friends PHUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				90E0C74B1C16D2EF003B41A2 /* Debug */,
-				90E0C74C1C16D2EF003B41A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

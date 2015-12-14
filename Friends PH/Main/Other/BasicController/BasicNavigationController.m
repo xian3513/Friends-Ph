@@ -10,6 +10,9 @@
 #import "CommonMacros.h"
 #import "Masonry.h"
 
+#define nav_title_fontSize 24
+
+#pragma mark - CostomNavbarView
 @implementation CostomNavbarView {
 
     UILabel *_titleLab;
@@ -66,7 +69,7 @@
     _titleLab                   = [UILabel new];
     _titleLab.textAlignment     = NSTextAlignmentCenter;
     _titleLab.textColor         = [UIColor whiteColor];
-    _titleLab.font              = [UIFont boldSystemFontOfSize:18];
+    _titleLab.font              = [UIFont boldSystemFontOfSize:nav_title_fontSize];
     [self.contentView addSubview:_titleLab];
     
     [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -78,6 +81,8 @@
     _titleLab.text = title;
 }
 @end
+
+#pragma mark - BasicNavigationController
 
 @interface BasicNavigationController ()
 
