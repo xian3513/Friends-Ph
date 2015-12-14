@@ -18,7 +18,6 @@
 		90AED05E1C17CA8900D10D40 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AED0511C17CA8900D10D40 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		90AED05F1C17CA8900D10D40 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AED0531C17CA8900D10D40 /* View+MASAdditions.m */; };
 		90AED0601C17CA8900D10D40 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AED0561C17CA8900D10D40 /* ViewController+MASAdditions.m */; };
-		90AFB3F91C1A77F200B70395 /* bg_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AFB3F81C1A77F200B70395 /* bg_yellow@2x.png */; };
 		90AFB3FC1C1A83D000B70395 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB3FB1C1A83D000B70395 /* HttpTool.m */; };
 		90AFB4031C1AAB4B00B70395 /* BasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4021C1AAB4B00B70395 /* BasicModel.m */; };
 		90AFB4251C1AC4B100B70395 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB40F1C1AC4B100B70395 /* MJDictionaryCache.m */; };
@@ -34,7 +33,6 @@
 		90AFB42F1C1AC4B100B70395 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4241C1AC4B100B70395 /* NSString+MJExtension.m */; };
 		90AFB4351C1ACC7000B70395 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4341C1ACC7000B70395 /* ForecastModel.m */; };
 		90B379021C192C1300305870 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B379011C192C1300305870 /* HomeHeaderView.m */; };
-		90B379041C192D8500305870 /* bg_night_snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90B379031C192D8500305870 /* bg_night_snow.jpg */; };
 		90CC64F71C187B1000E4F454 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CC64F61C187B1000E4F454 /* MeViewController.m */; };
 		90CC64FD1C187DFE00E4F454 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CC64FC1C187DFE00E4F454 /* HomeViewController.m */; };
 		90E0C71C1C16D2EE003B41A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C71B1C16D2EE003B41A2 /* main.m */; };
@@ -109,7 +107,6 @@
 		90AED0541C17CA8900D10D40 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		90AED0551C17CA8900D10D40 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		90AED0561C17CA8900D10D40 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		90AFB3F81C1A77F200B70395 /* bg_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_yellow@2x.png"; sourceTree = "<group>"; };
 		90AFB3FA1C1A83D000B70395 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
 		90AFB3FB1C1A83D000B70395 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		90AFB4011C1AAB4B00B70395 /* BasicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicModel.h; sourceTree = "<group>"; };
@@ -141,7 +138,6 @@
 		90AFB4341C1ACC7000B70395 /* ForecastModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastModel.m; sourceTree = "<group>"; };
 		90B379001C192C1300305870 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		90B379011C192C1300305870 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
-		90B379031C192D8500305870 /* bg_night_snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_night_snow.jpg; sourceTree = "<group>"; };
 		90CC64F51C187B1000E4F454 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		90CC64F61C187B1000E4F454 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		90CC64FB1C187DFE00E4F454 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -310,8 +306,6 @@
 		90B378FF1C192BEB00305870 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				90AFB3F81C1A77F200B70395 /* bg_yellow@2x.png */,
-				90B379031C192D8500305870 /* bg_night_snow.jpg */,
 				90B379001C192C1300305870 /* HomeHeaderView.h */,
 				90B379011C192C1300305870 /* HomeHeaderView.m */,
 			);
@@ -650,8 +644,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90B379041C192D8500305870 /* bg_night_snow.jpg in Resources */,
-				90AFB3F91C1A77F200B70395 /* bg_yellow@2x.png in Resources */,
 				90E0C72A1C16D2EF003B41A2 /* LaunchScreen.storyboard in Resources */,
 				90E0C7271C16D2EF003B41A2 /* Assets.xcassets in Resources */,
 				90E0C7251C16D2EE003B41A2 /* Main.storyboard in Resources */,
