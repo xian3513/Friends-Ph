@@ -38,6 +38,7 @@
 - (NSString *)excelView:(X_DrawExcelView *)excel CellAtIndex:(NSInteger)index {
     return @[@"CNY",@"PHP",@"1",@"7.345",@"USD",@"CNY",@"1",@"6.45"][index];
 }
+
 #pragma mark - set/get method
 - (void)setUpdateTime:(NSString *)updateTime {
     _updateTimeLab.text = updateTime;
@@ -89,6 +90,7 @@
     layout.cols = 4;
     layout.rows = 2;
     layout.textColor = [UIColor blueColor];
+   
     _currentMain_ExchangeView = [[HomeExchangeView alloc]initWithlayout:layout];
     _currentMain_ExchangeView.backgroundColor = [UIColor yellowColor];
     _currentMain_ExchangeView.dataSource = self;

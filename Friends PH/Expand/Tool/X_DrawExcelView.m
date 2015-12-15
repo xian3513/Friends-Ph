@@ -16,6 +16,34 @@
 @end
 @implementation X_DrawExcelLayout
 
+- (X_excelTextAlignment)textAlignment {
+    if(!_textAlignment) {
+        _textAlignment = X_excelTextAlignmentCenter;
+    }
+    return _textAlignment;
+}
+
+-(UIColor *)textColor {
+    if(!_textColor){
+        _textColor = [UIColor blackColor];
+    }
+    return _textColor;
+}
+
+- (UIFont*)font {
+    if(!_font){
+        _font = [UIFont systemFontOfSize:13.0f];
+    }
+    return _font;
+}
+
+-(UIColor *)lineColor {
+    if(!_lineColor){
+        _lineColor = [UIColor blackColor];
+    }
+    return _lineColor;
+}
+
 @end
 
 @interface X_DrawExcelView()
@@ -38,9 +66,6 @@
     CGContextSetLineWidth(context, 1.0);
     CGContextSetRGBFillColor (context, 0.5, 0.5, 0.5, 0.5);
     
-    UIFont *font = (self.layout.textFont == nil?[UIFont systemFontOfSize:13.0f]:self.layout.textFont);
-      UIColor *textColor = (self.layout.textColor == nil?[UIColor blackColor]:self.layout.textColor);
-    
     //可以设置 text显示位置
     CGRect rect = CGRectZero;
     rect.origin.x = _cellWidth*indexPath.row;
@@ -48,7 +73,7 @@
     rect.size.width = _cellWidth;
     rect.size.height = _cellHeight;
     
-    [string drawInRect:rect withAttributes: @{NSFontAttributeName: font,NSForegroundColorAttributeName:textColor}];
+    [string drawInRect:rect withAttributes: @{NSFontAttributeName: self.layout.font,NSForegroundColorAttributeName:self.layout.textColor}];
 }
 
 /**
@@ -57,24 +82,24 @@
 - (void)drawRectangleWithContext:(CGContextRef)context {
     
     // 绘制底盘
-    if(self.x_edgBackgroundFillColor) {
+    UIColor *color = self.layout.backgroundFillColor;
+    if(color) {
         //设置矩形边框的填充色
-        CGContextSetRGBFillColor(context, T_RGB(self.x_edgBackgroundFillColor).R, T_RGB(self.x_edgBackgroundFillColor).G, T_RGB(self.x_edgBackgroundFillColor).B, T_RGB(self.x_edgBackgroundFillColor).A);
-        
+        CGContextSetRGBFillColor(context, T_RGB(color).R, T_RGB(color).G, T_RGB(color).B, T_RGB(color).A);
         CGContextFillRect(context, self.bounds);
         CGContextStrokePath(context);
         
     }
     
-    UIColor *color = (self.x_edgBackgroundColor == nil?[UIColor blackColor]:self.x_edgBackgroundColor);
-            //绘制矩形边框
+    //绘制矩形边框    绘制 row col
+
+    color = self.layout.lineColor;
     CGContextSetRGBStrokeColor(context, T_RGB(color).R, T_RGB(color).G, T_RGB(color).B, T_RGB(color).A);//线条颜色
     CGContextSetLineWidth(context, defaultLineWidth);
     CGContextAddRect(context, self.bounds);
     CGContextStrokePath(context);
     
     
-    //绘制 row col
     CGFloat rowWidth = self.bounds.size.width/self.layout.rows;
     CGFloat colHeight = self.bounds.size.height/self.layout.cols;
     _cellWidth = rowWidth;
@@ -82,7 +107,7 @@
     
     for(int i=0;i<self.layout.rows;i++){
         CGContextSetLineWidth(context, defaultLineWidth);
-        CGContextSetRGBStrokeColor(context, 0.1, 0.1, 0.1, 1);//线条颜色
+        CGContextSetRGBStrokeColor(context, T_RGB(color).R, T_RGB(color).G, T_RGB(color).B, T_RGB(color).A);//线条颜色
         CGContextMoveToPoint(context, rowWidth*i, 0);
         CGContextAddLineToPoint(context, rowWidth*i,self.bounds.size.height);
         CGContextStrokePath(context);
@@ -90,7 +115,7 @@
     
     for(int i=0;i<self.layout.cols;i++){
         CGContextSetLineWidth(context, defaultLineWidth);
-        CGContextSetRGBStrokeColor(context, 0.1, 0.1, 0.1, 1);//线条颜色
+        CGContextSetRGBStrokeColor(context, T_RGB(color).R, T_RGB(color).G, T_RGB(color).B, T_RGB(color).A);//线条颜色
         CGContextMoveToPoint(context, 0, colHeight*i);
         CGContextAddLineToPoint(context, self.bounds.size.width,colHeight*i);
         CGContextStrokePath(context);
@@ -123,8 +148,10 @@
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+    //画表格
     [self drawRectangleWithContext:context];
     
+    //加数据
     for(int i=0;i<self.layout.cols;i++){
         for(int y=0;y<self.layout.rows;y++){
             
@@ -139,6 +166,8 @@
             [self drawStringInExcelWithContext:context string:str atIndexPath:indexPath];
         }
     }
+    
+    
     //    CGContextSetLineWidth(context, 1);
     //    CGContextSetRGBStrokeColor(context, 0.1, 0.1, 0.1, 1);//线条颜色
     //    CGContextMoveToPoint(context, 0, 0);

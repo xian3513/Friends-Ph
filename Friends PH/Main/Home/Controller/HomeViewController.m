@@ -48,6 +48,7 @@
      [self.MyNavigationController showCustomNavbarViewWithTitle:@"天气"];
     [self.MyNavigationController customNavbarAddRightbuttonTarget:self action:@selector(navRightButtonPress:) buttonType:CostomNavbarButtonTypeShare];
     [self http];
+    
 }
 
 - (void)navRightButtonPress:(UIButton *)sender {

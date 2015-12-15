@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    X_excelTextAlignmentLeft,
+    X_excelTextAlignmentCenter,
+    X_excelTextAlignmentRight
+}X_excelTextAlignment;
+
 @protocol X_DrawExcelViewDataSource;
 
 @interface X_IndexPath : NSObject
@@ -20,14 +26,16 @@
 
 @property(nonatomic) NSInteger rows;//列
 @property(nonatomic) NSInteger cols;//行
-@property(nonatomic,strong) UIFont *textFont;
-@property(nonatomic,strong) UIColor *textColor;
+@property(nonatomic,strong) UIFont *font;    // 13
+@property(nonatomic,strong) UIColor *textColor; //  black
+@property(nonatomic) X_excelTextAlignment textAlignment; // center
+@property(nonatomic,strong) UIColor *lineColor;
+@property(nonatomic,strong) UIColor *backgroundFillColor;
 @end
 
 @interface X_DrawExcelView : UIView
 
-@property(nonatomic,strong) UIColor *x_edgBackgroundColor;
-@property(nonatomic,strong) UIColor *x_edgBackgroundFillColor;
+
 
 @property(nonatomic,weak) id<X_DrawExcelViewDataSource> dataSource;
 
