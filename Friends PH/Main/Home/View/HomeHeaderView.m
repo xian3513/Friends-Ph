@@ -8,6 +8,8 @@
 
 #import "HomeHeaderView.h"
 #import "Masonry.h"
+
+#define view_pace 5
 @implementation HomeHeaderView {
 
     UIView *_currentMainView;
@@ -17,6 +19,8 @@
     UILabel *_updateTimeLab;
     UILabel *_condLab;
     UILabel *_temLab;
+    
+    UIButton *_showButton;
 }
 
 #pragma mark - set/get method
@@ -46,13 +50,13 @@
 - (void)viewLayout{
     
     //init
-    _currentMainView = [UIView new];
-    _hourlyView      = [UIView new];
-    _daysView        = [UIView new];
-    _updateTimeLab   = [UILabel new];
-    _condLab         = [UILabel new];
-    _temLab          = [UILabel new];
-    
+    _currentMainView   = [UIView new];
+    _hourlyView            = [UIView new];
+    _daysView              = [UIView new];
+    _updateTimeLab     = [UILabel new];
+    _condLab               = [UILabel new];
+    _temLab                 = [UILabel new];
+    _showButton          = [UIButton new];
     //_condLab.backgroundColor = [UIColor blackColor];
     //_temLab.backgroundColor = [UIColor blueColor];
    // _updateTimeLab.backgroundColor      = [UIColor yellowColor];
@@ -63,16 +67,19 @@
     _updateTimeLab.textColor    = [UIColor whiteColor];
     _temLab.textColor           = [UIColor whiteColor];
     
-    _temLab.font                = [UIFont fontWithName:@"Courier" size:90];
+    _temLab.font                    = [UIFont fontWithName:@"Courier" size:90];
     _updateTimeLab.font         = [UIFont systemFontOfSize:13];
+    
+    [_showButton setImage:[UIImage imageNamed:@"air_status_bg_white"] forState:UIControlStateNormal];
     [self addSubview:_daysView];
     [self addSubview:_hourlyView];
     [self addSubview:_currentMainView];
    
     [_currentMainView addSubview:_temLab];
     [_currentMainView addSubview:_condLab];
+      [_currentMainView addSubview:_showButton];
     [_currentMainView addSubview:_updateTimeLab];
-    
+  
     //layout view
     [_currentMainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.and.leading.and.trailing.equalTo(self);
@@ -101,6 +108,12 @@
         make.height.mas_equalTo(70);
     }];
    
+    [_showButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_updateTimeLab.mas_top);
+        make.leading.equalTo(_showButton.superview).offset(view_pace);
+        make.width.mas_equalTo(80);
+        make.height.mas_equalTo(30);
+    }];
 //    _updateTimeLab.text = @"ddd";
 //    _condLab.text = @"condlab";
 //    _temLab.text = @"temLab";

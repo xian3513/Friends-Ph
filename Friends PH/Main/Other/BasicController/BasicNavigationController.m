@@ -11,7 +11,7 @@
 #import "Masonry.h"
 
 #define navbar_title_fontSize 24
-#define navbar_button_width 44
+#define navbar_button_width 40
 #define navbar_button_pace 5
 
 #pragma mark - CostomNavbarView
@@ -24,37 +24,84 @@
     UILabel *_titleLab;
 }
 
-- (void)addRightButtonTarget:(id)target action:(SEL)action {
+- (void)addRightButtonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-        [self.rightView addSubview:button];
+    UIImage *buttonImage = nil;
+    switch (buttonType) {
+        case CostomNavbarButtonTypeShare:{
+            buttonImage = [UIImage imageNamed:@"right_button_share"];
+          break;
+        }
+        default:
+            break;
+    }
+    [button setImage:buttonImage forState:UIControlStateNormal];
+    [self.rightView addSubview:button];
         
         UIButton *lastButton = self.rightArray.lastObject;
         
         //如果是第一个button 让其跟其superview做 layout
-        if(!lastButton){
-            lastButton = (UIButton *)self.rightView;
-        }
         
         [button mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.equalTo(button.superview).offset(4);
-            make.trailing.equalTo(lastButton.mas_leading).offset(navbar_button_pace);
+            make.top.equalTo(button.superview).offset(navbar_button_pace);
+            make.bottom.equalTo(button.superview).offset(-navbar_button_pace);
+            if(!lastButton){
+                make.trailing.equalTo(self.rightView.mas_trailing).offset(-navbar_button_pace);
+            }else {
+                make.trailing.equalTo(lastButton.mas_leading).offset(-navbar_button_pace);
+            }
+          
             make.width.mas_equalTo(navbar_button_width);
         }];
         
-        
         [self.rightArray addObject:button];
-        
-        [self.rightView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(navbar_button_width*self.rightArray.count+navbar_button_pace*(self.rightArray.count-1));
-        }];
+    [self.rightView mas_updateConstraints:^(MASConstraintMaker *make) {
+          make.width.mas_equalTo((navbar_button_pace+navbar_button_width)*self.rightArray.count);
+    }];
 }
 
-- (void)addLeftButtonTarget:(id)target action:(SEL)action {
+- (void)addLeftButtonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType{
   
-   
-}
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    
+    [button setImage:[self imageForButtonType:buttonType] forState:UIControlStateNormal];
+    [self.leftView addSubview:button];
+    
+    UIButton *lastButton = self.leftArray.lastObject;
+    
+    //如果是第一个button 让其跟其superview做 layout
+    
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(button.superview).offset(navbar_button_pace);
+        make.bottom.equalTo(button.superview).offset(-navbar_button_pace);
+        if(!lastButton){
+            make.leading.equalTo(self.leftView.mas_leading).offset(-navbar_button_pace);
+        }else {
+            make.leading.equalTo(lastButton.mas_trailing).offset(-navbar_button_pace);
+        }
+        make.width.mas_equalTo(navbar_button_width);
+    }];
+    
+    [self.leftArray addObject:button];
+    [self.leftView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo((navbar_button_pace+navbar_button_width)*self.leftArray.count);
+    }];
 
+}
+- (UIImage *)imageForButtonType:(CostomNavbarButtonType)buttonType {
+    UIImage *buttonImage = nil;
+    switch (buttonType) {
+        case CostomNavbarButtonTypeShare:{
+            buttonImage = [UIImage imageNamed:@"right_button_share"];
+            break;
+        }
+        default:
+            break;
+    }
+    return buttonImage;
+}
 #pragma mark - lift cycle method
 - (instancetype)init
 {
@@ -75,9 +122,9 @@
     self.leftView           = [UIView new];
     self.rightView          = [UIView new];
     
-    self.contentView.backgroundColor = [UIColor yellowColor];
-    self.leftView.backgroundColor = [UIColor purpleColor];
-    self.rightView.backgroundColor = [UIColor blueColor];
+//    self.contentView.backgroundColor = [UIColor yellowColor];
+//    self.leftView.backgroundColor = [UIColor purpleColor];
+//    self.rightView.backgroundColor = [UIColor purpleColor];
     
     [self addSubview:self.contentView];
     [self addSubview:self.leftView];
@@ -94,13 +141,13 @@
     [self.leftView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView);
         make.leading.bottom.equalTo(self);
-        make.width.mas_equalTo(navbar_button_width);
+        make.width.mas_equalTo(navbar_button_width+navbar_button_pace);
     }];
     
     [self.rightView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.bottom.equalTo(self);
         make.top.equalTo(self.contentView);
-        make.width.mas_equalTo(navbar_button_width);
+        make.width.mas_equalTo(navbar_button_width+navbar_button_pace);
     }];
     
     //contentView
@@ -171,15 +218,15 @@
     return self.navbarView;
 }
 
-- (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action {
+- (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType{
     if(target && action) {
-      [self.navbarView addLeftButtonTarget:target action:action];
+      [self.navbarView addLeftButtonTarget:target action:action buttonType:buttonType];
     }
 }
 
-- (void)customNavbarAddRightbuttonTarget:(id)target action:(SEL)action {
+- (void)customNavbarAddRightbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType{
     if(target && action) {
-     [self.navbarView addRightButtonTarget:target action:action];
+     [self.navbarView addRightButtonTarget:target action:action buttonType:buttonType];
     }
 }
 

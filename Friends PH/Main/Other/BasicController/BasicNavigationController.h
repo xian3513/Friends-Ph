@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    CostomNavbarButtonTypeShare
+}CostomNavbarButtonType;
 @interface CostomNavbarView : UIView
 @property(nonatomic,strong) NSString *title;
 
@@ -15,16 +18,16 @@
 @property(nonatomic,strong) UIView *leftView;
 @property(nonatomic,strong) UIView *rightView;
 
-- (void)addRightButtonTarget:(id)target action:(SEL)action;
-- (void)addLeftButtonTarget:(id)target action:(SEL)action;
+- (void)addRightButtonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType;
+- (void)addLeftButtonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType;
 @end
 
 
 @interface BasicNavigationController : UINavigationController
 
 - (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title;
-- (void)customNavbarAddRightbuttonTarget:(id)target action:(SEL)action;
-- (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action;
+- (void)customNavbarAddRightbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType;
+- (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType;
 /**
  *  添加返回按钮
  */
