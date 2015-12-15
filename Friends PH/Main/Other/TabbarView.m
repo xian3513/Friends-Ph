@@ -160,7 +160,8 @@
 
 - (void)setItemTitle:(NSString *)itemTitle {
     
-    _titleLab.attributedText = [itemTitle getAttributedStringWithSubString:@"cos" range:NSMakeRange(0, itemTitle.length) fontSize:17];
+    
+    _titleLab.attributedText = [itemTitle getAttributedStringWithSubString:@"cos" range:NSMakeRange(itemTitle.length,@"cos".length+1) fontSize:13];
 }
 
 - (void)normal {

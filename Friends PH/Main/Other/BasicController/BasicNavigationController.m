@@ -205,6 +205,10 @@
      self.navigationBar.titleTextAttributes = @{UITextAttributeTextColor: [UIColor blackColor]};
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 #pragma mark - customNavbar
 - (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title {
     
@@ -327,13 +331,6 @@
     
     }
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 /*
 #pragma mark - Navigation
 

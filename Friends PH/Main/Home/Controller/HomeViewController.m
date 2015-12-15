@@ -55,18 +55,18 @@
 }
 
 - (void)http {
-    //    [HttpTool getForeignExchangeSuccess:^(id responseObject) {
-    //
-    //        NSDictionary *dict = @{
-    //                               @"fromCurrency":@"retData.fromCurrency",
-    //                               @"toCurrency":@"retData.toCurrency"
-    //                               };
-    //        _feModel = [self modelTransferWithData:responseObject model:_feModel replacedKeyName:dict];
-    //
-    //        NSLog(@"hahah  %@   %@",_feModel.fromCurrency,_feModel.toCurrency);
-    //    } failure:^(NSError *error) {
-    //
-    //    }];
+//        [HttpTool getForeignExchangeSuccess:^(id responseObject) {
+//    
+//            NSDictionary *dict = @{
+//                                   @"fromCurrency":@"retData.fromCurrency",
+//                                   @"toCurrency":@"retData.toCurrency"
+//                                   };
+//            _feModel = [FonExchangeModel modelTransferWithData:responseObject replacedKeyName:dict];
+//    
+//            NSLog(@"hahah  %@   %@",_feModel.fromCurrency,_feModel);
+//        } failure:^(NSError *error) {
+//    
+//        }];
     [HttpTool getWeatherSuccess:^(id responseObject) {
         
         NSError *error;

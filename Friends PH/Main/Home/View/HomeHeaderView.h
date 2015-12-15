@@ -6,7 +6,13 @@
 //  Copyright © 2015年 xian. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "X_DrawExcelView.h"
+
+@interface HomeExchangeView : X_DrawExcelView
+
+@property(nonatomic,copy) NSString *USDtoCNY;
+@property(nonatomic,copy) NSString *CNYtoPHP;
+@end
 
 @interface HomeHeaderView : UIView
 

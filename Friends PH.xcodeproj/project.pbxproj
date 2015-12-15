@@ -33,6 +33,8 @@
 		90AFB42E1C1AC4B100B70395 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4221C1AC4B100B70395 /* NSObject+MJProperty.m */; };
 		90AFB42F1C1AC4B100B70395 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4241C1AC4B100B70395 /* NSString+MJExtension.m */; };
 		90AFB4351C1ACC7000B70395 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4341C1ACC7000B70395 /* ForecastModel.m */; };
+		90B0668B1C1FEB5A00E8A464 /* ColorTransformRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B0668A1C1FEB5A00E8A464 /* ColorTransformRGB.m */; settings = {ASSET_TAGS = (); }; };
+		90B0668E1C1FF6DF00E8A464 /* X_DrawExcelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B0668D1C1FF6DF00E8A464 /* X_DrawExcelView.m */; settings = {ASSET_TAGS = (); }; };
 		90B379021C192C1300305870 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B379011C192C1300305870 /* HomeHeaderView.m */; };
 		90CC64F71C187B1000E4F454 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CC64F61C187B1000E4F454 /* MeViewController.m */; };
 		90CC64FD1C187DFE00E4F454 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CC64FC1C187DFE00E4F454 /* HomeViewController.m */; };
@@ -120,6 +122,10 @@
 		90AFB4241C1AC4B100B70395 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		90AFB4331C1ACC7000B70395 /* ForecastModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastModel.h; sourceTree = "<group>"; };
 		90AFB4341C1ACC7000B70395 /* ForecastModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastModel.m; sourceTree = "<group>"; };
+		90B066891C1FEB5A00E8A464 /* ColorTransformRGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTransformRGB.h; sourceTree = "<group>"; };
+		90B0668A1C1FEB5A00E8A464 /* ColorTransformRGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTransformRGB.m; sourceTree = "<group>"; };
+		90B0668C1C1FF6DF00E8A464 /* X_DrawExcelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X_DrawExcelView.h; sourceTree = "<group>"; };
+		90B0668D1C1FF6DF00E8A464 /* X_DrawExcelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X_DrawExcelView.m; sourceTree = "<group>"; };
 		90B379001C192C1300305870 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		90B379011C192C1300305870 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
 		90CC64F51C187B1000E4F454 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
@@ -489,6 +495,10 @@
 			children = (
 				90AFB3FA1C1A83D000B70395 /* HttpTool.h */,
 				90AFB3FB1C1A83D000B70395 /* HttpTool.m */,
+				90B066891C1FEB5A00E8A464 /* ColorTransformRGB.h */,
+				90B0668A1C1FEB5A00E8A464 /* ColorTransformRGB.m */,
+				90B0668C1C1FF6DF00E8A464 /* X_DrawExcelView.h */,
+				90B0668D1C1FF6DF00E8A464 /* X_DrawExcelView.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -627,12 +637,14 @@
 				90E0C7611C16D87C003B41A2 /* BasicTabBarViewController.m in Sources */,
 				90AFB42B1C1AC4B100B70395 /* NSObject+MJClass.m in Sources */,
 				90AFB4031C1AAB4B00B70395 /* BasicModel.m in Sources */,
+				90B0668E1C1FF6DF00E8A464 /* X_DrawExcelView.m in Sources */,
 				90AFB42E1C1AC4B100B70395 /* NSObject+MJProperty.m in Sources */,
 				90AED0601C17CA8900D10D40 /* ViewController+MASAdditions.m in Sources */,
 				90E0C71C1C16D2EE003B41A2 /* main.m in Sources */,
 				90CC64FD1C187DFE00E4F454 /* HomeViewController.m in Sources */,
 				90E0C76B1C16D8A1003B41A2 /* Reachability.m in Sources */,
 				90AFB42F1C1AC4B100B70395 /* NSString+MJExtension.m in Sources */,
+				90B0668B1C1FEB5A00E8A464 /* ColorTransformRGB.m in Sources */,
 				90AFB4261C1AC4B100B70395 /* MJExtensionConst.m in Sources */,
 				90E0C7601C16D87C003B41A2 /* BasicNavigationController.m in Sources */,
 				90AFB4251C1AC4B100B70395 /* MJDictionaryCache.m in Sources */,
