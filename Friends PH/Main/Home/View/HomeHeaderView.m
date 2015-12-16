@@ -49,20 +49,22 @@
 }
 
 - (void)setTemperature:(NSString *)temperature {
-    long number = 0.5f;
-    //        long number = self.characterSpacing;
-    //    long number = stringCharacterSpacing;
-    NSMutableAttributedString *attribuedString = [[NSMutableAttributedString alloc]initWithString:temperature];
-    CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
-    [attribuedString addAttribute:(id)kCTKernAttributeName value:(__bridge id)num range:NSMakeRange(0,[temperature length])];
-    CFRelease(num);
-    _temLab.attributedText = attribuedString;
+    if(temperature){
+        long number = 0.5f;
+        //        long number = self.characterSpacing;
+        //    long number = stringCharacterSpacing;
+        NSMutableAttributedString *attribuedString = [[NSMutableAttributedString alloc]initWithString:temperature];
+        CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
+        [attribuedString addAttribute:(id)kCTKernAttributeName value:(__bridge id)num range:NSMakeRange(0,[temperature length])];
+        CFRelease(num);
+        _temLab.attributedText = attribuedString;
+    }
 }
 
 #pragma mark - lift cycle method
 - (instancetype)init {
     if(self = [super init]) {
-        self.frame = CGRectMake(0, 0, 320, 650);
+        self.frame = CGRectMake(0, 0, 320, 550);
         self.backgroundColor = [UIColor clearColor];
         
         [self viewLayout];
@@ -89,7 +91,7 @@
     X_DrawExcelLayout *layout = [[X_DrawExcelLayout alloc]init];
     layout.cols = 4;
     layout.rows = 2;
-    layout.lineColor = [UIColor grayColor];
+    //layout.lineColor = [UIColor grayColor];
     layout.textColor = [UIColor whiteColor];
    
     _currentMain_ExchangeView = [[HomeExchangeView alloc]initWithlayout:layout];
@@ -101,7 +103,7 @@
     _temLab.textColor           = [UIColor whiteColor];
     
     _temLab.font                    = [UIFont fontWithName:@"Courier" size:90];
-    _updateTimeLab.font         = [UIFont systemFontOfSize:13];
+    _updateTimeLab.font         = [UIFont systemFontOfSize:12];
     
     [_showButton setImage:[UIImage imageNamed:@"air_status_bg_white"] forState:UIControlStateNormal];
     [self addSubview:_daysView];
@@ -114,6 +116,11 @@
     [_currentMainView addSubview:_updateTimeLab];
    // [_currentMainView addSubview:_currentMain_ExchangeView];
   
+    UILabel *cond_tmpLab = [[UILabel alloc]init];
+    cond_tmpLab.textColor = [UIColor whiteColor];
+    cond_tmpLab.font = [UIFont boldSystemFontOfSize:18];
+    cond_tmpLab.text = @"○";
+    [_currentMainView addSubview:cond_tmpLab];
     //layout view
     [_currentMainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.and.leading.and.trailing.equalTo(self);
@@ -136,6 +143,10 @@
         make.width.mas_equalTo(_temLab.mas_width);
         make.bottom.equalTo(_temLab.mas_top).offset(-view_pace);
     }];
+    [cond_tmpLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_temLab).offset(-10);
+        make.leading.equalTo(_temLab.mas_trailing);
+    }];
     [_temLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(_temLab.superview).offset(view_pace);
         make.bottom.equalTo(_temLab.superview.mas_bottom);
@@ -155,12 +166,12 @@
     [_currentMainView addSubview:effectview];
     effectview.layer.cornerRadius = 8;
     effectview.layer.masksToBounds = YES;
-        [effectview addSubview:_currentMain_ExchangeView];
+    [effectview addSubview:_currentMain_ExchangeView];
     [effectview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(effectview.superview);
         make.trailing.equalTo(effectview.superview).offset(-view_pace);
-        make.width.mas_equalTo(effectview.superview.mas_width).multipliedBy(0.37);
-        make.height.mas_equalTo(120);
+        make.width.mas_equalTo(effectview.superview.mas_width).multipliedBy(0.30);
+        make.height.mas_equalTo(90);
     }];
    
     [_currentMain_ExchangeView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -29,7 +29,7 @@
     
     //NSLog(@"%f",cs);
     //此方法 在实际使用时 发现  [UIColor blackColor] 返回的是 0100 (暂定为系统bug)
-    if(cs[0]==0 && cs[1]==1 && cs[2]==0 && cs[3]==0) {
+    if(cs[0]==0.000000 && cs[1]==1.000000 && cs[2]==0.000000 && cs[3]==0.000000) {
         self.R = 0;
         self.G = 0;
         self.B = 0;
@@ -40,7 +40,7 @@
         self.B = cs[2];
         self.A = cs[3];
     }
-   
+    NSLog(@"RGB:%f %f %f %f",cs[0],cs[1],cs[2],cs[3]);
    // NSLog(@"%f,%f,%f,%f",cs[0],cs[1],cs[2],cs[3]);
     
 

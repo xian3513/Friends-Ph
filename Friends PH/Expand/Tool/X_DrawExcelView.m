@@ -60,16 +60,34 @@
 /**
  *  绘制数据
  */
-
+-  (int)convertToInt:(NSString*)strtemp {
+    
+    int strlength = 0;
+    char* p = (char*)[strtemp cStringUsingEncoding:NSUnicodeStringEncoding];
+    for (int i=0 ; i<[strtemp lengthOfBytesUsingEncoding:NSUnicodeStringEncoding] ;i++) {
+        if (*p) {
+            p++;
+            strlength++;
+        }
+        else {
+            p++;
+        }
+    }
+    NSLog(@"strlengTh:%d",(strlength+1)/2);
+    return (strlength+1)/2;
+    
+}
 - (void)drawStringInExcelWithContext:(CGContextRef)context string:(NSString *)string atIndexPath:(X_IndexPath *)indexPath{
    
     CGContextSetLineWidth(context, 1.0);
     CGContextSetRGBFillColor (context, 0.5, 0.5, 0.5, 0.5);
     
     //可以设置 text显示位置
+    //得到字体长度
+    CGSize size = [string sizeWithAttributes:@{NSFontAttributeName: self.layout.font, NSForegroundColorAttributeName:self.layout.textColor}];
     CGRect rect = CGRectZero;
-    rect.origin.x = _cellWidth*indexPath.row;
-    rect.origin.y = _cellHeight*indexPath.col;
+    rect.origin.x = _cellWidth*indexPath.row + ((_cellWidth-size.width)/2);
+    rect.origin.y = _cellHeight*indexPath.col + ((_cellHeight-size.height)/2);
     rect.size.width = _cellWidth;
     rect.size.height = _cellHeight;
     
@@ -82,10 +100,10 @@
 - (void)drawRectangleWithContext:(CGContextRef)context {
     
     // 绘制底盘
-    UIColor *color = self.layout.backgroundFillColor;
-    if(color) {
+    UIColor *cor = self.layout.backgroundFillColor;
+    if(cor) {
         //设置矩形边框的填充色
-        CGContextSetRGBFillColor(context, T_RGB(color).R, T_RGB(color).G, T_RGB(color).B, T_RGB(color).A);
+        CGContextSetRGBFillColor(context, T_RGB(cor).R, T_RGB(cor).G, T_RGB(cor).B, T_RGB(cor).A);
         CGContextFillRect(context, self.bounds);
         CGContextStrokePath(context);
         
@@ -93,7 +111,7 @@
     
     //绘制矩形边框    绘制 row col
 
-    color = self.layout.lineColor;
+  UIColor *color = self.layout.lineColor;
     CGContextSetRGBStrokeColor(context, T_RGB(color).R, T_RGB(color).G, T_RGB(color).B, T_RGB(color).A);//线条颜色
     CGContextSetLineWidth(context, defaultLineWidth);
     CGContextAddRect(context, self.bounds);

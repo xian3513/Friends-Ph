@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9007BC2B1C1EB70100F23979 /* SceneryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007BC2A1C1EB70100F23979 /* SceneryViewController.m */; settings = {ASSET_TAGS = (); }; };
+		9007BC2B1C1EB70100F23979 /* SceneryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007BC2A1C1EB70100F23979 /* SceneryViewController.m */; };
 		9025BCF31C1AF3DE002CE5D5 /* NSObject+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 9025BCF21C1AF3DE002CE5D5 /* NSObject+Method.m */; };
 		90AED0571C17CA8900D10D40 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AED03F1C17CA8900D10D40 /* MASCompositeConstraint.m */; };
 		90AED0581C17CA8900D10D40 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AED0411C17CA8900D10D40 /* MASConstraint.m */; };
@@ -33,10 +33,9 @@
 		90AFB42E1C1AC4B100B70395 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4221C1AC4B100B70395 /* NSObject+MJProperty.m */; };
 		90AFB42F1C1AC4B100B70395 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4241C1AC4B100B70395 /* NSString+MJExtension.m */; };
 		90AFB4351C1ACC7000B70395 /* ForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AFB4341C1ACC7000B70395 /* ForecastModel.m */; };
-		90B0668B1C1FEB5A00E8A464 /* ColorTransformRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B0668A1C1FEB5A00E8A464 /* ColorTransformRGB.m */; settings = {ASSET_TAGS = (); }; };
-		90B0668E1C1FF6DF00E8A464 /* X_DrawExcelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B0668D1C1FF6DF00E8A464 /* X_DrawExcelView.m */; settings = {ASSET_TAGS = (); }; };
+		90B0668B1C1FEB5A00E8A464 /* ColorTransformRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B0668A1C1FEB5A00E8A464 /* ColorTransformRGB.m */; };
+		90B0668E1C1FF6DF00E8A464 /* X_DrawExcelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B0668D1C1FF6DF00E8A464 /* X_DrawExcelView.m */; };
 		90B379021C192C1300305870 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B379011C192C1300305870 /* HomeHeaderView.m */; };
-		90CC64F71C187B1000E4F454 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CC64F61C187B1000E4F454 /* MeViewController.m */; };
 		90CC64FD1C187DFE00E4F454 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CC64FC1C187DFE00E4F454 /* HomeViewController.m */; };
 		90E0C71C1C16D2EE003B41A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C71B1C16D2EE003B41A2 /* main.m */; };
 		90E0C71F1C16D2EE003B41A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C71E1C16D2EE003B41A2 /* AppDelegate.m */; };
@@ -60,7 +59,9 @@
 		90E0C7861C16D8AC003B41A2 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C77C1C16D8AC003B41A2 /* AFURLResponseSerialization.m */; };
 		90E0C7871C16D8AC003B41A2 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C77E1C16D8AC003B41A2 /* AFURLSessionManager.m */; };
 		90E0C78A1C16DE65003B41A2 /* TabbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C7891C16DE65003B41A2 /* TabbarView.m */; };
-		90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */; settings = {ASSET_TAGS = (); }; };
+		90E54A711C2170F9008B1B42 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E54A6E1C2170F9008B1B42 /* MeViewController.m */; };
+		90E54A741C21712C008B1B42 /* LoginHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E54A731C21712C008B1B42 /* LoginHeaderView.m */; };
+		90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,8 +129,6 @@
 		90B0668D1C1FF6DF00E8A464 /* X_DrawExcelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X_DrawExcelView.m; sourceTree = "<group>"; };
 		90B379001C192C1300305870 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		90B379011C192C1300305870 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
-		90CC64F51C187B1000E4F454 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
-		90CC64F61C187B1000E4F454 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		90CC64FB1C187DFE00E4F454 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		90CC64FC1C187DFE00E4F454 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		90E0C7171C16D2EE003B41A2 /* Friends PH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friends PH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +179,10 @@
 		90E0C77E1C16D8AC003B41A2 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		90E0C7881C16DE65003B41A2 /* TabbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarView.h; sourceTree = "<group>"; };
 		90E0C7891C16DE65003B41A2 /* TabbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarView.m; sourceTree = "<group>"; };
+		90E54A6D1C2170F9008B1B42 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		90E54A6E1C2170F9008B1B42 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		90E54A721C21712C008B1B42 /* LoginHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginHeaderView.h; sourceTree = "<group>"; };
+		90E54A731C21712C008B1B42 /* LoginHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginHeaderView.m; sourceTree = "<group>"; };
 		90FCA7391C1C2138001751C8 /* FonExchangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FonExchangeModel.h; sourceTree = "<group>"; };
 		90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FonExchangeModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -308,8 +311,9 @@
 		90CC64F11C187AE100E4F454 /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				90CC64F51C187B1000E4F454 /* MeViewController.h */,
-				90CC64F61C187B1000E4F454 /* MeViewController.m */,
+				90E54A6C1C2170F9008B1B42 /* Controller */,
+				90E54A6F1C2170F9008B1B42 /* Model */,
+				90E54A701C2170F9008B1B42 /* View */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -527,6 +531,31 @@
 			path = BasicController;
 			sourceTree = "<group>";
 		};
+		90E54A6C1C2170F9008B1B42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				90E54A6D1C2170F9008B1B42 /* MeViewController.h */,
+				90E54A6E1C2170F9008B1B42 /* MeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		90E54A6F1C2170F9008B1B42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		90E54A701C2170F9008B1B42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90E54A721C21712C008B1B42 /* LoginHeaderView.h */,
+				90E54A731C21712C008B1B42 /* LoginHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -597,7 +626,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90CC64F71C187B1000E4F454 /* MeViewController.m in Sources */,
 				90E0C7831C16D8AC003B41A2 /* AFSecurityPolicy.m in Sources */,
 				90E0C7671C16D88B003B41A2 /* NSString+Method.m in Sources */,
 				90AED05D1C17CA8900D10D40 /* NSArray+MASAdditions.m in Sources */,
@@ -619,6 +647,7 @@
 				90AFB4351C1ACC7000B70395 /* ForecastModel.m in Sources */,
 				90AED0591C17CA8900D10D40 /* MASConstraintMaker.m in Sources */,
 				90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */,
+				90E54A711C2170F9008B1B42 /* MeViewController.m in Sources */,
 				90E0C7811C16D8AC003B41A2 /* AFHTTPSessionManager.m in Sources */,
 				90E0C7851C16D8AC003B41A2 /* AFURLRequestSerialization.m in Sources */,
 				90AED05A1C17CA8900D10D40 /* MASLayoutConstraint.m in Sources */,
@@ -642,6 +671,7 @@
 				90AED0601C17CA8900D10D40 /* ViewController+MASAdditions.m in Sources */,
 				90E0C71C1C16D2EE003B41A2 /* main.m in Sources */,
 				90CC64FD1C187DFE00E4F454 /* HomeViewController.m in Sources */,
+				90E54A741C21712C008B1B42 /* LoginHeaderView.m in Sources */,
 				90E0C76B1C16D8A1003B41A2 /* Reachability.m in Sources */,
 				90AFB42F1C1AC4B100B70395 /* NSString+MJExtension.m in Sources */,
 				90B0668B1C1FEB5A00E8A464 /* ColorTransformRGB.m in Sources */,

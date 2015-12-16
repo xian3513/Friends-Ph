@@ -1,13 +1,13 @@
 //
-//  MeViewController.h
+//  LoginHeaderView.h
 //  Friends PH
 //
-//  Created by xian on 15/12/9.
+//  Created by xian on 15/12/16.
 //  Copyright © 2015年 xian. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface MeViewController : UIViewController
+@interface LoginHeaderView : UIView
 
 @end
