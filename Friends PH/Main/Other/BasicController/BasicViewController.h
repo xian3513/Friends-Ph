@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CommonMacros.h"
 
 @interface BasicViewController : UIViewController
 

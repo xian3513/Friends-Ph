@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9007BC2B1C1EB70100F23979 /* SceneryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007BC2A1C1EB70100F23979 /* SceneryViewController.m */; };
 		9025BCF31C1AF3DE002CE5D5 /* NSObject+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 9025BCF21C1AF3DE002CE5D5 /* NSObject+Method.m */; };
+		908007B51C218ECD00557DF5 /* car@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 908007B41C218ECD00557DF5 /* car@2x.png */; };
+		908007B81C2195F200557DF5 /* Home_Job_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908007B71C2195F200557DF5 /* Home_Job_TableViewCell.m */; };
+		908007BB1C21A63B00557DF5 /* JobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908007BA1C21A63B00557DF5 /* JobViewController.m */; };
+		908007BE1C21A6A800557DF5 /* RentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908007BD1C21A6A800557DF5 /* RentViewController.m */; };
 		90AED0571C17CA8900D10D40 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AED03F1C17CA8900D10D40 /* MASCompositeConstraint.m */; };
 		90AED0581C17CA8900D10D40 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AED0411C17CA8900D10D40 /* MASConstraint.m */; };
 		90AED0591C17CA8900D10D40 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 90AED0441C17CA8900D10D40 /* MASConstraintMaker.m */; };
@@ -60,7 +64,6 @@
 		90E0C7871C16D8AC003B41A2 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C77E1C16D8AC003B41A2 /* AFURLSessionManager.m */; };
 		90E0C78A1C16DE65003B41A2 /* TabbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C7891C16DE65003B41A2 /* TabbarView.m */; };
 		90E54A711C2170F9008B1B42 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E54A6E1C2170F9008B1B42 /* MeViewController.m */; };
-		90E54A741C21712C008B1B42 /* LoginHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E54A731C21712C008B1B42 /* LoginHeaderView.m */; };
 		90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +72,13 @@
 		9007BC2A1C1EB70100F23979 /* SceneryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneryViewController.m; sourceTree = "<group>"; };
 		9025BCF11C1AF3DE002CE5D5 /* NSObject+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Method.h"; sourceTree = "<group>"; };
 		9025BCF21C1AF3DE002CE5D5 /* NSObject+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Method.m"; sourceTree = "<group>"; };
+		908007B41C218ECD00557DF5 /* car@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car@2x.png"; sourceTree = "<group>"; };
+		908007B61C2195F200557DF5 /* Home_Job_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Home_Job_TableViewCell.h; sourceTree = "<group>"; };
+		908007B71C2195F200557DF5 /* Home_Job_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Home_Job_TableViewCell.m; sourceTree = "<group>"; };
+		908007B91C21A63B00557DF5 /* JobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobViewController.h; sourceTree = "<group>"; };
+		908007BA1C21A63B00557DF5 /* JobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobViewController.m; sourceTree = "<group>"; };
+		908007BC1C21A6A800557DF5 /* RentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentViewController.h; sourceTree = "<group>"; };
+		908007BD1C21A6A800557DF5 /* RentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentViewController.m; sourceTree = "<group>"; };
 		90AED03E1C17CA8900D10D40 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		90AED03F1C17CA8900D10D40 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		90AED0401C17CA8900D10D40 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
@@ -181,8 +191,6 @@
 		90E0C7891C16DE65003B41A2 /* TabbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarView.m; sourceTree = "<group>"; };
 		90E54A6D1C2170F9008B1B42 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		90E54A6E1C2170F9008B1B42 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
-		90E54A721C21712C008B1B42 /* LoginHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginHeaderView.h; sourceTree = "<group>"; };
-		90E54A731C21712C008B1B42 /* LoginHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginHeaderView.m; sourceTree = "<group>"; };
 		90FCA7391C1C2138001751C8 /* FonExchangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FonExchangeModel.h; sourceTree = "<group>"; };
 		90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FonExchangeModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -294,6 +302,8 @@
 			children = (
 				90B379001C192C1300305870 /* HomeHeaderView.h */,
 				90B379011C192C1300305870 /* HomeHeaderView.m */,
+				908007B61C2195F200557DF5 /* Home_Job_TableViewCell.h */,
+				908007B71C2195F200557DF5 /* Home_Job_TableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,6 +333,10 @@
 			children = (
 				90CC64FB1C187DFE00E4F454 /* HomeViewController.h */,
 				90CC64FC1C187DFE00E4F454 /* HomeViewController.m */,
+				908007B91C21A63B00557DF5 /* JobViewController.h */,
+				908007BA1C21A63B00557DF5 /* JobViewController.m */,
+				908007BC1C21A6A800557DF5 /* RentViewController.h */,
+				908007BD1C21A6A800557DF5 /* RentViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -534,6 +548,7 @@
 		90E54A6C1C2170F9008B1B42 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				908007B41C218ECD00557DF5 /* car@2x.png */,
 				90E54A6D1C2170F9008B1B42 /* MeViewController.h */,
 				90E54A6E1C2170F9008B1B42 /* MeViewController.m */,
 			);
@@ -550,8 +565,6 @@
 		90E54A701C2170F9008B1B42 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				90E54A721C21712C008B1B42 /* LoginHeaderView.h */,
-				90E54A731C21712C008B1B42 /* LoginHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -614,6 +627,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90E0C72A1C16D2EF003B41A2 /* LaunchScreen.storyboard in Resources */,
+				908007B51C218ECD00557DF5 /* car@2x.png in Resources */,
 				90E0C7271C16D2EF003B41A2 /* Assets.xcassets in Resources */,
 				90E0C7251C16D2EE003B41A2 /* Main.storyboard in Resources */,
 			);
@@ -637,6 +651,7 @@
 				90AED0571C17CA8900D10D40 /* MASCompositeConstraint.m in Sources */,
 				90AED05B1C17CA8900D10D40 /* MASViewAttribute.m in Sources */,
 				90AFB3FC1C1A83D000B70395 /* HttpTool.m in Sources */,
+				908007BB1C21A63B00557DF5 /* JobViewController.m in Sources */,
 				9007BC2B1C1EB70100F23979 /* SceneryViewController.m in Sources */,
 				90AED0581C17CA8900D10D40 /* MASConstraint.m in Sources */,
 				90E0C7841C16D8AC003B41A2 /* AFURLConnectionOperation.m in Sources */,
@@ -644,6 +659,7 @@
 				90E0C77F1C16D8AC003B41A2 /* AFHTTPRequestOperation.m in Sources */,
 				9025BCF31C1AF3DE002CE5D5 /* NSObject+Method.m in Sources */,
 				90AED05E1C17CA8900D10D40 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				908007BE1C21A6A800557DF5 /* RentViewController.m in Sources */,
 				90AFB4351C1ACC7000B70395 /* ForecastModel.m in Sources */,
 				90AED0591C17CA8900D10D40 /* MASConstraintMaker.m in Sources */,
 				90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */,
@@ -670,8 +686,8 @@
 				90AFB42E1C1AC4B100B70395 /* NSObject+MJProperty.m in Sources */,
 				90AED0601C17CA8900D10D40 /* ViewController+MASAdditions.m in Sources */,
 				90E0C71C1C16D2EE003B41A2 /* main.m in Sources */,
+				908007B81C2195F200557DF5 /* Home_Job_TableViewCell.m in Sources */,
 				90CC64FD1C187DFE00E4F454 /* HomeViewController.m in Sources */,
-				90E54A741C21712C008B1B42 /* LoginHeaderView.m in Sources */,
 				90E0C76B1C16D8A1003B41A2 /* Reachability.m in Sources */,
 				90AFB42F1C1AC4B100B70395 /* NSString+MJExtension.m in Sources */,
 				90B0668B1C1FEB5A00E8A464 /* ColorTransformRGB.m in Sources */,

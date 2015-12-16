@@ -14,6 +14,8 @@
 #import "NSObject+Method.h"
 #import "ForecastModel.h"
 #import "FonExchangeModel.h"
+#import "Home_Job_TableViewCell.h"
+#import "JobViewController.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tabView;
 
@@ -69,30 +71,25 @@
 //    
 //        }];
     [HttpTool getWeatherSuccess:^(id responseObject) {
-        
-        NSError *error;
-        id resObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
-        //  NSLog(@"responseObject:%@",resObject);
-        
-        NSArray *arr = [resObject objectForKey:@"HeWeather data service 3.0"];
-        //NSLog(@"weather:%@",[arr objectAtIndex:0]);
-        NSDictionary *replaceKey = @{
-                                     @"now_cond_txt":@"now.cond.txt",
-                                     @"basic_update_loc":@"basic.update.loc",
+
+        NSString *key = @"HeWeather data service 3.0";
+        if([[responseObject allKeys] containsObject:key]){
+            NSArray *arr = [responseObject objectForKey:key];
+            NSDictionary *replaceKey = @{
+                                         @"now_cond_txt":@"now.cond.txt",
+                                         @"basic_update_loc":@"basic.update.loc",
+                                         };
+            NSDictionary *object = @{
+                                     @"daily_forecast" : @"Daily_forecast",//  @“arrayName”：@“className”  如  @"ads" : [Ad class]
+                                     @"hourly_forecast":@"Hourly_forecast",
                                      };
-        NSDictionary *object = @{
-                                 @"daily_forecast" : @"Daily_forecast",//  @“arrayName”：@“className”  如  @"ads" : [Ad class]
-                                 @"hourly_forecast":@"Hourly_forecast",
-                                 };
-        _model = [ForecastModel modelTransferWithData:[arr objectAtIndex:0] replacedKeyName:replaceKey objectInArray:object];
+            _model = [ForecastModel modelTransferWithData:[arr objectAtIndex:0] replacedKeyName:replaceKey objectInArray:object];
+            [self viewUpdateData:_model];
+        }
        
-//        NSLog(@"daily_forecast:%@, now:%@ status:%@",_model.daily_forecast,_model.now_cond_txt,_model.basic_update_loc);
-        [self viewUpdateData:_model];
     } failure:^(NSError *error) {
         
     }];
-
-   
 }
 
 - (void)viewUpdateData:(ForecastModel *)model {
@@ -116,20 +113,40 @@
 }
 
 #pragma mark - tableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return TABBAR_HEIGHT;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *footView = [UIView new];
+    footView.backgroundColor = [UIColor clearColor];
+//    UILabel *logLab = [UILabel new];
+//    logLab.textAlignment = NSTextAlignmentCenter;
+//    logLab.text = @"贤思出品";
+//    logLab.textColor = [UIColor whiteColor];
+    return footView;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 40;
+    return 80;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 120;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    static NSString *cellIdentifier = @"Home_Job_cell";
+    Home_Job_TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.text= @"aaa";
+    cell.nameLab.text = @"PHP开发";
+    cell.addressLab.text = @"makati city";
+    cell.treatmentLab.text = @"20000 ~ 30000";
+    cell.updateTimeLab.text = @"2015-12-16";
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    JobViewController *job = [[JobViewController alloc]init];
+    [self.navigationController pushViewController:job animated:YES];
 }
 /*
 #pragma mark - Navigation

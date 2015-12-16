@@ -14,7 +14,7 @@
 
 #define item_fontSize 17
 #define item_SelectedTextColor  [UIColor whiteColor]
-#define item_UnselectedTextColor  [UIColor grayColor]
+#define item_UnselectedTextColor  [UIColor lightGrayColor]
 
 
 #pragma mark - TabbarView

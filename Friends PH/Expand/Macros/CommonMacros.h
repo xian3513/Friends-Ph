@@ -8,6 +8,7 @@
 
 
 //CommonMacros.h
+#import "UIView+Frame.h"
 #import "ColorTransformRGB.h"
 
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
@@ -16,6 +17,7 @@
 
 #define TABBAR_HEIGHT self.tabBarController.tabBar.frame.size.height
 
+#define NAVBAR_HEIGHT 64
 #define CONTENT_HEIGHT (SCREEN_HEIGHT - 44 - 20 - TABBAR_HEIGHT)
 
 //Log utils marco

@@ -91,8 +91,8 @@
     X_DrawExcelLayout *layout = [[X_DrawExcelLayout alloc]init];
     layout.cols = 4;
     layout.rows = 2;
-    //layout.lineColor = [UIColor grayColor];
-    layout.textColor = [UIColor whiteColor];
+    layout.lineColor = [UIColor clearColor];
+    layout.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.6];
    
     _currentMain_ExchangeView = [[HomeExchangeView alloc]initWithlayout:layout];
     _currentMain_ExchangeView.backgroundColor = [UIColor clearColor];
@@ -170,8 +170,8 @@
     [effectview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(effectview.superview);
         make.trailing.equalTo(effectview.superview).offset(-view_pace);
-        make.width.mas_equalTo(effectview.superview.mas_width).multipliedBy(0.30);
-        make.height.mas_equalTo(90);
+        make.width.mas_equalTo(effectview.superview.mas_width).multipliedBy(0.28);
+        make.height.mas_equalTo(80);
     }];
    
     [_currentMain_ExchangeView mas_makeConstraints:^(MASConstraintMaker *make) {

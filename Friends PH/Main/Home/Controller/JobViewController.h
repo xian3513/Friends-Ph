@@ -1,5 +1,5 @@
 //
-//  LoginHeaderView.h
+//  JobViewController.h
 //  Friends PH
 //
 //  Created by xian on 15/12/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginHeaderView : UIView
+@interface JobViewController : UIViewController
 
 @end

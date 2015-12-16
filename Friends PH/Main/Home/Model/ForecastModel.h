@@ -6,7 +6,7 @@
 //  Copyright © 2015年 xian. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BasicModel.h"
 
 @interface Basic : NSObject
 
@@ -39,7 +39,7 @@
 @property(nonatomic,copy) NSString *fl;
 
 @end
-@interface ForecastModel : NSObject
+@interface ForecastModel : BasicModel
 
 @property(nonatomic,strong) NSArray *daily_forecast;
 @property(nonatomic,strong) NSArray *hourly_forecast;

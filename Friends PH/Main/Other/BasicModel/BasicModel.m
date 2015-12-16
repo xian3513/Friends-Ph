@@ -9,5 +9,13 @@
 #import "BasicModel.h"
 #import "MJExtension.h"
 @implementation BasicModel
-
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.replaceKey = [NSDictionary new];
+        self.objectInArray = [NSDictionary new];
+    }
+    return self;
+}
 @end

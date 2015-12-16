@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface BasicModel : NSObject
-
+@property(nonatomic,strong) NSDictionary *replaceKey;
+@property(nonatomic,strong) NSDictionary *objectInArray;
 @end

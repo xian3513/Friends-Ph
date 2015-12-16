@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MeViewController : UIViewController
-
+@property(nonatomic,strong) UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UITableView *tabView;
 @end
