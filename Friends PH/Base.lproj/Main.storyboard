@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aKu-w2-BkA">
-                                <rect key="frame" x="4" y="20" width="592" height="531"/>
+                                <rect key="frame" x="4" y="0.0" width="592" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MeCell" id="0QU-oh-aPR">
@@ -106,7 +106,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tdl-3V-rQV" firstAttribute="top" secondItem="aKu-w2-BkA" secondAttribute="bottom" id="YvA-C5-Oxf"/>
-                            <constraint firstItem="aKu-w2-BkA" firstAttribute="top" secondItem="IAl-Yh-SnP" secondAttribute="bottom" id="feO-6b-mo0"/>
+                            <constraint firstItem="aKu-w2-BkA" firstAttribute="top" secondItem="IAl-Yh-SnP" secondAttribute="bottom" constant="-20" id="feO-6b-mo0"/>
                             <constraint firstItem="aKu-w2-BkA" firstAttribute="leading" secondItem="GD0-FG-YbH" secondAttribute="leadingMargin" constant="-16" id="fpI-ly-cus"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aKu-w2-BkA" secondAttribute="trailing" constant="-16" id="s6X-pf-hZm"/>
                         </constraints>

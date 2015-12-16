@@ -7,17 +7,21 @@
 //
 
 #import "MeViewController.h"
+#import "LoginHeaderView.h"
 
 @interface MeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
-@implementation MeViewController
+@implementation MeViewController {
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我";
-    // Do any additional setup after loading the view.
+    LoginHeaderView *headerView = [[LoginHeaderView alloc]initWithFrame:CGRectMake(0, 0, self.tabView.bounds.size.width, 100)];
+    self.tabView.tableHeaderView = headerView;
 }
 
 - (void)didReceiveMemoryWarning {
