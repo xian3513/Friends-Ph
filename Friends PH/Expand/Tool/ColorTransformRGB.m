@@ -40,7 +40,7 @@
         self.B = cs[2];
         self.A = cs[3];
     }
-    NSLog(@"RGB:%f %f %f %f",cs[0],cs[1],cs[2],cs[3]);
+   // NSLog(@"RGB:%f %f %f %f",cs[0],cs[1],cs[2],cs[3]);
    // NSLog(@"%f,%f,%f,%f",cs[0],cs[1],cs[2],cs[3]);
     
 

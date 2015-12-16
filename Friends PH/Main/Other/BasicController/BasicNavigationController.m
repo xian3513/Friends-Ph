@@ -219,6 +219,7 @@
     [self.view addSubview:self.navbarView];
     self.navbarView.title = title;
     self.navigationBar.hidden = YES;
+    NSLog(@"presented:%@",self.viewControllers);
     return self.navbarView;
 }
 

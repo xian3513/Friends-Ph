@@ -73,8 +73,10 @@
     [HttpTool getWeatherSuccess:^(id responseObject) {
 
         NSString *key = @"HeWeather data service 3.0";
-        if([[responseObject allKeys] containsObject:key]){
-            NSArray *arr = [responseObject objectForKey:key];
+        NSError *error;
+        id resObject = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:&error];
+            NSArray *arr = [resObject objectForKey:key];
+        if(arr){
             NSDictionary *replaceKey = @{
                                          @"now_cond_txt":@"now.cond.txt",
                                          @"basic_update_loc":@"basic.update.loc",
@@ -86,10 +88,10 @@
             _model = [ForecastModel modelTransferWithData:[arr objectAtIndex:0] replacedKeyName:replaceKey objectInArray:object];
             [self viewUpdateData:_model];
         }
-       
     } failure:^(NSError *error) {
         
     }];
+    
 }
 
 - (void)viewUpdateData:(ForecastModel *)model {
