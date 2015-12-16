@@ -9,6 +9,7 @@
 #import "SceneryViewController.h"
 
 @interface SceneryViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -18,8 +19,35 @@
     [super viewDidLoad];
     self.title = @"实景";
     // Do any additional setup after loading the view.
+    
+   self.imageView.image = [UIImage imageNamed:@"bg_night_snow"];
+  //  self.imageView.backgroundColor = [UIColor blackColor];
+    
+    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 200, 100, 100)];
+    [self.view addSubview:v];
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+    
+    UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+    
+    effectview.frame = CGRectMake(0, 0, v.bounds.size.width, v.bounds.size.height);
+    //[self.imageView addSubview:effectview];
+    [v addSubview:effectview];
 }
 
+- (void)aa {
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"bg_night_snow"]];
+    // create gaussian blur filter
+    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [filter setValue:inputImage forKey:kCIInputImageKey];
+    [filter setValue:[NSNumber numberWithFloat:10.0] forKey:@"inputRadius"];
+    // blur image
+    CIImage *result = [filter valueForKey:kCIOutputImageKey];
+    CGImageRef cgImage = [context createCGImage:result fromRect:[result extent]];
+    UIImage *image = [UIImage imageWithCGImage:cgImage];
+    CGImageRelease(cgImage);
+    self.imageView.image = image;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

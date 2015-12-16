@@ -74,12 +74,12 @@
     
     //init
     _currentMainView            = [UIView new];
-    _hourlyView                 = [UIView new];
-    _daysView                   = [UIView new];
+    _hourlyView                        = [UIView new];
+    _daysView                          = [UIView new];
     _updateTimeLab              = [UILabel new];
-    _condLab                    = [UILabel new];
-    _temLab                     = [UILabel new];
-    _showButton                 = [UIButton new];
+    _condLab                           = [UILabel new];
+    _temLab                             = [UILabel new];
+    _showButton                    = [UIButton new];
     //_condLab.backgroundColor = [UIColor blackColor];
     //_temLab.backgroundColor = [UIColor blueColor];
    // _updateTimeLab.backgroundColor      = [UIColor yellowColor];
@@ -89,10 +89,11 @@
     X_DrawExcelLayout *layout = [[X_DrawExcelLayout alloc]init];
     layout.cols = 4;
     layout.rows = 2;
-    layout.textColor = [UIColor blueColor];
+    layout.lineColor = [UIColor grayColor];
+    layout.textColor = [UIColor whiteColor];
    
     _currentMain_ExchangeView = [[HomeExchangeView alloc]initWithlayout:layout];
-    _currentMain_ExchangeView.backgroundColor = [UIColor yellowColor];
+    _currentMain_ExchangeView.backgroundColor = [UIColor clearColor];
     _currentMain_ExchangeView.dataSource = self;
     
     _condLab.textColor          = [UIColor whiteColor];
@@ -111,7 +112,7 @@
     [_currentMainView addSubview:_condLab];
       [_currentMainView addSubview:_showButton];
     [_currentMainView addSubview:_updateTimeLab];
-    [_currentMainView addSubview:_currentMain_ExchangeView];
+   // [_currentMainView addSubview:_currentMain_ExchangeView];
   
     //layout view
     [_currentMainView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -148,12 +149,24 @@
         make.height.mas_equalTo(30);
     }];
     
-    [_currentMain_ExchangeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(_currentMain_ExchangeView.superview);
-        make.trailing.equalTo(_currentMain_ExchangeView.superview).offset(-view_pace);
-        make.width.mas_equalTo(_currentMain_ExchangeView.superview.mas_width).multipliedBy(0.48);
-        make.height.mas_equalTo(160);
+    //毛玻璃效果
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+    [_currentMainView addSubview:effectview];
+    effectview.layer.cornerRadius = 8;
+    effectview.layer.masksToBounds = YES;
+        [effectview addSubview:_currentMain_ExchangeView];
+    [effectview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(effectview.superview);
+        make.trailing.equalTo(effectview.superview).offset(-view_pace);
+        make.width.mas_equalTo(effectview.superview.mas_width).multipliedBy(0.37);
+        make.height.mas_equalTo(120);
     }];
+   
+    [_currentMain_ExchangeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.leading.trailing.equalTo(effectview);
+    }];
+
 //    _updateTimeLab.text = @"ddd";
 //    _condLab.text = @"condlab";
 //    _temLab.text = @"temLab";
