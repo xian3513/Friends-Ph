@@ -8,20 +8,34 @@
 
 #import "MeViewController.h"
 #import "CommonMacros.h"
-
+#import "BasicNavigationController.h"
 #define headerViewHeight 200
 @interface MeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
 @implementation MeViewController {
-
+    NSArray *_dataArray;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+  //  [self.MyNavigationController showCustomNavbarView];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"我";
-    self.backgroundImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, -headerViewHeight, self.view.width, headerViewHeight)];
+    self.navigationController.navigationBar.hidden = YES;
+    _dataArray = @[@"我的APP",@"紧急求助电话"];
+    //[self.MyNavigationController showCustomNavbarViewWithTitle:@"我的"];
+    
+    self.tabView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
+    self.backgroundImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, -headerViewHeight-20, self.view.width, headerViewHeight)];
     self.backgroundImageView.image =[UIImage imageNamed:@"car"];
     self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.tabView.contentInset = UIEdgeInsetsMake(headerViewHeight, 0, 0, 0);
@@ -35,7 +49,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     CGFloat y = scrollView.contentOffset.y;//根据实际选择加不加上NavigationBarHight（44、64 或者没有导航条）
-    NSLog(@"y:%f",y);
     if (y < -headerViewHeight) {
         CGRect frame =self.backgroundImageView.frame;
         frame.origin.y = y;
@@ -59,18 +72,18 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 40;
+    return 50;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return _dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"MeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.text= @"aaa";
+    cell.textLabel.text= [_dataArray objectAtIndex:indexPath.row];
     return cell;
 }
 /*

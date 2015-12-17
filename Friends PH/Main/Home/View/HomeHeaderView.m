@@ -64,7 +64,7 @@
 #pragma mark - lift cycle method
 - (instancetype)init {
     if(self = [super init]) {
-        self.frame = CGRectMake(0, 0, 320, 550);
+        self.frame = CGRectMake(0, 0, 320, 400);
         self.backgroundColor = [UIColor clearColor];
         
         [self viewLayout];
@@ -88,7 +88,7 @@
    // _updateTimeLab.backgroundColor      = [UIColor yellowColor];
     //_hourlyView.backgroundColor         = [UIColor purpleColor];
     //_currentMainView.backgroundColor    = [UIColor redColor];
-    _daysView.backgroundColor = [UIColor yellowColor];
+   // _daysView.backgroundColor = [UIColor yellowColor];
     X_DrawExcelLayout *layout = [[X_DrawExcelLayout alloc]init];
     layout.cols = 4;
     layout.rows = 2;
@@ -125,7 +125,7 @@
     //layout view
     [_currentMainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.and.leading.and.trailing.equalTo(self);
-        make.height.equalTo(_daysView).multipliedBy(1.2);
+        make.height.equalTo(_daysView).multipliedBy(2);
     }];
     [_daysView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_currentMainView.mas_bottom).offset(view_pace);
@@ -187,11 +187,18 @@
 - (void)addDaysView {
     UITableView *tab = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     tab.dataSource = self;
+    tab.layer.borderColor = [UIColor whiteColor].CGColor;
+    tab.layer.borderWidth = 0.5;
+    tab.bounces = NO;
     tab.delegate = self;
+    tab.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tab.backgroundColor = [UIColor clearColor];
     [_daysView addSubview:tab];
     
     [tab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.trailing.leading.bottom.equalTo(tab.superview);
+        make.top.bottom.equalTo(tab.superview);
+        make.trailing.equalTo(tab.superview).offset(1);
+        make.leading.equalTo(tab.superview).offset(-1);
     }];
 }
 
@@ -204,6 +211,8 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = @"ss";
     return cell;
 }
