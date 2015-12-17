@@ -53,6 +53,16 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.MyNavigationController showCustomNavbarView];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+      [self.MyNavigationController hiddenCustomNavbarView];
+}
+
 - (void)navRightButtonPress:(UIButton *)sender {
 
 }

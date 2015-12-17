@@ -18,7 +18,7 @@
 @end
 
 
-@interface HomeHeaderView()<X_DrawExcelViewDataSource>
+@interface HomeHeaderView()<X_DrawExcelViewDataSource,UITableViewDelegate,UITableViewDataSource>
 
 @end
 @implementation HomeHeaderView {
@@ -68,6 +68,7 @@
         self.backgroundColor = [UIColor clearColor];
         
         [self viewLayout];
+        [self addDaysView];
     }
     return self;
 }
@@ -87,7 +88,7 @@
    // _updateTimeLab.backgroundColor      = [UIColor yellowColor];
     //_hourlyView.backgroundColor         = [UIColor purpleColor];
     //_currentMainView.backgroundColor    = [UIColor redColor];
-    
+    _daysView.backgroundColor = [UIColor yellowColor];
     X_DrawExcelLayout *layout = [[X_DrawExcelLayout alloc]init];
     layout.cols = 4;
     layout.rows = 2;
@@ -124,9 +125,9 @@
     //layout view
     [_currentMainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.and.leading.and.trailing.equalTo(self);
-        make.height.equalTo(_hourlyView).multipliedBy(1);
+        make.height.equalTo(_daysView).multipliedBy(1.2);
     }];
-    [_hourlyView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_daysView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_currentMainView.mas_bottom).offset(view_pace);
         make.bottom.equalTo(self.mas_bottom);
         make.leading.trailing.equalTo(self);
@@ -181,6 +182,30 @@
 //    _updateTimeLab.text = @"ddd";
 //    _condLab.text = @"condlab";
 //    _temLab.text = @"temLab";
+}
+
+- (void)addDaysView {
+    UITableView *tab = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    tab.dataSource = self;
+    tab.delegate = self;
+    [_daysView addSubview:tab];
+    
+    [tab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.trailing.leading.bottom.equalTo(tab.superview);
+    }];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 7;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell.textLabel.text = @"ss";
+    return cell;
 }
 /*
 // Only override drawRect: if you perform custom drawing.

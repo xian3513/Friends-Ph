@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9007BC2B1C1EB70100F23979 /* SceneryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9007BC2A1C1EB70100F23979 /* SceneryViewController.m */; };
 		9025BCF31C1AF3DE002CE5D5 /* NSObject+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 9025BCF21C1AF3DE002CE5D5 /* NSObject+Method.m */; };
-		908007B51C218ECD00557DF5 /* car@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 908007B41C218ECD00557DF5 /* car@2x.png */; };
 		908007B81C2195F200557DF5 /* Home_Job_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908007B71C2195F200557DF5 /* Home_Job_TableViewCell.m */; };
 		908007BB1C21A63B00557DF5 /* JobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908007BA1C21A63B00557DF5 /* JobViewController.m */; };
 		908007BE1C21A6A800557DF5 /* RentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908007BD1C21A6A800557DF5 /* RentViewController.m */; };
@@ -72,7 +71,6 @@
 		9007BC2A1C1EB70100F23979 /* SceneryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneryViewController.m; sourceTree = "<group>"; };
 		9025BCF11C1AF3DE002CE5D5 /* NSObject+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Method.h"; sourceTree = "<group>"; };
 		9025BCF21C1AF3DE002CE5D5 /* NSObject+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Method.m"; sourceTree = "<group>"; };
-		908007B41C218ECD00557DF5 /* car@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car@2x.png"; sourceTree = "<group>"; };
 		908007B61C2195F200557DF5 /* Home_Job_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Home_Job_TableViewCell.h; sourceTree = "<group>"; };
 		908007B71C2195F200557DF5 /* Home_Job_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Home_Job_TableViewCell.m; sourceTree = "<group>"; };
 		908007B91C21A63B00557DF5 /* JobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobViewController.h; sourceTree = "<group>"; };
@@ -548,7 +546,6 @@
 		90E54A6C1C2170F9008B1B42 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				908007B41C218ECD00557DF5 /* car@2x.png */,
 				90E54A6D1C2170F9008B1B42 /* MeViewController.h */,
 				90E54A6E1C2170F9008B1B42 /* MeViewController.m */,
 			);
@@ -627,7 +624,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				90E0C72A1C16D2EF003B41A2 /* LaunchScreen.storyboard in Resources */,
-				908007B51C218ECD00557DF5 /* car@2x.png in Resources */,
 				90E0C7271C16D2EF003B41A2 /* Assets.xcassets in Resources */,
 				90E0C7251C16D2EE003B41A2 /* Main.storyboard in Resources */,
 			);

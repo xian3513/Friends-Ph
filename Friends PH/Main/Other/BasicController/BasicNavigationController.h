@@ -26,6 +26,8 @@ typedef enum {
 @interface BasicNavigationController : UINavigationController
 
 - (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title;
+- (void)hiddenCustomNavbarView;
+- (void)showCustomNavbarView;
 - (void)customNavbarAddRightbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType;
 - (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType;
 /**

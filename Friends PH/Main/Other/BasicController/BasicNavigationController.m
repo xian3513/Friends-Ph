@@ -218,9 +218,22 @@
 
     [self.view addSubview:self.navbarView];
     self.navbarView.title = title;
+    self.navbarView.hidden = NO;
     self.navigationBar.hidden = YES;
-    NSLog(@"presented:%@",self.viewControllers);
+
     return self.navbarView;
+}
+
+- (void)hiddenCustomNavbarView {
+    self.navbarView.hidden = YES;
+    self.navigationBar.hidden = NO;
+}
+
+- (void)showCustomNavbarView {
+    if(self.navbarView){
+        self.navbarView.hidden = NO;
+        self.navigationBar.hidden = YES;
+    }
 }
 
 - (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType{
