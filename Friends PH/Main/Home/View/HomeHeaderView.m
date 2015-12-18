@@ -7,7 +7,7 @@
 //
 
 #import "HomeHeaderView.h"
-#import "Masonry.h"
+#import "CommonMacros.h"
 #import <CoreText/CoreText.h>
 
 #define view_pace 10
@@ -126,7 +126,7 @@
     //layout view
     [_currentMainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.and.leading.and.trailing.equalTo(self);
-        make.height.equalTo(_daysView).multipliedBy(2);
+        make.height.equalTo(_daysView).multipliedBy(4.0);
     }];
     [_daysView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_currentMainView.mas_bottom).offset(view_pace);
@@ -204,7 +204,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 25;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -223,23 +223,40 @@
         [tmpView removeFromSuperview];
     }
     UILabel *leftLab = [UILabel new];
+    UIImageView *imageView = [UIImageView new];
+    imageView.backgroundColor = [UIColor yellowColor];
     UILabel *rightlab = [UILabel new];
     
     [cell addSubview:leftLab];
     [cell addSubview:rightlab];
+    [cell addSubview:imageView];
     [leftLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.leading.equalTo(leftLab.superview).offset(5);
+        make.top.equalTo(leftLab.superview).offset(5);
         make.bottom.equalTo(leftLab.superview).offset(-5);
-        make.trailing.equalTo(rightlab).offset(0);
+        make.leading.equalTo(leftLab.superview).offset(10);
     }];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(imageView.superview);
+        make.top.equalTo(imageView.superview).offset(3);
+        make.bottom.equalTo(imageView.superview).offset(-3);
+        make.width.equalTo(imageView.mas_height);
+    }];
+    
     [rightlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(rightlab.superview).offset(5);
-        make.bottom.trailing.equalTo(rightlab.superview).offset(-5);
-     
+        make.bottom.equalTo(rightlab.superview).offset(-5);
+        make.trailing.equalTo(rightlab.superview).offset(-10);
     }];
+    
+    leftLab.textColor = [UIColor whiteColor];
+    rightlab.textColor = [UIColor whiteColor];
+    leftLab.font = [UIFont systemFontOfSize:13];
+    rightlab.font = [UIFont systemFontOfSize:13];
     NSDictionary *dict = [self.daysInforArray objectAtIndex:indexPath.row];
     leftLab.text = [dict objectForKey:@"time"];
-    rightlab.text = [dict objectForKey:@"tmp"];
+    NSString *strMax = [dict objectForKey:@"tmp_max"];
+    NSString *strMin = [NSString stringWithFormat:@"   %@",[dict objectForKey:@"tmp_min"]];
+    rightlab.attributedText = [strMax getAttributedStringWithSubString:strMin range:NSMakeRange(strMax.length, strMin.length) subStringColor:[UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1]];
     return cell;
 }
 

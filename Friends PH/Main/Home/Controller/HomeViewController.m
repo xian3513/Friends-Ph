@@ -47,7 +47,7 @@
    
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_night_snow.jpg"]];
     
-     [self.MyNavigationController showCustomNavbarViewWithTitle:@"天气"];
+     [self.MyNavigationController showCustomNavbarViewWithTitle:@"关注"];
     [self.MyNavigationController customNavbarAddRightbuttonTarget:self action:@selector(navRightButtonPress:) buttonType:CostomNavbarButtonTypeShare];
     [self http];
     
@@ -116,7 +116,9 @@
         NSMutableDictionary *dict = [[NSMutableDictionary alloc]initWithCapacity:0];
         [dict setObject:[self weekdayStringFromDate:[dateFormat dateFromString:tmp.date]] forKey:@"time"];
         [dict setObject:[tmp.cond objectForKey:@"txt_d"] forKey:@"cond_day"];
-        [dict setObject:[NSString stringWithFormat:@"%@  %@",[tmp.tmp objectForKey:@"max"],[tmp.tmp objectForKey:@"min"]] forKey:@"tmp"];
+        [dict setObject:[NSString stringWithFormat:@"%@",[tmp.tmp objectForKey:@"max"]] forKey:@"tmp_max"];
+       
+        [dict setObject:[NSString stringWithFormat:@"%@",[tmp.tmp objectForKey:@"min"]] forKey:@"tmp_min"];
         [arr addObject:dict];
     }
     _headerView.daysInforArray = arr;
@@ -185,9 +187,17 @@
     cell.updateTimeLab.text = @"2015-12-16";
     return cell;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    JobViewController *job = [[JobViewController alloc]init];
-    [self.navigationController pushViewController:job animated:YES];
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    UIViewController *viewController = segue.destinationViewController;
+    if([viewController respondsToSelector:@selector(setJobID:)]){
+        [viewController setValue:@"sdafda" forKey:@"jobID"];
+    }
+ 
 }
 /*
 #pragma mark - Navigation

@@ -22,6 +22,12 @@
      [attributedString1 addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Arial" size:size] range:range];
     return attributedString1;
 }
+
+- (NSMutableAttributedString *)getAttributedStringWithSubString:(NSString *)subString range:(NSRange)range subStringColor:(UIColor *)color {
+    NSMutableAttributedString * attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@",self,subString]];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:color range:range];
+    return attributedString;
+}
 //md5 encode
 -(NSString *) md5:(NSString *)str
 {

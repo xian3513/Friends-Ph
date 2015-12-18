@@ -17,4 +17,5 @@
 -(NSString*) sha1:(NSString *)str;
 
 - (NSMutableAttributedString *)getAttributedStringWithSubString:(NSString *)subString range:(NSRange)range fontSize:(CGFloat)size;
+- (NSMutableAttributedString *)getAttributedStringWithSubString:(NSString *)subString range:(NSRange)range subStringColor:(UIColor *)color;
 @end

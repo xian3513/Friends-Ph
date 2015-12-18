@@ -10,6 +10,8 @@
 //CommonMacros.h
 #import "UIView+Frame.h"
 #import "ColorTransformRGB.h"
+#import "Masonry.h"
+#import "NSString+Method.h"
 
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 

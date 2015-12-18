@@ -39,6 +39,7 @@
     self.backgroundImageView.image =[UIImage imageNamed:@"car"];
     self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.tabView.contentInset = UIEdgeInsetsMake(headerViewHeight, 0, 0, 0);
+    self.tabView.backgroundColor = [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1];
     [self.tabView addSubview:self.backgroundImageView];
 }
 

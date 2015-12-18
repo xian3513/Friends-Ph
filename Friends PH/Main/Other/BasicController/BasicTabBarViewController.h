@@ -12,9 +12,10 @@
 @interface BasicTabBarViewController : UITabBarController
 
 @property(nonatomic,strong) TabbarView *tabbarView;
-
+@property(nonatomic) BOOL hidesCustomBottomBarWhenPushed;
 - (void)showAnimation;
 - (void)hideAnimation;
+
 @end
 
 @interface UIViewController (MyTabBarController)

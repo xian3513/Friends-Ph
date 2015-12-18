@@ -34,6 +34,13 @@
     return self;
 }
 
+- (void)setHidesCustomBottomBarWhenPushed:(BOOL)hidesCustomBottomBarWhenPushed {
+    if(hidesCustomBottomBarWhenPushed){
+       
+        _hidesCustomBottomBarWhenPushed = hidesCustomBottomBarWhenPushed;
+         self.tabbarView.hidden = hidesCustomBottomBarWhenPushed;
+    }
+}
 - (void)hideAnimation {
     if(!_tabbarDown) {
        // NSLog(@"%@",NSStringFromSelector(_cmd));
