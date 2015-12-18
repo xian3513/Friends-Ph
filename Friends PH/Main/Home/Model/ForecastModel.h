@@ -24,6 +24,8 @@
 //晴，多云...
 @property(nonatomic,copy) NSString *cond_d;
 @property(nonatomic,copy) NSString *cond_n;
+@property(nonatomic,strong) NSDictionary *cond;
+@property(nonatomic,strong) NSDictionary *tmp;
 
 @end
 

@@ -160,8 +160,14 @@
 
 - (void)setItemTitle:(NSString *)itemTitle {
     
-    
-    _titleLab.attributedText = [itemTitle getAttributedStringWithSubString:@"cos" range:NSMakeRange(itemTitle.length,@"cos".length+1) fontSize:13];
+    if([itemTitle containsString:@"/"]) {
+        NSArray *strArray = [itemTitle componentsSeparatedByString:@"/"];
+        NSString *str = [strArray objectAtIndex:1];
+        NSString *str1 = [strArray objectAtIndex:0];
+         _titleLab.attributedText = [[strArray objectAtIndex:0] getAttributedStringWithSubString:str range:NSMakeRange(str1.length,str.length+1) fontSize:12];
+    } else {
+        _titleLab.text = itemTitle;
+    }
 }
 
 - (void)normal {

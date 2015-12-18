@@ -17,21 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"实景";
-    // Do any additional setup after loading the view.
     
-   self.imageView.image = [UIImage imageNamed:@"bg_night_snow"];
-  //  self.imageView.backgroundColor = [UIColor blackColor];
-    
-    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 200, 100, 100)];
-    [self.view addSubview:v];
-    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-    
-    UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
-    
-    effectview.frame = CGRectMake(0, 0, v.bounds.size.width, v.bounds.size.height);
-    //[self.imageView addSubview:effectview];
-    [v addSubview:effectview];
 }
 
 - (void)aa {

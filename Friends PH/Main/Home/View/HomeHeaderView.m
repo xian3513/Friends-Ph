@@ -32,6 +32,7 @@
     UILabel *_temLab;
     
     UIButton *_showButton;
+    UITableView *tab;
     HomeExchangeView *_currentMain_ExchangeView;
 }
 
@@ -185,7 +186,7 @@
 }
 
 - (void)addDaysView {
-    UITableView *tab = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    tab = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     tab.dataSource = self;
     tab.layer.borderColor = [UIColor whiteColor].CGColor;
     tab.layer.borderWidth = 0.5;
@@ -207,14 +208,44 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    return self.daysInforArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.text = @"ss";
+    static NSString *identifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if(!cell){
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor clearColor];
+    }
+  
+    for(UIView *tmpView in cell.subviews){
+        [tmpView removeFromSuperview];
+    }
+    UILabel *leftLab = [UILabel new];
+    UILabel *rightlab = [UILabel new];
+    
+    [cell addSubview:leftLab];
+    [cell addSubview:rightlab];
+    [leftLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.leading.equalTo(leftLab.superview).offset(5);
+        make.bottom.equalTo(leftLab.superview).offset(-5);
+        make.trailing.equalTo(rightlab).offset(0);
+    }];
+    [rightlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(rightlab.superview).offset(5);
+        make.bottom.trailing.equalTo(rightlab.superview).offset(-5);
+     
+    }];
+    NSDictionary *dict = [self.daysInforArray objectAtIndex:indexPath.row];
+    leftLab.text = [dict objectForKey:@"time"];
+    rightlab.text = [dict objectForKey:@"tmp"];
     return cell;
+}
+
+- (void)setDaysInforArray:(NSArray *)daysInforArray {
+    _daysInforArray = daysInforArray;
+    [tab reloadData];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

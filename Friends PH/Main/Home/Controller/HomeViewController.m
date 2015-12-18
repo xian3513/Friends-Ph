@@ -108,6 +108,36 @@
     _headerView.cond = _model.now_cond_txt;
     _headerView.temperature = _model.now.tmp;
     _headerView.updateTime = [NSString stringWithFormat:@"%0.0f分钟前发布",[self updateTimeInterval:_model.basic_update_loc]];
+    
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSMutableArray *arr = [[NSMutableArray alloc]initWithCapacity:0];
+    for(Daily_forecast *tmp in model.daily_forecast){
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc]initWithCapacity:0];
+        [dict setObject:[self weekdayStringFromDate:[dateFormat dateFromString:tmp.date]] forKey:@"time"];
+        [dict setObject:[tmp.cond objectForKey:@"txt_d"] forKey:@"cond_day"];
+        [dict setObject:[NSString stringWithFormat:@"%@  %@",[tmp.tmp objectForKey:@"max"],[tmp.tmp objectForKey:@"min"]] forKey:@"tmp"];
+        [arr addObject:dict];
+    }
+    _headerView.daysInforArray = arr;
+}
+
+- (NSString*)weekdayStringFromDate:(NSDate*)inputDate {
+    
+    NSArray *weekdays = [NSArray arrayWithObjects: [NSNull null], @"星期日", @"星期一", @"星期二", @"星期三", @"星期四", @"星期五", @"星期六", nil];
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
+    
+    [calendar setTimeZone: timeZone];
+    
+    NSCalendarUnit calendarUnit = NSWeekdayCalendarUnit;
+    
+    NSDateComponents *theComponents = [calendar components:calendarUnit fromDate:inputDate];
+    
+    return [weekdays objectAtIndex:theComponents.weekday];
+    
 }
 
 - (NSTimeInterval)updateTimeInterval:(NSString *)updateTime {
@@ -145,7 +175,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Home_Job_cell";
     Home_Job_TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -171,3 +200,5 @@
 */
 
 @end
+
+

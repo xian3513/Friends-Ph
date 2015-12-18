@@ -36,7 +36,7 @@
 
 - (void)hideAnimation {
     if(!_tabbarDown) {
-        NSLog(@"%@",NSStringFromSelector(_cmd));
+       // NSLog(@"%@",NSStringFromSelector(_cmd));
         [UIView animateWithDuration:_tabbarAnimationInterval animations:^(){
             CGRect rect = CGRectMake(self.tabbarView.left, self.view.height, self.tabbarView.width, self.tabbarView.height);
             self.tabbarView.frame = rect;
@@ -49,7 +49,7 @@
 
 - (void)showAnimation {
     if(_tabbarDown){
-         NSLog(@"%@",NSStringFromSelector(_cmd));
+       //  NSLog(@"%@",NSStringFromSelector(_cmd));
         [UIView animateWithDuration:_tabbarAnimationInterval animations:^(){
             CGRect rect = CGRectMake(self.tabbarView.left, self.view.height-49, self.tabbarView.width, self.tabbarView.height);
             self.tabbarView.frame = rect;
@@ -63,7 +63,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // self.tabBar.selectedImageTintColor = [UIColor orangeColor];
-    _itemTitleArr = @[@"天气",@"实景",@"我"];
+    _itemTitleArr = @[@"关注/focus",@"讯息/news",@"我的/me"];
     _tabbarAnimationInterval = 0.15;
     self.tabBar.hidden = YES;
     self.tabbarView = [[TabbarView alloc]init];

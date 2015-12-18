@@ -19,4 +19,5 @@
 @property(nonatomic,copy) NSString *updateTime;
 @property(nonatomic,copy) NSString *cond;
 @property(nonatomic,copy) NSString *temperature;
+@property(nonatomic,strong) NSArray *daysInforArray;
 @end

@@ -97,7 +97,7 @@
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self.myTabBarController showAnimation];
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+   // NSLog(@"%@",NSStringFromSelector(_cmd));
 }
 
 

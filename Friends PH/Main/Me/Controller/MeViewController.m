@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
-    _dataArray = @[@"我的APP",@"紧急求助电话"];
+    _dataArray = @[@"我的APP",@"紧急求助电话",@"免费商家广告",@"关于我们"];
     //[self.MyNavigationController showCustomNavbarViewWithTitle:@"我的"];
     
     self.tabView.separatorStyle = UITableViewCellSeparatorStyleNone;

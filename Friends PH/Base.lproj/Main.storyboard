@@ -37,56 +37,10 @@
                     <view key="view" contentMode="scaleToFill" id="cVq-OO-Z7Q">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0HM-dT-Rif">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="8cH-Of-Xi8"/>
-                                    <constraint firstAttribute="width" constant="240" id="UN8-rb-RiG"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="8cH-Of-Xi8"/>
-                                        <exclude reference="UN8-rb-RiG"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="8cH-Of-Xi8"/>
-                                        <include reference="UN8-rb-RiG"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="0HM-dT-Rif" firstAttribute="leading" secondItem="cVq-OO-Z7Q" secondAttribute="leadingMargin" constant="60" id="Pp4-OW-AfX"/>
-                            <constraint firstItem="0HM-dT-Rif" firstAttribute="top" secondItem="VHf-9x-Pui" secondAttribute="bottom" constant="59" id="VvO-02-NXE"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="0HM-dT-Rif"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="Pp4-OW-AfX"/>
-                                <exclude reference="VvO-02-NXE"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="0HM-dT-Rif"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="Pp4-OW-AfX"/>
-                                <include reference="VvO-02-NXE"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="实景" id="BhE-me-11i" userLabel="实景"/>
                     <navigationItem key="navigationItem" id="zc9-io-YiS"/>
-                    <connections>
-                        <outlet property="imageView" destination="0HM-dT-Rif" id="HsI-PT-3Ur"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnY-XF-CWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,7 +66,7 @@
                                         <rect key="frame" x="0.0" y="92" width="592" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0QU-oh-aPR" id="9jS-Da-BuB">
-                                            <rect key="frame" x="0.0" y="0.0" width="592" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="592" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-cR-sDi">
@@ -257,7 +211,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zbw-WQ-6Wh" id="dea-3M-hgK">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="93.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLZ-ge-IiS">
@@ -272,7 +226,7 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="188.5" y="60" width="33.5" height="20.5"/>
+                                                        <rect key="frame" x="188" y="59" width="34" height="21"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dizhi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuS-61-dzw">
