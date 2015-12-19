@@ -34,14 +34,6 @@
     return self;
 }
 
-- (void)showCustomBottomBar {
-    self.tabbarView.hidden = NO;
-}
-
-- (void)hideCustomBottomBar {
-    self.tabbarView.hidden = YES;
-}
-
 - (void)hideAnimation {
     if(!_tabbarDown) {
        // NSLog(@"%@",NSStringFromSelector(_cmd));
@@ -67,9 +59,10 @@
     }
 }
 
+ //实现nav的delegate方法，完成 hidecustomBarWhenpushed 效果
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    NSLog(@"willShowViewController：%@",viewController);
 
+    //
         if([self.customBottomBarNameArray containsObject:[viewController class]]){
             self.tabbarView.hidden = NO;
         }else {
@@ -89,6 +82,7 @@
     self.tabbarView.itemCount = 3;
     [self.tabbarView showInView:self.view];
     
+     //实现nav的delegate方法，完成 hidecustomBarWhenpushed 效果
     if(!self.customBottomBarNameArray) {
         self.customBottomBarNameArray = [[NSMutableArray alloc]initWithCapacity:0];
     }

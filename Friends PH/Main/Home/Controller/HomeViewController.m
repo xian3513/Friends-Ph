@@ -55,12 +55,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.MyNavigationController showCustomNavbarView];
-    //[self.myTabBarController showCustomBottomBar];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-   // [self.myTabBarController hideCustomBottomBar];
 }
 
 - (void)navRightButtonPress:(UIButton *)sender {
