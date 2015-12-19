@@ -74,110 +74,138 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="sq7-Pf-eC9" kind="relationship" relationship="rootViewController" id="dNC-re-gG9"/>
+                        <segue destination="MHn-dR-el8" kind="relationship" relationship="rootViewController" id="zIy-JJ-5tb"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJ0-2O-DUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1404" y="1443"/>
         </scene>
-        <!--我-->
-        <scene sceneID="Per-EM-xlM">
+        <!--Me View Controller-->
+        <scene sceneID="4zh-EI-g4i">
             <objects>
-                <viewController title="我" id="sq7-Pf-eC9" customClass="MeViewController" sceneMemberID="viewController">
+                <viewController id="MHn-dR-el8" customClass="MeViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IAl-Yh-SnP"/>
-                        <viewControllerLayoutGuide type="bottom" id="tdl-3V-rQV"/>
+                        <viewControllerLayoutGuide type="top" id="yMW-4U-4an"/>
+                        <viewControllerLayoutGuide type="bottom" id="obV-pd-4Wk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GD0-FG-YbH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="YHS-Wx-QGc">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aKu-w2-BkA">
-                                <rect key="frame" x="4" y="0.0" width="592" height="551"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UI5-TL-boN">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MeCell" id="0QU-oh-aPR">
-                                        <rect key="frame" x="0.0" y="92" width="592" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="meCell" id="LxF-Tc-Vpr">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0QU-oh-aPR" id="9jS-Da-BuB">
-                                            <rect key="frame" x="0.0" y="0.0" width="592" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LxF-Tc-Vpr" id="9zV-Kl-q5N">
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ta-cR-sDi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <color key="backgroundColor" red="0.82351762820512819" green="0.82351762820512819" blue="0.82351762820512819" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="0.5" id="IQL-NS-NM8"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="IQL-NS-NM8"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="IQL-NS-NM8"/>
-                                                        </mask>
-                                                    </variation>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="4ta-cR-sDi" secondAttribute="trailing" constant="8" id="gOF-4x-DTQ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="4ta-cR-sDi" secondAttribute="bottom" constant="-8" id="nGq-cR-sTi"/>
-                                                <constraint firstItem="4ta-cR-sDi" firstAttribute="leading" secondItem="9jS-Da-BuB" secondAttribute="leadingMargin" constant="8" id="nnn-AA-IQu"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="4ta-cR-sDi"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <exclude reference="gOF-4x-DTQ"/>
-                                                    <exclude reference="nGq-cR-sTi"/>
-                                                    <exclude reference="nnn-AA-IQu"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="4ta-cR-sDi"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <include reference="gOF-4x-DTQ"/>
-                                                    <include reference="nGq-cR-sTi"/>
-                                                    <include reference="nnn-AA-IQu"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="cox-Gy-DQu" kind="push" id="qRQ-rH-3u1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="sq7-Pf-eC9" id="4rI-66-bjF"/>
-                                    <outlet property="delegate" destination="sq7-Pf-eC9" id="aUk-4j-S0C"/>
+                                    <outlet property="dataSource" destination="MHn-dR-el8" id="vDE-uU-Ddc"/>
+                                    <outlet property="delegate" destination="MHn-dR-el8" id="aIn-1A-yFE"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tdl-3V-rQV" firstAttribute="top" secondItem="aKu-w2-BkA" secondAttribute="bottom" id="YvA-C5-Oxf"/>
-                            <constraint firstItem="aKu-w2-BkA" firstAttribute="top" secondItem="IAl-Yh-SnP" secondAttribute="bottom" constant="-20" id="feO-6b-mo0"/>
-                            <constraint firstItem="aKu-w2-BkA" firstAttribute="leading" secondItem="GD0-FG-YbH" secondAttribute="leadingMargin" constant="-16" id="fpI-ly-cus"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aKu-w2-BkA" secondAttribute="trailing" constant="-16" id="s6X-pf-hZm"/>
+                            <constraint firstItem="obV-pd-4Wk" firstAttribute="top" secondItem="UI5-TL-boN" secondAttribute="bottom" id="EeD-Fp-4E2"/>
+                            <constraint firstAttribute="trailing" secondItem="UI5-TL-boN" secondAttribute="trailing" id="a62-fc-rhC"/>
+                            <constraint firstItem="UI5-TL-boN" firstAttribute="top" secondItem="yMW-4U-4an" secondAttribute="bottom" constant="-20" id="fxd-K1-hvf"/>
+                            <constraint firstItem="UI5-TL-boN" firstAttribute="leading" secondItem="YHS-Wx-QGc" secondAttribute="leading" id="jDz-kT-tCC"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="UI5-TL-boN"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="a62-fc-rhC"/>
+                                <exclude reference="fxd-K1-hvf"/>
+                                <exclude reference="jDz-kT-tCC"/>
+                                <exclude reference="EeD-Fp-4E2"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="UI5-TL-boN"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="a62-fc-rhC"/>
+                                <include reference="fxd-K1-hvf"/>
+                                <include reference="jDz-kT-tCC"/>
+                                <include reference="EeD-Fp-4E2"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我" id="J9P-a1-tTK"/>
-                    <navigationItem key="navigationItem" id="IKI-kd-yE6"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="oUd-JR-QzD"/>
                     <connections>
-                        <outlet property="tabView" destination="aKu-w2-BkA" id="y65-wd-V3U"/>
+                        <outlet property="tabView" destination="UI5-TL-boN" id="Yg2-G2-9gQ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TR9-YG-g9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6jq-aT-AGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204" y="1412"/>
+            <point key="canvasLocation" x="-193.5" y="1395"/>
+        </scene>
+        <!--Emergency Phone View Controller-->
+        <scene sceneID="EUh-In-zg9">
+            <objects>
+                <viewController id="cox-Gy-DQu" customClass="EmergencyPhoneViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n0Y-JZ-J7M"/>
+                        <viewControllerLayoutGuide type="bottom" id="h6F-xB-r2s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sR8-1h-Lgv">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zP5-qG-OfY">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.98011363640000004" green="0.49082357469999999" blue="0.7057586481" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="67" y="80" width="240" height="128"/>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zP5-qG-OfY" firstAttribute="top" secondItem="n0Y-JZ-J7M" secondAttribute="bottom" id="HqQ-ER-v6j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zP5-qG-OfY" secondAttribute="trailing" id="VJF-ip-w1U"/>
+                            <constraint firstItem="zP5-qG-OfY" firstAttribute="leading" secondItem="sR8-1h-Lgv" secondAttribute="leadingMargin" id="qvf-5e-T5f"/>
+                            <constraint firstItem="h6F-xB-r2s" firstAttribute="top" secondItem="zP5-qG-OfY" secondAttribute="bottom" constant="200" id="zNC-qO-KA0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="zP5-qG-OfY"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="HqQ-ER-v6j"/>
+                                <exclude reference="VJF-ip-w1U"/>
+                                <exclude reference="qvf-5e-T5f"/>
+                                <exclude reference="zNC-qO-KA0"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="zP5-qG-OfY"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="HqQ-ER-v6j"/>
+                                <include reference="VJF-ip-w1U"/>
+                                <include reference="qvf-5e-T5f"/>
+                                <include reference="zNC-qO-KA0"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="vqE-jL-RsT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yyC-e1-5RL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="1412"/>
         </scene>
         <!--Item-->
         <scene sceneID="Ta4-rr-wL6">

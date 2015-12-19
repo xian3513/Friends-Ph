@@ -65,7 +65,7 @@
 #pragma mark - lift cycle method
 - (instancetype)init {
     if(self = [super init]) {
-        self.frame = CGRectMake(0, 0, 320, 400);
+        self.frame = CGRectMake(0, 0, 320, 380);
         self.backgroundColor = [UIColor clearColor];
         
         [self viewLayout];

@@ -31,6 +31,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,6 +49,7 @@
     self.tabView.contentInset = UIEdgeInsetsMake(headerViewHeight, 0, 0, 0);
     self.tabView.backgroundColor = [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1];
     [self.tabView addSubview:self.backgroundImageView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,6 +66,10 @@
         self.backgroundImageView.frame = frame;
     }
     
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 #pragma mark - tableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -88,15 +94,21 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"MeCell";
+    static NSString *cellIdentifier = @"meCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.text= [_dataArray objectAtIndex:indexPath.row];
     return cell;
 }
 
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//    
+//}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"sender;%@",sender);
+ 
 }
 /*
 #pragma mark - Navigation
