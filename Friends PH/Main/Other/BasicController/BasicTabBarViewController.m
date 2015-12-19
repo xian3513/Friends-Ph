@@ -10,8 +10,8 @@
 #import "UIView+Frame.h"
 
 
-@interface BasicTabBarViewController ()<TabbarViewDelegate>
-
+@interface BasicTabBarViewController ()<TabbarViewDelegate,UINavigationControllerDelegate>
+@property (nonatomic,strong) NSMutableArray *customBottomBarNameArray;
 @end
 
 @implementation BasicTabBarViewController {
@@ -34,13 +34,14 @@
     return self;
 }
 
-- (void)setHidesCustomBottomBarWhenPushed:(BOOL)hidesCustomBottomBarWhenPushed {
-    if(hidesCustomBottomBarWhenPushed){
-       
-        _hidesCustomBottomBarWhenPushed = hidesCustomBottomBarWhenPushed;
-         self.tabbarView.hidden = hidesCustomBottomBarWhenPushed;
-    }
+- (void)showCustomBottomBar {
+    self.tabbarView.hidden = NO;
 }
+
+- (void)hideCustomBottomBar {
+    self.tabbarView.hidden = YES;
+}
+
 - (void)hideAnimation {
     if(!_tabbarDown) {
        // NSLog(@"%@",NSStringFromSelector(_cmd));
@@ -66,6 +67,16 @@
     }
 }
 
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    NSLog(@"willShowViewController：%@",viewController);
+
+        if([self.customBottomBarNameArray containsObject:[viewController class]]){
+            self.tabbarView.hidden = NO;
+        }else {
+            self.tabbarView.hidden = YES;
+        }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -77,6 +88,19 @@
     self.tabbarView.delegate = self;
     self.tabbarView.itemCount = 3;
     [self.tabbarView showInView:self.view];
+    
+    if(!self.customBottomBarNameArray) {
+        self.customBottomBarNameArray = [[NSMutableArray alloc]initWithCapacity:0];
+    }
+    for(UINavigationController *nav in self.viewControllers){
+        
+        [self.customBottomBarNameArray addObject:[nav.topViewController class]];
+    }
+        self.selectedIndex = 0;
+        UINavigationController *navController = self.selectedViewController;
+        if(!navController.delegate) {
+            navController.delegate = self;
+        }
 }
 
 - (TabbarViewItem *)tabbar:(TabbarView *)tabbarView cellForRowAtIndex:(NSInteger)index {
@@ -89,6 +113,11 @@
 - (void)tabbar:(TabbarView *)tabbarView didSeletedRowAtIndex:(NSInteger)index {
     NSLog(@"index:%ld",index);
     self.selectedIndex = index;
+    //实现nav的delegate方法，完成 hidecustomBarWhenpushed 效果
+    UINavigationController *navController = self.selectedViewController;
+    if(!navController.delegate) {
+        navController.delegate = self;
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -98,6 +127,7 @@
 @end
 
 @implementation UIViewController (MyTabBarController)
+
 
 -(BasicTabBarViewController *)myTabBarController
 {

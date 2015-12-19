@@ -39,6 +39,7 @@
 		90B0668B1C1FEB5A00E8A464 /* ColorTransformRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B0668A1C1FEB5A00E8A464 /* ColorTransformRGB.m */; };
 		90B0668E1C1FF6DF00E8A464 /* X_DrawExcelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B0668D1C1FF6DF00E8A464 /* X_DrawExcelView.m */; };
 		90B379021C192C1300305870 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B379011C192C1300305870 /* HomeHeaderView.m */; };
+		90C124261C25612200D02FDC /* EmergencyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C124251C25612200D02FDC /* EmergencyPhoneViewController.m */; };
 		90CC64FD1C187DFE00E4F454 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CC64FC1C187DFE00E4F454 /* HomeViewController.m */; };
 		90E0C71C1C16D2EE003B41A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C71B1C16D2EE003B41A2 /* main.m */; };
 		90E0C71F1C16D2EE003B41A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C71E1C16D2EE003B41A2 /* AppDelegate.m */; };
@@ -137,6 +138,8 @@
 		90B0668D1C1FF6DF00E8A464 /* X_DrawExcelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X_DrawExcelView.m; sourceTree = "<group>"; };
 		90B379001C192C1300305870 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		90B379011C192C1300305870 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
+		90C124241C25612200D02FDC /* EmergencyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyPhoneViewController.h; sourceTree = "<group>"; };
+		90C124251C25612200D02FDC /* EmergencyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyPhoneViewController.m; sourceTree = "<group>"; };
 		90CC64FB1C187DFE00E4F454 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		90CC64FC1C187DFE00E4F454 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		90E0C7171C16D2EE003B41A2 /* Friends PH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friends PH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -548,6 +551,8 @@
 			children = (
 				90E54A6D1C2170F9008B1B42 /* MeViewController.h */,
 				90E54A6E1C2170F9008B1B42 /* MeViewController.m */,
+				90C124241C25612200D02FDC /* EmergencyPhoneViewController.h */,
+				90C124251C25612200D02FDC /* EmergencyPhoneViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -655,6 +660,7 @@
 				90E0C77F1C16D8AC003B41A2 /* AFHTTPRequestOperation.m in Sources */,
 				9025BCF31C1AF3DE002CE5D5 /* NSObject+Method.m in Sources */,
 				90AED05E1C17CA8900D10D40 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				90C124261C25612200D02FDC /* EmergencyPhoneViewController.m in Sources */,
 				908007BE1C21A6A800557DF5 /* RentViewController.m in Sources */,
 				90AFB4351C1ACC7000B70395 /* ForecastModel.m in Sources */,
 				90AED0591C17CA8900D10D40 /* MASConstraintMaker.m in Sources */,

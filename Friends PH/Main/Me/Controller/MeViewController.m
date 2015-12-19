@@ -20,7 +20,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    //self.navigationBar.hidden = YES;
+    self.navigationController.navigationBarHidden = YES;
   //  [self.MyNavigationController showCustomNavbarView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -28,9 +34,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.hidden = YES;
+    
+    self.title = @"wwva";
     _dataArray = @[@"我的APP",@"紧急求助电话",@"免费商家广告",@"关于我们"];
-    //[self.MyNavigationController showCustomNavbarViewWithTitle:@"我的"];
+   // [self.MyNavigationController showCustomNavbarViewWithTitle:@"我的"];
     
     self.tabView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -87,13 +94,17 @@
     cell.textLabel.text= [_dataArray objectAtIndex:indexPath.row];
     return cell;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"sender;%@",sender);
+}
 /*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+     Get the new view controller using [segue destinationViewController].
+     Pass the selected object to the new view controller.
 }
 */
 

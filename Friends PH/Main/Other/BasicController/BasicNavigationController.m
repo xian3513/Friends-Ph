@@ -18,6 +18,7 @@
 @interface CostomNavbarView()
 @property(nonatomic,strong) NSMutableArray *leftArray;
 @property(nonatomic,strong) NSMutableArray *rightArray;
+
 @end
 @implementation CostomNavbarView {
 
@@ -187,6 +188,7 @@
 
 @interface BasicNavigationController ()
 @property(nonatomic,strong) CostomNavbarView *navbarView;
+@property(nonatomic,strong) NSMutableDictionary *costomNavbarDict;
 @end
 
 @implementation BasicNavigationController
@@ -214,25 +216,26 @@
     
     if(!self.navbarView) {
         self.navbarView = [[CostomNavbarView alloc]init];
+         [self.view addSubview:self.navbarView];
     }
 
-    [self.view addSubview:self.navbarView];
+   
     self.navbarView.title = title;
     self.navbarView.hidden = NO;
-    self.navigationBar.hidden = YES;
+    self.navigationBarHidden = YES;
 
     return self.navbarView;
 }
 
 - (void)hiddenCustomNavbarView {
     self.navbarView.hidden = YES;
-    self.navigationBar.hidden = NO;
+    self.navigationBarHidden = NO;
 }
 
 - (void)showCustomNavbarView {
     if(self.navbarView){
         self.navbarView.hidden = NO;
-        self.navigationBar.hidden = YES;
+        self.navigationBarHidden = YES;
     }
 }
 
@@ -315,6 +318,7 @@
 }
 
 - (void)popBack:(UIBarButtonItem *)item {
+    
     [self popViewControllerAnimated:YES];
 }
 

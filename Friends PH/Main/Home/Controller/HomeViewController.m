@@ -35,10 +35,8 @@
     return UIStatusBarStyleLightContent;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
     _model = [[ForecastModel alloc]init];
     _feModel = [[FonExchangeModel alloc]init];
     _headerView = [[HomeHeaderView alloc]init];
@@ -47,6 +45,7 @@
    
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_night_snow.jpg"]];
     
+
      [self.MyNavigationController showCustomNavbarViewWithTitle:@"关注"];
     [self.MyNavigationController customNavbarAddRightbuttonTarget:self action:@selector(navRightButtonPress:) buttonType:CostomNavbarButtonTypeShare];
     [self http];
@@ -56,11 +55,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.MyNavigationController showCustomNavbarView];
+    //[self.myTabBarController showCustomBottomBar];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-      [self.MyNavigationController hiddenCustomNavbarView];
+   // [self.myTabBarController hideCustomBottomBar];
 }
 
 - (void)navRightButtonPress:(UIButton *)sender {
@@ -187,13 +187,15 @@
     cell.updateTimeLab.text = @"2015-12-16";
     return cell;
 }
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//}
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+     [self.MyNavigationController hiddenCustomNavbarView];
     UIViewController *viewController = segue.destinationViewController;
+   // viewController.navigationController.navigationBarHidden = NO;
     if([viewController respondsToSelector:@selector(setJobID:)]){
         [viewController setValue:@"sdafda" forKey:@"jobID"];
     }

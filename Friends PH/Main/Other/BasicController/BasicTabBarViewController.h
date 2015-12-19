@@ -16,6 +16,8 @@
 - (void)showAnimation;
 - (void)hideAnimation;
 
+- (void)showCustomBottomBar;
+- (void)hideCustomBottomBar;
 @end
 
 @interface UIViewController (MyTabBarController)
