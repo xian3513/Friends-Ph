@@ -20,9 +20,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //self.navigationBar.hidden = YES;
     self.navigationController.navigationBarHidden = YES;
-  //  [self.MyNavigationController showCustomNavbarView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonMacros.h"
-
+#import "BasicNavigationController.h"
+#import "BasicTabBarViewController.h"
 @interface BasicViewController : UIViewController
 
 #pragma mark - navbarGradientColor
@@ -20,4 +21,11 @@
 - (void)followScrollView:(UIScrollView *)scrollableView;
 
 @property(nonatomic,strong) UIView *backgroundView;
+@end
+
+@interface UIViewController (MyController)
+@property(nonatomic) BOOL hidesCustomBottomBarWhenPushed;
+@property (readonly,nonatomic)BasicNavigationController *MyNavigationController;
+@property (readonly,nonatomic,strong)BasicTabBarViewController *myTabBarController;
+
 @end

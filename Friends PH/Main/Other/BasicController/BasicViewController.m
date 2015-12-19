@@ -7,7 +7,7 @@
 //
 
 #import "BasicViewController.h"
-
+#import <objc/runtime.h>
 #import "BasicTabBarViewController.h"
 #import "BasicNavigationController.h"
 @interface BasicViewController ()<UIScrollViewDelegate>
@@ -43,9 +43,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = RGBA(235, 235, 235, 1);
-    
-   
-    // Do any additional setup after loading the view.
 }
 
 - (void)setBackgroundView:(UIView *)backgroundView {
@@ -111,4 +108,31 @@
 }
 */
 
+@end
+const NSString *hidesCustomBottomBarWhenPushedKey = @"hidesCustomBottomBarWhenPushedKey";
+@implementation UIViewController (MyController)
+
+- (void)setHidesCustomBottomBarWhenPushed:(BOOL)hidesCustomBottomBarWhenPushed {
+      objc_setAssociatedObject(self, &hidesCustomBottomBarWhenPushedKey, [NSNumber numberWithBool:hidesCustomBottomBarWhenPushed], OBJC_ASSOCIATION_ASSIGN);
+    self.navigationController.hidesCustomBottomBarWhenPushed = hidesCustomBottomBarWhenPushed;
+}
+- (BOOL)hidesCustomBottomBarWhenPushed {
+    NSNumber *number = objc_getAssociatedObject(self, &hidesCustomBottomBarWhenPushedKey);
+    return [number boolValue];
+}
+-(BasicTabBarViewController *)myTabBarController
+{
+    if ([self.tabBarController isMemberOfClass:[BasicTabBarViewController class]]) {
+        return (BasicTabBarViewController*)self.tabBarController;
+    }
+    return nil;
+}
+
+-(BasicNavigationController *)MyNavigationController
+{
+    if ([self.navigationController isMemberOfClass:[BasicNavigationController class]]) {
+        return (BasicNavigationController*)self.navigationController;
+    }
+    return nil;
+}
 @end

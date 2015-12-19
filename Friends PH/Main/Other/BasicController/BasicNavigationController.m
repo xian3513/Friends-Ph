@@ -360,14 +360,3 @@
 */
 
 @end
-
-@implementation UIViewController (MyNavigationController)
-
--(BasicNavigationController *)MyNavigationController
-{
-    if ([self.navigationController isMemberOfClass:[BasicNavigationController class]]) {
-        return (BasicNavigationController*)self.navigationController;
-    }
-    return nil;
-}
-@end

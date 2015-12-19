@@ -51,9 +51,3 @@ typedef enum {
 - (void)addPromptAndQRCodeOnRightBarButtonItemWith:(UIViewController *)target action:(SEL)action;
 
 @end
-
-@interface UIViewController (MyNavigationController)
-
-@property (readonly,nonatomic)BasicNavigationController *MyNavigationController;
-
-@end

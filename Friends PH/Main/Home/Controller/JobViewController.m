@@ -7,7 +7,8 @@
 //
 
 #import "JobViewController.h"
-#import "BasicNavigationController.h"
+#import "BasicViewController.h"
+
 @interface JobViewController ()
 
 @end
@@ -19,7 +20,7 @@
  //   self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     self.title = @"职位详情";
-   
+
     [self.MyNavigationController addNavigationBackItem];
 
     self.jobNameLab.text = @"PHP开发";
