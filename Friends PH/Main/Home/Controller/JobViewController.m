@@ -7,7 +7,7 @@
 //
 
 #import "JobViewController.h"
-
+#import "BasicNavigationController.h"
 @interface JobViewController ()
 
 @end
@@ -18,7 +18,9 @@
     [super viewDidLoad];
  //   self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
-    NSLog(@"job_id:%@",self.jobID);
+    self.title = @"职位详情";
+    [self.MyNavigationController addNavigationBackItem];
+
     self.jobNameLab.text = @"PHP开发";
     self.timeLab.text = @"2015.12.12";
     self.treatLab.text = @"20000 ~ 30000";

@@ -305,13 +305,13 @@
 - (void)addNavigationBackItem {
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setBackgroundImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"back_normal"] forState:UIControlStateNormal];
     
-    backBtn.frame = CGRectMake(0, 0, 10, 18);
+    backBtn.frame = CGRectMake(0, 0, 16, 20);
     [backBtn addTarget:self action:@selector(popBack:) forControlEvents:UIControlEventTouchUpInside];
     
-        UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
-        self.topViewController.navigationItem.leftBarButtonItem = item;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    self.topViewController.navigationItem.leftBarButtonItem = item;
 }
 
 - (void)popBack:(UIBarButtonItem *)item {
