@@ -10,8 +10,8 @@
 #import "UIView+Frame.h"
 #import "BasicViewController.h"
 
-@interface BasicTabBarViewController ()<TabbarViewDelegate,UINavigationControllerDelegate,UITabBarControllerDelegate>
-@property (nonatomic,strong) NSMutableArray *customBottomBarNameArray;
+@interface BasicTabBarViewController ()<TabbarViewDelegate,UINavigationControllerDelegate>
+
 @end
 
 @implementation BasicTabBarViewController {

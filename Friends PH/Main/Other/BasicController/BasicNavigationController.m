@@ -188,7 +188,7 @@
 
 @interface BasicNavigationController ()
 @property(nonatomic,strong) CostomNavbarView *navbarView;
-@property(nonatomic,strong) NSMutableDictionary *costomNavbarDict;
+@property(nonatomic,strong) NSMutableDictionary *customNavViewDict;
 @end
 
 @implementation BasicNavigationController
@@ -210,6 +210,24 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    [super pushViewController:viewController animated:animated];
+    
+    NSLog(@"pushViewController:%@",viewController);
+}
+
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated {
+    return [super popViewControllerAnimated:animated];
+}
+#pragma mark - get / set
+
+- (NSMutableDictionary *)customNavViewDict {
+    if(!_customNavViewDict) {
+        _customNavViewDict = [[NSMutableDictionary alloc]initWithCapacity:0];
+    }
+    return _customNavViewDict;
 }
 #pragma mark - customNavbar
 - (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title {
