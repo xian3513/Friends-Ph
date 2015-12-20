@@ -61,7 +61,7 @@
 
  //实现nav的delegate方法，完成 hidecustomBarWhenpushed 效果
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    NSLog(@"viewController%d  nav:%d",viewController.hidesCustomBottomBarWhenPushed,viewController.navigationController.hidesCustomBottomBarWhenPushed);
+    //NSLog(@"viewController%d  nav:%d",viewController.hidesCustomBottomBarWhenPushed,viewController.navigationController.hidesCustomBottomBarWhenPushed);
 #warning 考虑 一个 nav ＋一个tabbar＋n个viewcontroller情况
     //此算法只适合 一个tabbar＋n个navbarController的情况
     // 只有当nav的 hides属性为真  viewcontroller属性为假时 隐藏tabbar

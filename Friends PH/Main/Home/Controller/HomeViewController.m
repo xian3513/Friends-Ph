@@ -55,7 +55,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.MyNavigationController showCustomNavbarView];
+  //  [self.MyNavigationController showCustomNavbarView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -192,7 +192,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-     [self.MyNavigationController hiddenCustomNavbarView];
+    // [self.MyNavigationController hiddenCustomNavbarView];
     UIViewController *viewController = segue.destinationViewController;
    // viewController.navigationController.navigationBarHidden = NO;
     if([viewController respondsToSelector:@selector(setJobID:)]){
