@@ -199,11 +199,11 @@
     
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"themeBackground"] forBarMetrics:UIBarMetricsDefault];
     
-    //如果自定义了返回按钮 需要实现这些操作。
-    __weak typeof(self) weakSelf = self;
-    if([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.interactivePopGestureRecognizer.delegate = weakSelf;
-    }
+//    //如果自定义了返回按钮 需要实现这些操作。
+//    __weak typeof(self) weakSelf = self;
+//    if([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        self.interactivePopGestureRecognizer.delegate = weakSelf;
+//    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -216,6 +216,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
     //处理push前的viewController 的自定义navbar
@@ -223,33 +224,20 @@
     if([[self.customNavViewDict allKeys] containsObject:key]){
         CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:key];
         navbarView.hidden = YES;
-//        if(!self.navigationBar.isHidden){
-//            self.navigationBar.hidden = NO;
-//        }
-       
-    }else {
-        self.navigationBarHidden = YES;
+        self.navigationBarHidden = NO;
     }
     //处理push后的 viewController的 navbar
     if([[self.customNavViewDict allKeys] containsObject:NSStringFromClass([viewController class])]){
         CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:key];
         navbarView.hidden = NO;
-//        if(!self.navigationBar.isHidden){
-//            self.navigationBar.hidden = YES;
-//        }
-        
-    }else {
-        self.navigationBarHidden = NO;
+        self.navigationBarHidden = YES;
     }
-
     [super pushViewController:viewController animated:animated];
     
     NSLog(@"pushViewController:%@",viewController);
 }
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated {
-    
-   
     UIViewController *controller = [super popViewControllerAnimated:animated];
     
     //处理pop前的viewController 的自定义navbar
@@ -257,16 +245,13 @@
     if([[self.customNavViewDict allKeys] containsObject:key]){
         CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:key];
         navbarView.hidden = NO;
-    
-    }else {
-        self.navigationBarHidden = NO;
+        self.navigationBarHidden = YES;
     }
     key = NSStringFromClass([self.topViewController class]);
     if([[self.customNavViewDict allKeys] containsObject:key]){
         CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:key];
         navbarView.hidden = NO;
-    }else {
-        self.navigationBarHidden = NO;
+        self.navigationBarHidden = YES;
     }
     NSLog(@"controller: %@ top:%@",controller,self.topViewController);
     return controller;

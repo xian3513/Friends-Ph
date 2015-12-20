@@ -189,16 +189,6 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
-    // [self.MyNavigationController hiddenCustomNavbarView];
-    UIViewController *viewController = segue.destinationViewController;
-   // viewController.navigationController.navigationBarHidden = NO;
-    if([viewController respondsToSelector:@selector(setJobID:)]){
-        [viewController setValue:@"sdafda" forKey:@"jobID"];
-    }
- 
 }
 /*
 #pragma mark - Navigation

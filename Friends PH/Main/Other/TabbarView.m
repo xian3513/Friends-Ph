@@ -72,6 +72,7 @@
     _currentItem = [_itemsArray objectAtIndex:0];
     [_currentItem highlighted];
     [view addSubview:self];
+    [view bringSubviewToFront:self];
 
 }
 
