@@ -101,7 +101,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LxF-Tc-Vpr" id="9zV-Kl-q5N">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -245,7 +245,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zbw-WQ-6Wh" id="dea-3M-hgK">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="93.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLZ-ge-IiS">
@@ -259,6 +259,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="188" y="59" width="34" height="21"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dizhi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuS-61-dzw">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -349,7 +352,7 @@
                             <constraint firstItem="WKD-rk-ep0" firstAttribute="leading" secondItem="qvi-07-gmW" secondAttribute="leadingMargin" constant="-16" id="B5a-OX-c92"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WKD-rk-ep0" secondAttribute="trailing" constant="-16" id="P3I-Nq-voP"/>
                             <constraint firstItem="Ji6-Ut-LRk" firstAttribute="top" secondItem="WKD-rk-ep0" secondAttribute="bottom" id="efk-Rt-cCU"/>
-                            <constraint firstItem="WKD-rk-ep0" firstAttribute="top" secondItem="JIU-uD-xdA" secondAttribute="bottom" constant="44" id="zcr-Z8-UJY"/>
+                            <constraint firstItem="WKD-rk-ep0" firstAttribute="top" secondItem="JIU-uD-xdA" secondAttribute="bottom" id="zcr-Z8-UJY"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -416,13 +419,13 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wy3-sb-I1T">
                                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职位描述：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0u-Lb-joE">
                                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5e-bA-pAr" userLabel="job_content">
@@ -516,7 +519,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsw-W4-Tzv" userLabel="name">
                                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuG-fm-PYl" userLabel="lab">
@@ -697,7 +700,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRi-Ga-bef">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7b-T2-mjG">
@@ -716,6 +719,9 @@
                                                 <include reference="TAs-eR-nFT"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <segue destination="EMI-4p-jJK" kind="push" id="0D9-Du-oPE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -775,8 +781,8 @@
                         <constraints>
                             <constraint firstItem="w7K-Dy-yk8" firstAttribute="top" secondItem="4TS-1W-ABF" secondAttribute="bottom" id="F9z-Ug-ATH"/>
                             <constraint firstItem="fU4-BU-a1m" firstAttribute="leading" secondItem="G4j-92-zeb" secondAttribute="leading" id="LSH-2w-1Nb"/>
+                            <constraint firstItem="fU4-BU-a1m" firstAttribute="top" secondItem="kQU-PV-720" secondAttribute="bottom" id="MwH-uq-yGJ"/>
                             <constraint firstAttribute="trailing" secondItem="4TS-1W-ABF" secondAttribute="trailing" id="Pmc-22-DfD"/>
-                            <constraint firstItem="fU4-BU-a1m" firstAttribute="top" secondItem="kQU-PV-720" secondAttribute="bottom" id="Yfq-jU-9cT"/>
                             <constraint firstAttribute="trailing" secondItem="fU4-BU-a1m" secondAttribute="trailing" id="rCz-lv-EJU"/>
                             <constraint firstItem="4TS-1W-ABF" firstAttribute="top" secondItem="fU4-BU-a1m" secondAttribute="bottom" id="yJf-MM-CbF"/>
                             <constraint firstItem="4TS-1W-ABF" firstAttribute="leading" secondItem="G4j-92-zeb" secondAttribute="leading" id="zdB-ox-bFo"/>
@@ -787,13 +793,13 @@
                                 <exclude reference="4TS-1W-ABF"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="F9z-Ug-ATH"/>
+                                <exclude reference="LSH-2w-1Nb"/>
+                                <exclude reference="MwH-uq-yGJ"/>
+                                <exclude reference="rCz-lv-EJU"/>
                                 <exclude reference="Pmc-22-DfD"/>
                                 <exclude reference="yJf-MM-CbF"/>
                                 <exclude reference="zdB-ox-bFo"/>
-                                <exclude reference="LSH-2w-1Nb"/>
-                                <exclude reference="Yfq-jU-9cT"/>
-                                <exclude reference="rCz-lv-EJU"/>
+                                <exclude reference="F9z-Ug-ATH"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -802,13 +808,13 @@
                                 <include reference="4TS-1W-ABF"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="F9z-Ug-ATH"/>
+                                <include reference="LSH-2w-1Nb"/>
+                                <include reference="MwH-uq-yGJ"/>
+                                <include reference="rCz-lv-EJU"/>
                                 <include reference="Pmc-22-DfD"/>
                                 <include reference="yJf-MM-CbF"/>
                                 <include reference="zdB-ox-bFo"/>
-                                <include reference="LSH-2w-1Nb"/>
-                                <include reference="Yfq-jU-9cT"/>
-                                <include reference="rCz-lv-EJU"/>
+                                <include reference="F9z-Ug-ATH"/>
                             </mask>
                         </variation>
                     </view>

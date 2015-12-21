@@ -25,11 +25,11 @@ typedef enum {
 
 @interface BasicNavigationController : UINavigationController
 
-- (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title;
-- (void)hiddenCustomNavbarView;
-- (void)showCustomNavbarView;
-- (void)customNavbarAddRightbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType;
-- (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType;
+- (void)addCustomNavbarWith:(UIView *)navView title:(NSString *)title;
+- (void)addCustomNavbarViewWithTitile:(NSString *)title;
+//- (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title;
+//- (void)customNavbarAddRightbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType;
+//- (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType;
 /**
  *  添加返回按钮
  */
@@ -40,6 +40,8 @@ typedef enum {
  */
 - (void)cancelNavigationBarTranslucentAndBottomBlackLine;
 
+- (void)addLeftItemTarget:(id)target action:(SEL)action backgroundImage:(UIImage *)image;
+- (void)addRightItemTarget:(id)target action:(SEL)action backgroundImage:(UIImage *)image;
 /**
  *  添加navigationbar左上角的图像图标
  */

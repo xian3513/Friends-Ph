@@ -52,6 +52,7 @@
     if(backgroundView) {
         _backgroundView.frame = self.view.bounds;
         [self.view addSubview:_backgroundView];
+        [self.view sendSubviewToBack:_backgroundView];
     }
     
 }

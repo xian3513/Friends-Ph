@@ -20,9 +20,8 @@
  //   self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     self.title = @"职位详情";
-
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.MyNavigationController addNavigationBackItem];
-
     self.jobNameLab.text = @"PHP开发";
     self.timeLab.text = @"2015.12.12";
     self.treatLab.text = @"20000 ~ 30000";

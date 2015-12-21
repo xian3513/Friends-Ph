@@ -186,8 +186,13 @@
 
 #pragma mark - BasicNavigationController
 
-@interface BasicNavigationController ()<UIGestureRecognizerDelegate>
-@property(nonatomic,strong) NSMutableDictionary *customNavViewDict;
+@interface BasicNavigationController ()<UIGestureRecognizerDelegate> {
+
+    CostomNavbarView *costomView;
+}
+
+@property(nonatomic,strong) NSMutableArray *leftArray;
+@property(nonatomic,strong) NSMutableArray *rightArray;
 @end
 
 @implementation BasicNavigationController
@@ -196,19 +201,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"themeBackground"] forBarMetrics:UIBarMetricsDefault];
-    
-//    //如果自定义了返回按钮 需要实现这些操作。
-//    __weak typeof(self) weakSelf = self;
-//    if([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-//        self.interactivePopGestureRecognizer.delegate = weakSelf;
-//    }
+    self.leftArray = [[NSMutableArray alloc]initWithCapacity:0];
+    self.rightArray = [[NSMutableArray alloc]initWithCapacity:0];
+    //self.navigationBar.translucent = YES;
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bigShadow.png"] forBarMetrics:UIBarMetricsCompact];
+    self.navigationBar.layer.masksToBounds = YES;
+    //如果自定义了返回按钮 需要实现这些操作。
+    __weak typeof(self) weakSelf = self;
+    if([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.interactivePopGestureRecognizer.delegate = weakSelf;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-     self.navigationBar.titleTextAttributes = @{UITextAttributeTextColor: [UIColor blackColor]};
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -216,104 +227,67 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    
-    //处理push前的viewController 的自定义navbar
-    NSString *key = NSStringFromClass([self.topViewController class]);
-    if([[self.customNavViewDict allKeys] containsObject:key]){
-        CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:key];
-        navbarView.hidden = YES;
-        self.navigationBarHidden = NO;
-    }
-    //处理push后的 viewController的 navbar
-    if([[self.customNavViewDict allKeys] containsObject:NSStringFromClass([viewController class])]){
-        CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:key];
-        navbarView.hidden = NO;
-        self.navigationBarHidden = YES;
-    }
-    [super pushViewController:viewController animated:animated];
-    
-    NSLog(@"pushViewController:%@",viewController);
-}
-
-- (UIViewController *)popViewControllerAnimated:(BOOL)animated {
-    UIViewController *controller = [super popViewControllerAnimated:animated];
-    
-    //处理pop前的viewController 的自定义navbar
-    NSString *key = NSStringFromClass([controller class]);
-    if([[self.customNavViewDict allKeys] containsObject:key]){
-        CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:key];
-        navbarView.hidden = NO;
-        self.navigationBarHidden = YES;
-    }
-    key = NSStringFromClass([self.topViewController class]);
-    if([[self.customNavViewDict allKeys] containsObject:key]){
-        CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:key];
-        navbarView.hidden = NO;
-        self.navigationBarHidden = YES;
-    }
-    NSLog(@"controller: %@ top:%@",controller,self.topViewController);
-    return controller;
-}
 #pragma mark - get / set
 
-- (NSMutableDictionary *)customNavViewDict {
-    if(!_customNavViewDict) {
-        _customNavViewDict = [[NSMutableDictionary alloc]initWithCapacity:0];
-    }
-    return _customNavViewDict;
-}
+
 #pragma mark - customNavbar
+
+- (void)addCustomNavbarViewWithTitile:(NSString *)title {
+    CostomNavbarView *navbarView = [[CostomNavbarView alloc]init];
+    [self.topViewController.view insertSubview:navbarView belowSubview:self.topViewController.navigationController.navigationBar];
+    navbarView.title = title;
+}
 - (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title {
     
     CostomNavbarView *navbarView = [[CostomNavbarView alloc]init];
-    [self.topViewController.view addSubview:navbarView];
-    [self.customNavViewDict setObject:navbarView forKey:NSStringFromClass([self.topViewController class])];
-    
+    [self.topViewController.view insertSubview:navbarView belowSubview:self.topViewController.navigationController.navigationBar];
     navbarView.title = title;
-    navbarView.hidden = NO;
-    self.navigationBarHidden = YES;
-
     return navbarView;
 }
 
-- (void)hiddenCustomNavbarView {
+- (void)addLeftItemTarget:(id)target action:(SEL)action backgroundImage:(UIImage *)image {
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftButton setBackgroundImage:image forState:UIControlStateNormal];
+    leftButton.frame = CGRectMake(0, 0, 16, 16);
     
-    NSString *key = NSStringFromClass([self.topViewController class]);
-    if([[self.customNavViewDict allKeys] containsObject:key]){
-        CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:key];
-        navbarView.hidden = YES;
-        self.navigationBarHidden = NO;
-    }
+     UIBarButtonItem* fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil]; fixedSpace.width = 20;
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     
-   
+    [self.leftArray addObject:leftItem];
+    [self.leftArray addObject:fixedSpace];
+    self.topViewController.navigationItem.rightBarButtonItems = self.leftArray;
+
 }
 
-- (void)showCustomNavbarView {
-      NSString *key = NSStringFromClass([self.topViewController class]);
-    if([[self.customNavViewDict allKeys] containsObject:key]){
-        CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:key];
-        navbarView.hidden = NO;
-        self.navigationBarHidden = YES;
-    }
+- (void)addRightItemTarget:(id)target action:(SEL)action backgroundImage:(UIImage *)image {
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftButton setBackgroundImage:image forState:UIControlStateNormal];
+    leftButton.frame = CGRectMake(0, 0, 16, 16);
+    
+    UIBarButtonItem* fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil]; fixedSpace.width = 20;
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    
+    [self.rightArray addObject:leftItem];
+    [self.rightArray addObject:fixedSpace];
+    self.topViewController.navigationItem.rightBarButtonItems = self.rightArray;
 }
 
-- (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType{
-    if(target && action) {
-        CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:NSStringFromClass([self.topViewController class])];
+- (void)addItemTarget:(id)target action:(SEL)action backgroundImage:(UIImage *)image {
 
-      [navbarView addLeftButtonTarget:target action:action buttonType:buttonType];
-    }
 }
-
-- (void)customNavbarAddRightbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType{
-    if(target && action) {
-        CostomNavbarView *navbarView = [self.customNavViewDict objectForKey:NSStringFromClass([self.topViewController class])];
-
-     [navbarView addRightButtonTarget:target action:action buttonType:buttonType];
-    }
-}
+//- (void)customNavbarAddLeftbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType{
+//    if(target && action) {
+//      [navbarView addLeftButtonTarget:target action:action buttonType:buttonType];
+//    }
+//}
+//
+//- (void)customNavbarAddRightbuttonTarget:(id)target action:(SEL)action buttonType:(CostomNavbarButtonType)buttonType{
+//    if(target && action) {
+//
+//
+//     [navbarView addRightButtonTarget:target action:action buttonType:buttonType];
+//    }
+//}
 
 
 - (void)addPromptAndQRCodeOnRightBarButtonItemWith:(UIViewController *)target action:(SEL)action {

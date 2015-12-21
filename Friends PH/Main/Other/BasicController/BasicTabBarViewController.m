@@ -59,6 +59,8 @@
     }
 }
 
+
+
  //实现nav的delegate方法，完成 hidecustomBarWhenpushed 效果
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(nonnull UIViewController *)viewController animated:(BOOL)animated {
     //NSLog(@"viewController%d  nav:%d",viewController.hidesCustomBottomBarWhenPushed,viewController.navigationController.hidesCustomBottomBarWhenPushed);
@@ -76,6 +78,10 @@
 //    BOOL isHidden = navigationController.hidesCustomBottomBarWhenPushed^viewController.hidesCustomBottomBarWhenPushed;
 //    if(isHidden){
 //        self.tabbarView.hidden = isHidden;
+//    }
+//    if([navigationController isKindOfClass:[BasicNavigationController class]]){
+//        BasicNavigationController *nav = (BasicNavigationController *)navigationController;
+//        [nav aaNav:nav controller:viewController];
 //    }
 }
 - (void)viewDidLoad {
