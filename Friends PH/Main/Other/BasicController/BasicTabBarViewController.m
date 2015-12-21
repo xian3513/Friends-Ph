@@ -109,6 +109,24 @@
             vc.navigationController.delegate = self;
         }
     }
+    
+    
+    
+//    UIImage *bgImg = [[UIImage alloc] init];
+//    [self.tabBarController.tabBar setBackgroundImage:bgImg];
+//    [self.tabBarController.tabBar setShadowImage:bgImg];
+//    
+//    if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0"] == NSOrderedAscending) {
+//        [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:127.0/255.0 green:186.0/255.0 blue:235.0/255.0 alpha:1.0]];
+//        [[UITabBar appearance] setSelectionIndicatorImage:bgImg];
+//        //上面两个是清除item的背景色跟选中背景色
+//        
+//    }
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 49)];
+//    view.backgroundColor = [UIColor colorWithRed:0.1 green:0.6 blue:0.5 alpha:0.2];
+//    [self.tabBarController.tabBar addSubview:view];
+//    view.userInteractionEnabled = YES;
+//    self.tabBarController.tabBar.backgroundColor = [UIColor clearColor];
 }
 
 - (TabbarViewItem *)tabbar:(TabbarView *)tabbarView cellForRowAtIndex:(NSInteger)index {
