@@ -20,7 +20,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+   
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -29,12 +29,11 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden = NO;
-}
+   }
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"wwva";
+    //self.title = @"wwva";
     _dataArray = @[@"我的APP",@"紧急求助电话",@"免费商家广告",@"关于我们"];
    // [self.MyNavigationController showCustomNavbarViewWithTitle:@"我的"];
     

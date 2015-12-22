@@ -37,7 +37,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-       self.hidesCustomBottomBarWhenPushed = YES;
+     //  //self.hidesCustomBottomBarWhenPushed = YES;
+    self.hidesBottomBarWhenPushed = YES;
     _model = [[ForecastModel alloc]init];
     _feModel = [[FonExchangeModel alloc]init];
     _headerView = [[HomeHeaderView alloc]init];

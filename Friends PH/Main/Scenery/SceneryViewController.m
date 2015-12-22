@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"sfafdafsaf";
+   // self.title = @"sfafdafsaf";
 }
 
 - (void)aa {

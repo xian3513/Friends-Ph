@@ -69,18 +69,18 @@
         return;
     }
     if((lastpace - delta) > 0){
-        [self.myTabBarController showAnimation];
+     //   [self.myTabBarController showAnimation];
         
     } else {
-        [self.myTabBarController hideAnimation];
+       // [self.myTabBarController hideAnimation];
     }
     lastpace = delta;
     
-    if(_gradientOffset){
-        
-        CGFloat value = MAX(0.1, 1-delta/_gradientOffset);
-        self.MyNavigationController.navigationBar.barTintColor = [UIColor colorWithRed:value green:value blue:value alpha:1];
-    }
+//    if(_gradientOffset){
+//        
+//        CGFloat value = MAX(0.1, 1-delta/_gradientOffset);
+//        self.MyNavigationController.navigationBar.barTintColor = [UIColor colorWithRed:value green:value blue:value alpha:1];
+//    }
 }
 
 //- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer

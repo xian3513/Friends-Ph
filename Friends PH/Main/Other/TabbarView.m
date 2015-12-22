@@ -29,7 +29,7 @@
 -(instancetype)init {
     if(self = [super init]) {
         
-        self.frame = CGRectMake(0, SCREEN_HEIGHT-49, SCREEN_WIDTH, 49);
+        self.frame = CGRectMake(0, 0, SCREEN_WIDTH, 49);
         _itemsArray = [[NSMutableArray alloc]initWithCapacity:0];
     }
     return self;
