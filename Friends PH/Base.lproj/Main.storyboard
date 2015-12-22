@@ -645,7 +645,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99607843139999996" green="0.72941176470000002" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Bwh-pT-fTd" firstAttribute="leading" secondItem="fU4-BU-a1m" secondAttribute="leading" id="GNS-Fc-Vzd"/>
                                     <constraint firstAttribute="bottom" secondItem="Bwh-pT-fTd" secondAttribute="bottom" id="Nt4-u3-UxE"/>
@@ -788,6 +788,7 @@
                             <constraint firstItem="fU4-BU-a1m" firstAttribute="top" secondItem="kQU-PV-720" secondAttribute="bottom" id="MwH-uq-yGJ"/>
                             <constraint firstAttribute="trailing" secondItem="4TS-1W-ABF" secondAttribute="trailing" id="Pmc-22-DfD"/>
                             <constraint firstAttribute="trailing" secondItem="fU4-BU-a1m" secondAttribute="trailing" id="rCz-lv-EJU"/>
+                            <constraint firstAttribute="bottom" secondItem="4TS-1W-ABF" secondAttribute="bottom" id="tGg-0X-iGU"/>
                             <constraint firstItem="4TS-1W-ABF" firstAttribute="top" secondItem="fU4-BU-a1m" secondAttribute="bottom" id="yJf-MM-CbF"/>
                             <constraint firstItem="4TS-1W-ABF" firstAttribute="leading" secondItem="G4j-92-zeb" secondAttribute="leading" id="zdB-ox-bFo"/>
                         </constraints>
@@ -797,13 +798,14 @@
                                 <exclude reference="4TS-1W-ABF"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="F9z-Ug-ATH"/>
-                                <exclude reference="Pmc-22-DfD"/>
-                                <exclude reference="yJf-MM-CbF"/>
-                                <exclude reference="zdB-ox-bFo"/>
                                 <exclude reference="LSH-2w-1Nb"/>
                                 <exclude reference="MwH-uq-yGJ"/>
                                 <exclude reference="rCz-lv-EJU"/>
+                                <exclude reference="Pmc-22-DfD"/>
+                                <exclude reference="tGg-0X-iGU"/>
+                                <exclude reference="yJf-MM-CbF"/>
+                                <exclude reference="zdB-ox-bFo"/>
+                                <exclude reference="F9z-Ug-ATH"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -812,13 +814,14 @@
                                 <include reference="4TS-1W-ABF"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="F9z-Ug-ATH"/>
-                                <include reference="Pmc-22-DfD"/>
-                                <include reference="yJf-MM-CbF"/>
-                                <include reference="zdB-ox-bFo"/>
                                 <include reference="LSH-2w-1Nb"/>
                                 <include reference="MwH-uq-yGJ"/>
                                 <include reference="rCz-lv-EJU"/>
+                                <include reference="Pmc-22-DfD"/>
+                                <include reference="tGg-0X-iGU"/>
+                                <include reference="yJf-MM-CbF"/>
+                                <include reference="zdB-ox-bFo"/>
+                                <exclude reference="F9z-Ug-ATH"/>
                             </mask>
                         </variation>
                     </view>

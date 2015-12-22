@@ -37,14 +37,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     //  //self.hidesCustomBottomBarWhenPushed = YES;
-    self.hidesBottomBarWhenPushed = YES;
     _model = [[ForecastModel alloc]init];
     _feModel = [[FonExchangeModel alloc]init];
     _headerView = [[HomeHeaderView alloc]init];
     [self followScrollView:_tabView];
     _tabView.tableHeaderView = _headerView;
-    
     
     [self.MyNavigationController addCustomNavbarViewWithTitile:@"关注"];
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_night_snow.jpg"]];
@@ -55,7 +52,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-  //  [self.MyNavigationController showCustomNavbarView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -189,6 +185,8 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UIViewController *controller = segue.destinationViewController;
+     controller.hidesBottomBarWhenPushed = YES;
 }
 /*
 #pragma mark - Navigation
