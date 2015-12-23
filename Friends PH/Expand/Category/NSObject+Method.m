@@ -19,7 +19,7 @@
     {
         objc_property_t property = properties[i];
         [arr addObject:[NSString stringWithFormat:@"%s",property_getName(property)]];
-        NSLog(@"attributes:%s",property_getAttributes(property));
+   //     NSLog(@"attributes:%s",property_getAttributes(property));
         
     }
     free(properties);

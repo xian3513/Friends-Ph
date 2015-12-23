@@ -28,6 +28,10 @@
 - (BOOL)createTableWithSQL:(NSString *)sql;
 
 - (BOOL)insertWithModel:(NSObject *)model;
+/**
+ *异步执行
+ */
+- (BOOL)insertWithModels:(NSArray *)models;
 
 - (BOOL)insertWithSQL:(NSString *)sql;
 

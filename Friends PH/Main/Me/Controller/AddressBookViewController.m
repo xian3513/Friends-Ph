@@ -37,16 +37,26 @@ static  NSString *ADDRESS = @"tel";
     
     [handler.db createTableWithSQL:sqlCreateTable];
     
-    AddressBookTable *model = [[AddressBookTable alloc]init];
-    model.tel = @"ss";
-    model.name = @"zxx";
-    [handler.db insertWithModel:model];
+  
+    NSMutableArray *arr1 = [[NSMutableArray alloc]initWithCapacity:0];
+     NSMutableArray *arr2 = [[NSMutableArray alloc]initWithCapacity:0];
+    for(int i=0;i<1000;i++){
+//        NSLog(@"ID:%d",i);
+        AddressBookTable *model = [[AddressBookTable alloc]init];
+        model.tel = [NSString stringWithFormat:@"ss %d",i];
+        model.name = @"zxx";
+        [arr1 addObject:model];
+        }
     
-    
-    
-    
-    
-    
+    [handler.db insertWithModels:arr1];
+//    for(int i=0;i<500;i++){
+//        //        NSLog(@"ID:%d",i);
+//        AddressBookTable *model = [[AddressBookTable alloc]init];
+//        model.tel = [NSString stringWithFormat:@"ss %d",i];
+//        model.name = @"zxx";
+//        [arr2 addObject:model];
+//    }
+//    [handler.db insertWithModels:arr2];
     
     
     //[[DatabaseManager shareDatabaseQueue] openDatabaseWithPath:@"myAddress.db"];
@@ -67,7 +77,7 @@ static  NSString *ADDRESS = @"tel";
                           TABLENAME, NAME, AGE, ADDRESS, @"张三", @"13", @"济南"];
     
    // [[DatabaseManager shareDatabaseQueue] createTableWithSQL:sqlCreateTable saveFileName:@"myAddress"];
-  FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[self documentPathWithName:@"myAddress.db"]];
+ // FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[self documentPathWithName:@"myAddress.db"]];
     
     
 //    [queue inDatabase:^(FMDatabase *db) {
