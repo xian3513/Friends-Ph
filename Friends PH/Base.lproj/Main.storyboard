@@ -101,12 +101,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LxF-Tc-Vpr" id="9zV-Kl-q5N">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="cox-Gy-DQu" kind="push" id="qRQ-rH-3u1"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -207,13 +204,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyC-e1-5RL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="1412"/>
+            <point key="canvasLocation" x="657" y="1401"/>
         </scene>
-        <!--Item-->
+        <!--Basic Navigation Controller-->
         <scene sceneID="Ta4-rr-wL6">
             <objects>
                 <navigationController id="BY0-xB-utU" customClass="BasicNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="03L-b1-MTM"/>
+                    <tabBarItem key="tabBarItem" title="" id="03L-b1-MTM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uvA-Cw-F74">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -247,7 +244,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zbw-WQ-6Wh" id="dea-3M-hgK">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="93.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLZ-ge-IiS">
@@ -798,14 +795,14 @@
                                 <exclude reference="4TS-1W-ABF"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="LSH-2w-1Nb"/>
-                                <exclude reference="MwH-uq-yGJ"/>
-                                <exclude reference="rCz-lv-EJU"/>
+                                <exclude reference="F9z-Ug-ATH"/>
                                 <exclude reference="Pmc-22-DfD"/>
                                 <exclude reference="tGg-0X-iGU"/>
                                 <exclude reference="yJf-MM-CbF"/>
                                 <exclude reference="zdB-ox-bFo"/>
-                                <exclude reference="F9z-Ug-ATH"/>
+                                <exclude reference="LSH-2w-1Nb"/>
+                                <exclude reference="MwH-uq-yGJ"/>
+                                <exclude reference="rCz-lv-EJU"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -814,14 +811,14 @@
                                 <include reference="4TS-1W-ABF"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="LSH-2w-1Nb"/>
-                                <include reference="MwH-uq-yGJ"/>
-                                <include reference="rCz-lv-EJU"/>
+                                <exclude reference="F9z-Ug-ATH"/>
                                 <include reference="Pmc-22-DfD"/>
                                 <include reference="tGg-0X-iGU"/>
                                 <include reference="yJf-MM-CbF"/>
                                 <include reference="zdB-ox-bFo"/>
-                                <exclude reference="F9z-Ug-ATH"/>
+                                <include reference="LSH-2w-1Nb"/>
+                                <include reference="MwH-uq-yGJ"/>
+                                <include reference="rCz-lv-EJU"/>
                             </mask>
                         </variation>
                     </view>

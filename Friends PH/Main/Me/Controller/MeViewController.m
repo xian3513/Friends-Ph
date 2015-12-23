@@ -9,6 +9,10 @@
 #import "MeViewController.h"
 #import "CommonMacros.h"
 #import "BasicNavigationController.h"
+
+#import "EmergencyPhoneViewController.h"
+#import "AddressBookViewController.h"
+
 #define headerViewHeight 200
 @interface MeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -30,13 +34,13 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden = NO;
+    
    }
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //self.title = @"wwva";
-    _dataArray = @[@"我的APP",@"紧急求助电话",@"免费商家广告",@"关于我们"];
+    _dataArray = @[@"我的APP",@"紧急求助电话",@"通讯录",@"免费商家广告",@"关于我们"];
    // [self.MyNavigationController showCustomNavbarViewWithTitle:@"我的"];
     
     self.tabView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -96,20 +100,28 @@
     static NSString *cellIdentifier = @"meCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.backgroundColor = [UIColor clearColor];
+    cell.tag = indexPath.row;
     cell.textLabel.text= [_dataArray objectAtIndex:indexPath.row];
     return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//    
-//}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  //  NSLog(@"sender;%@",sender);
-    UIViewController *controller = segue.destinationViewController;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController *controller = nil;
+    controller = [[AddressBookViewController alloc]init];
     controller.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:controller animated:YES];
+    self.navigationController.navigationBarHidden = NO;
+    
 }
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//  //  NSLog(@"sender;%@",sender);
+//   NSLog(@"sender;%@",sender);
+//    
+//    
+//    UIViewController *controller = segue.destinationViewController;
+//    controller.hidesBottomBarWhenPushed = YES;
+//}
 /*
 #pragma mark - Navigation
 

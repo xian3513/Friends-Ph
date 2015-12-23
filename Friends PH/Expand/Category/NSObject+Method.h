@@ -10,6 +10,8 @@
 #import "MJExtension.h"
 @interface NSObject (Method)
 
+- (NSArray *)allParameters;
+
 #pragma mark - return array
 - (NSArray *)arrayTransferWithData:(id)data model:(NSObject *)model;
 

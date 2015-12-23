@@ -11,6 +11,21 @@
 
 @implementation NSObject (Method)
 
+- (NSArray *)allParameters {
+    unsigned int count;
+    NSMutableArray *arr = [[NSMutableArray alloc]initWithCapacity:0];
+    objc_property_t *properties = class_copyPropertyList([self class], &count);
+    for(int i = 0; i < count; i++)
+    {
+        objc_property_t property = properties[i];
+        [arr addObject:[NSString stringWithFormat:@"%s",property_getName(property)]];
+        NSLog(@"attributes:%s",property_getAttributes(property));
+        
+    }
+    free(properties);
+    return arr;
+}
+
 #pragma -mark outside method
 - (NSArray *)arrayTransferWithData:(id)data model:(NSObject *)model{
     NSMutableArray *arr = [[NSMutableArray alloc]initWithCapacity:0];

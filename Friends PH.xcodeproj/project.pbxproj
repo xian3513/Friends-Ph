@@ -41,6 +41,19 @@
 		90B379021C192C1300305870 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B379011C192C1300305870 /* HomeHeaderView.m */; };
 		90C124261C25612200D02FDC /* EmergencyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C124251C25612200D02FDC /* EmergencyPhoneViewController.m */; };
 		90CC64FD1C187DFE00E4F454 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CC64FC1C187DFE00E4F454 /* HomeViewController.m */; };
+		90D0C9581C2A3F1C00A9925E /* AddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C9571C2A3F1C00A9925E /* AddressBookViewController.m */; };
+		90D0C95A1C2A437B00A9925E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D0C9591C2A437B00A9925E /* AddressBook.framework */; };
+		90D0C95C1C2A438100A9925E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D0C95B1C2A438100A9925E /* AddressBookUI.framework */; };
+		90D0C95F1C2A51A200A9925E /* AddressBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C95E1C2A51A200A9925E /* AddressBookModel.m */; };
+		90D0C9621C2A652300A9925E /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C9611C2A652300A9925E /* DatabaseManager.m */; };
+		90D0C96F1C2A65CB00A9925E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C9651C2A65CB00A9925E /* FMDatabase.m */; };
+		90D0C9701C2A65CB00A9925E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C9671C2A65CB00A9925E /* FMDatabaseAdditions.m */; };
+		90D0C9711C2A65CB00A9925E /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C9691C2A65CB00A9925E /* FMDatabasePool.m */; };
+		90D0C9721C2A65CB00A9925E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C96B1C2A65CB00A9925E /* FMDatabaseQueue.m */; };
+		90D0C9731C2A65CB00A9925E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C96E1C2A65CB00A9925E /* FMResultSet.m */; };
+		90D0C9751C2A7E2900A9925E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D0C9741C2A7E2900A9925E /* libsqlite3.tbd */; };
+		90D0C9781C2AA4A200A9925E /* UserHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C9771C2AA4A200A9925E /* UserHandler.m */; };
+		90D0C97E1C2AABFD00A9925E /* AddressBookTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C97D1C2AABFD00A9925E /* AddressBookTable.m */; };
 		90E0C71C1C16D2EE003B41A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C71B1C16D2EE003B41A2 /* main.m */; };
 		90E0C71F1C16D2EE003B41A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C71E1C16D2EE003B41A2 /* AppDelegate.m */; };
 		90E0C7221C16D2EE003B41A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C7211C16D2EE003B41A2 /* ViewController.m */; };
@@ -142,6 +155,30 @@
 		90C124251C25612200D02FDC /* EmergencyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyPhoneViewController.m; sourceTree = "<group>"; };
 		90CC64FB1C187DFE00E4F454 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		90CC64FC1C187DFE00E4F454 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		90D0C9561C2A3F1C00A9925E /* AddressBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookViewController.h; sourceTree = "<group>"; };
+		90D0C9571C2A3F1C00A9925E /* AddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookViewController.m; sourceTree = "<group>"; };
+		90D0C9591C2A437B00A9925E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		90D0C95B1C2A438100A9925E /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		90D0C95D1C2A51A200A9925E /* AddressBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookModel.h; sourceTree = "<group>"; };
+		90D0C95E1C2A51A200A9925E /* AddressBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookModel.m; sourceTree = "<group>"; };
+		90D0C9601C2A652300A9925E /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
+		90D0C9611C2A652300A9925E /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
+		90D0C9641C2A65CB00A9925E /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		90D0C9651C2A65CB00A9925E /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		90D0C9661C2A65CB00A9925E /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		90D0C9671C2A65CB00A9925E /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		90D0C9681C2A65CB00A9925E /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		90D0C9691C2A65CB00A9925E /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		90D0C96A1C2A65CB00A9925E /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		90D0C96B1C2A65CB00A9925E /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		90D0C96C1C2A65CB00A9925E /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		90D0C96D1C2A65CB00A9925E /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		90D0C96E1C2A65CB00A9925E /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		90D0C9741C2A7E2900A9925E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		90D0C9761C2AA4A200A9925E /* UserHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserHandler.h; path = ../../Expand/Database/UserHandler.h; sourceTree = "<group>"; };
+		90D0C9771C2AA4A200A9925E /* UserHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserHandler.m; path = ../../Expand/Database/UserHandler.m; sourceTree = "<group>"; };
+		90D0C97C1C2AABFD00A9925E /* AddressBookTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookTable.h; sourceTree = "<group>"; };
+		90D0C97D1C2AABFD00A9925E /* AddressBookTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookTable.m; sourceTree = "<group>"; };
 		90E0C7171C16D2EE003B41A2 /* Friends PH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friends PH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E0C71B1C16D2EE003B41A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90E0C71D1C16D2EE003B41A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -201,6 +238,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90D0C9751C2A7E2900A9925E /* libsqlite3.tbd in Frameworks */,
+				90D0C95C1C2A438100A9925E /* AddressBookUI.framework in Frameworks */,
+				90D0C95A1C2A437B00A9925E /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,9 +382,30 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		90D0C9631C2A65C000A9925E /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				90D0C9641C2A65CB00A9925E /* FMDatabase.h */,
+				90D0C9651C2A65CB00A9925E /* FMDatabase.m */,
+				90D0C9661C2A65CB00A9925E /* FMDatabaseAdditions.h */,
+				90D0C9671C2A65CB00A9925E /* FMDatabaseAdditions.m */,
+				90D0C9681C2A65CB00A9925E /* FMDatabasePool.h */,
+				90D0C9691C2A65CB00A9925E /* FMDatabasePool.m */,
+				90D0C96A1C2A65CB00A9925E /* FMDatabaseQueue.h */,
+				90D0C96B1C2A65CB00A9925E /* FMDatabaseQueue.m */,
+				90D0C96C1C2A65CB00A9925E /* FMDB.h */,
+				90D0C96D1C2A65CB00A9925E /* FMResultSet.h */,
+				90D0C96E1C2A65CB00A9925E /* FMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
 		90E0C70E1C16D2EE003B41A2 = {
 			isa = PBXGroup;
 			children = (
+				90D0C9741C2A7E2900A9925E /* libsqlite3.tbd */,
+				90D0C95B1C2A438100A9925E /* AddressBookUI.framework */,
+				90D0C9591C2A437B00A9925E /* AddressBook.framework */,
 				90E0C7191C16D2EE003B41A2 /* Friends PH */,
 				90E0C7331C16D2EF003B41A2 /* Friends PHTests */,
 				90E0C73E1C16D2EF003B41A2 /* Friends PHUITests */,
@@ -420,6 +481,7 @@
 		90E0C74E1C16D82D003B41A2 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				90D0C9631C2A65C000A9925E /* FMDB */,
 				90AFB40D1C1AC4AB00B70395 /* MJExtension */,
 				90AED03D1C17CA8100D10D40 /* Masonry */,
 				90E0C74F1C16D82D003B41A2 /* AFNetworing */,
@@ -497,6 +559,8 @@
 		90E0C7541C16D840003B41A2 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				90D0C9601C2A652300A9925E /* DatabaseManager.h */,
+				90D0C9611C2A652300A9925E /* DatabaseManager.m */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -525,6 +589,8 @@
 		90E0C7571C16D870003B41A2 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				90D0C9761C2AA4A200A9925E /* UserHandler.h */,
+				90D0C9771C2AA4A200A9925E /* UserHandler.m */,
 				90AFB4001C1AAB1D00B70395 /* BasicModel */,
 				90E0C7881C16DE65003B41A2 /* TabbarView.h */,
 				90E0C7891C16DE65003B41A2 /* TabbarView.m */,
@@ -553,6 +619,8 @@
 				90E54A6E1C2170F9008B1B42 /* MeViewController.m */,
 				90C124241C25612200D02FDC /* EmergencyPhoneViewController.h */,
 				90C124251C25612200D02FDC /* EmergencyPhoneViewController.m */,
+				90D0C9561C2A3F1C00A9925E /* AddressBookViewController.h */,
+				90D0C9571C2A3F1C00A9925E /* AddressBookViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -560,6 +628,10 @@
 		90E54A6F1C2170F9008B1B42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				90D0C95D1C2A51A200A9925E /* AddressBookModel.h */,
+				90D0C95E1C2A51A200A9925E /* AddressBookModel.m */,
+				90D0C97C1C2AABFD00A9925E /* AddressBookTable.h */,
+				90D0C97D1C2AABFD00A9925E /* AddressBookTable.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -646,7 +718,10 @@
 				90AED05D1C17CA8900D10D40 /* NSArray+MASAdditions.m in Sources */,
 				90AFB42D1C1AC4B100B70395 /* NSObject+MJKeyValue.m in Sources */,
 				90AFB4281C1AC4B100B70395 /* MJProperty.m in Sources */,
+				90D0C9781C2AA4A200A9925E /* UserHandler.m in Sources */,
+				90D0C9711C2A65CB00A9925E /* FMDatabasePool.m in Sources */,
 				90E0C7821C16D8AC003B41A2 /* AFNetworkReachabilityManager.m in Sources */,
+				90D0C9581C2A3F1C00A9925E /* AddressBookViewController.m in Sources */,
 				90E0C7221C16D2EE003B41A2 /* ViewController.m in Sources */,
 				90AFB4291C1AC4B100B70395 /* MJPropertyKey.m in Sources */,
 				90AED0571C17CA8900D10D40 /* MASCompositeConstraint.m in Sources */,
@@ -658,13 +733,16 @@
 				90E0C7841C16D8AC003B41A2 /* AFURLConnectionOperation.m in Sources */,
 				90E0C78A1C16DE65003B41A2 /* TabbarView.m in Sources */,
 				90E0C77F1C16D8AC003B41A2 /* AFHTTPRequestOperation.m in Sources */,
+				90D0C95F1C2A51A200A9925E /* AddressBookModel.m in Sources */,
 				9025BCF31C1AF3DE002CE5D5 /* NSObject+Method.m in Sources */,
 				90AED05E1C17CA8900D10D40 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				90C124261C25612200D02FDC /* EmergencyPhoneViewController.m in Sources */,
 				908007BE1C21A6A800557DF5 /* RentViewController.m in Sources */,
 				90AFB4351C1ACC7000B70395 /* ForecastModel.m in Sources */,
 				90AED0591C17CA8900D10D40 /* MASConstraintMaker.m in Sources */,
+				90D0C97E1C2AABFD00A9925E /* AddressBookTable.m in Sources */,
 				90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */,
+				90D0C9721C2A65CB00A9925E /* FMDatabaseQueue.m in Sources */,
 				90E54A711C2170F9008B1B42 /* MeViewController.m in Sources */,
 				90E0C7811C16D8AC003B41A2 /* AFHTTPSessionManager.m in Sources */,
 				90E0C7851C16D8AC003B41A2 /* AFURLRequestSerialization.m in Sources */,
@@ -686,7 +764,9 @@
 				90AFB4031C1AAB4B00B70395 /* BasicModel.m in Sources */,
 				90B0668E1C1FF6DF00E8A464 /* X_DrawExcelView.m in Sources */,
 				90AFB42E1C1AC4B100B70395 /* NSObject+MJProperty.m in Sources */,
+				90D0C96F1C2A65CB00A9925E /* FMDatabase.m in Sources */,
 				90AED0601C17CA8900D10D40 /* ViewController+MASAdditions.m in Sources */,
+				90D0C9731C2A65CB00A9925E /* FMResultSet.m in Sources */,
 				90E0C71C1C16D2EE003B41A2 /* main.m in Sources */,
 				908007B81C2195F200557DF5 /* Home_Job_TableViewCell.m in Sources */,
 				90CC64FD1C187DFE00E4F454 /* HomeViewController.m in Sources */,
@@ -695,7 +775,9 @@
 				90B0668B1C1FEB5A00E8A464 /* ColorTransformRGB.m in Sources */,
 				90AFB4261C1AC4B100B70395 /* MJExtensionConst.m in Sources */,
 				90E0C7601C16D87C003B41A2 /* BasicNavigationController.m in Sources */,
+				90D0C9621C2A652300A9925E /* DatabaseManager.m in Sources */,
 				90AFB4251C1AC4B100B70395 /* MJDictionaryCache.m in Sources */,
+				90D0C9701C2A65CB00A9925E /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
