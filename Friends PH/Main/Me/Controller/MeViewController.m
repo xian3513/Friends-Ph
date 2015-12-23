@@ -106,8 +106,9 @@
 //}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"sender;%@",sender);
- 
+  //  NSLog(@"sender;%@",sender);
+    UIViewController *controller = segue.destinationViewController;
+    controller.hidesBottomBarWhenPushed = YES;
 }
 /*
 #pragma mark - Navigation
