@@ -23,24 +23,36 @@
  */
 - (void)openDatabaseWithName:(NSString *)name;
 
+/**
+ *
+ *  举例:
+ *  NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('%@' INTEGER PRIMARY KEY AUTOINCREMENT, '%@' TEXT, '%@' INTEGER, '%@' TEXT)",TABLENAME,ID,NAME,AGE,ADDRESS];
+ */
 - (BOOL)createTableWithModel:(NSObject *)model;
 
 - (BOOL)createTableWithSQL:(NSString *)sql;
 
-- (BOOL)insertWithModel:(NSObject *)model;
 /**
- *异步执行
+ *  批量添加数据
+ *
+ *  参数为model，插入的表名为model的类名，插入子段为model的 属性
+ *  （缺点是 所有的属性都将被执行插入，属性为空，插入数据为空）
  */
-- (BOOL)insertWithModels:(NSArray *)models;
+- (BOOL)insertWithModels:(NSArray *)models Transaction:(BOOL)useTransaction;
+
+- (BOOL)insertWithModel:(NSObject *)model;
 
 - (BOOL)insertWithSQL:(NSString *)sql;
+
+
 
 - (BOOL)updateWithSQL:(NSString *)sql;
 
 - (BOOL)deleteWithSQL:(NSString *)sql;
 
+/**
+ *  NSString * sql = [NSString stringWithFormat:@"SELECT * FROM %@",TABLENAME];
+ */
 - (void)selectWithSQL:(NSString *)sql;
-
-//- (void)inDatabase:(void(^)(DatabaseManager *db))block;
-//- (void)inTransaction:(void(^)(DatabaseManager *db, BOOL *rollback))block;
+;
 @end

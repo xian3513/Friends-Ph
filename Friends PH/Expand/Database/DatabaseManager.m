@@ -23,6 +23,7 @@ static DatabaseManager *manager = nil;
 
 @implementation DatabaseManager
 
+#pragma mark - lift cycle method
 + (DatabaseManager *)manager {
     
     static dispatch_once_t predicate;
@@ -56,10 +57,9 @@ static DatabaseManager *manager = nil;
     } else {
         return nil;
     }
-    
-    
 }
 
+#pragma mark - SQLITE
 - (void)openDatabaseWithName:(NSString *)name {
     //1.建立数据库只需要如下一行即可 , 当该文件不存在时，fmdb 会自己创建一个。
     //如果你传入的参数是空串：@“” ，则 fmdb 会在临时文件目录下创建这个数据库，
@@ -108,89 +108,111 @@ static DatabaseManager *manager = nil;
     return res;
 }
 
-- (BOOL)insertWithModels:(NSArray *)models {
+#pragma mark - INSERT
+
+- (BOOL)insertWithModels:(NSArray *)models Transaction:(BOOL)useTransaction{
     BOOL res = NO;
-//    dispatch_async(_db_sync_queue, ^(){
-//        FMDatabase *tmpDB = _db;
-//        for(NSObject *tmpObj in models){
-//            NSArray *parArray = [tmpObj allParameters];
-//            NSMutableString *parStr = [[NSMutableString alloc]initWithCapacity:0];
-//            NSMutableString *valuesStr = [[NSMutableString alloc]initWithCapacity:0];
-//            [parStr appendFormat:@"INSERT INTO '%@' (",NSStringFromClass([tmpObj class])];
-//            [valuesStr appendString:@" VALUES ("];
-//            NSInteger flog = parArray.count;
-//            for(NSString *tmpStr in parArray){
-//                [parStr appendFormat:@"'%@'",tmpStr];
-//                [valuesStr appendFormat:@"'%@'",[tmpObj valueForKey:tmpStr]];
-//                if(flog != 1){
-//                    [parStr appendString:@", "];
-//                    [valuesStr appendString:@", "];
-//                }
-//                flog--;
-//            }
-//            [parStr appendString:@")"];
-//            [valuesStr appendString:@")"];
-//            [parStr appendString:valuesStr];
-//            //NSLog(@"isnert:%@",parStr);
-//    
-//            if ([tmpDB open]) {
-//                
-//                BOOL res = [tmpDB executeUpdate:parStr];
+    __block NSInteger modelsCount = 0;
+    dispatch_async(_db_sync_queue, ^(){
+        if(useTransaction){
+            [_queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+                for(NSObject *tmpObj in models){
+                    modelsCount++;
+                    BOOL res = [db executeUpdate:[self produceSQLWithModel:tmpObj operate:@"INSERT"]];
+                    
+                    if (!res) {
+                        NSLog(@"error when insert db table");
+                    } else {
+                        NSLog(@"flog:%ld rollback:%d  success to insert db table",modelsCount,*rollback);
+                    }
+                    //操作出错，进行会滚
+                    if(*rollback){
+                        res = !rollback;
+                        [db rollback];
+                        
+                    }
+                }
+            }];
+        }else {
+            //两种方式 实现
+            
+//            if ([_db open]) {
+//                BOOL res = [_db executeUpdate:[self produceSQLWithModel:models operate:@"INSERT"]];
 //                
 //                if (!res) {
-//                       [tmpDB close];
+//                    [_db close];
 //                    NSLog(@"error when insert db table");
-//                    
 //                } else {
 //                    NSLog(@"success to insert db table");
 //                }
-//       
 //            }
-//        }
-//          [tmpDB close];
-//    
-//    });
-   [_queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-       int modelsCount = 0;
-       for(NSObject *tmpObj in models){
-           modelsCount++;
-                       NSArray *parArray = [tmpObj allParameters];
-                       NSMutableString *parStr = [[NSMutableString alloc]initWithCapacity:0];
-                       NSMutableString *valuesStr = [[NSMutableString alloc]initWithCapacity:0];
-                       [parStr appendFormat:@"INSERT INTO '%@' (",NSStringFromClass([tmpObj class])];
-                       [valuesStr appendString:@" VALUES ("];
-                       NSInteger flog = parArray.count;
-                       for(NSString *tmpStr in parArray){
-                           [parStr appendFormat:@"'%@'",tmpStr];
-                           [valuesStr appendFormat:@"'%@'",[tmpObj valueForKey:tmpStr]];
-                           if(flog != 1){
-                               [parStr appendString:@", "];
-                               [valuesStr appendString:@", "];
-                           }
-                           flog--;
-                       }
-                       [parStr appendString:@")"];
-                       [valuesStr appendString:@")"];
-                       [parStr appendString:valuesStr];
-                       //NSLog(@"isnert:%@",parStr);
-           
-           
-                           BOOL res = [db executeUpdate:parStr];
-           
-                           if (!res) {
-                                  [db close];
-                               NSLog(@"error when insert db table");
-                               
-                           } else {
-                               NSLog(@"flog:%d   success to insert db table",modelsCount);
-                           }
-                   
-                       }
-   }];
+//            [_db close];
+            [_queue inDatabase:^(FMDatabase *db) {
+                for(NSObject *tmpObj in models){
+                    BOOL res = [db executeUpdate:[self produceSQLWithModel:tmpObj operate:@"INSERT"]];
+                    
+                    if (!res) {
+                        NSLog(@"error when insert db table");
+                    } else {
+                        NSLog(@" success to insert db table");
+                    }
+                }
+            }];
+        }
+    });
     return res;
 }
+
+/**
+ *
+ *
+ */
+- (NSString *)produceSQLWithModel:(NSObject *)model operate:(NSString *)operate {
+    NSArray *parArray = [model allParameters];
+    NSMutableString *parStr = [[NSMutableString alloc]initWithCapacity:0];
+    NSMutableString *valuesStr = [[NSMutableString alloc]initWithCapacity:0];
+    [parStr appendFormat:@"INSERT INTO '%@' (",NSStringFromClass([model class])];
+    [valuesStr appendString:@" VALUES ("];
+    NSInteger flog = parArray.count;
+    for(NSString *tmpStr in parArray){
+        [parStr appendFormat:@"'%@'",tmpStr];
+        [valuesStr appendFormat:@"'%@'",[model valueForKey:tmpStr]];
+        if(flog != 1){
+            [parStr appendString:@", "];
+            [valuesStr appendString:@", "];
+        }
+        flog--;
+    }
+    [parStr appendString:@")"];
+    [valuesStr appendString:@")"];
+    [parStr appendString:valuesStr];
+    return parStr;
+}
+
+#pragma mark - UPDATE
+
+- (void)selectWithSQL:(NSString *)sql {
+    dispatch_async(_db_sync_queue, ^(){
+        if ([_db open]) {
+            NSLog(@"begin");
+            FMResultSet * rs = [_db executeQuery:sql];
+            while ([rs next]) {
+        //            int Id = [rs intForColumn:ID];
+        //            NSString * name = [rs stringForColumn:NAME];
+        //            NSString * age = [rs stringForColumn:AGE];
+                NSString * tel = [rs stringForColumn:@"tel"];
+                NSLog(@"tel:%@",tel);
+        //            NSLog(@"id = %d, name = %@, age = %@  address = %@", Id, name, age, address);
+            }
+            NSLog(@"end");
+            [_db close];
+        }
+    });
+}
+#pragma mark - ADD
+#pragma mark - DELETE
 //- (BOOL)insertWithModel:(NSObject *)model {
-//    
+//
 ////    NSString *insertSql1= [NSString stringWithFormat:
 ////                           @"INSERT INTO '%@' ('%@', '%@', '%@') VALUES ('%@', '%@', '%@')",
 ////                           TABLENAME, NAME, AGE, ADDRESS, @"张三", @"13", @"济南"];
@@ -280,23 +302,6 @@ static DatabaseManager *manager = nil;
 //        
 //    }
 //    return res;
-//}
-
-//- (void)selectWithSQL:(NSString *)sql {
-//
-//    if ([db open]) {
-//        FMResultSet * rs = [db executeQuery:sql];
-//        while ([rs next]) {
-//            
-////            int Id = [rs intForColumn:ID];
-////            NSString * name = [rs stringForColumn:NAME];
-////            NSString * age = [rs stringForColumn:AGE];
-////            NSString * address = [rs stringForColumn:ADDRESS];
-////            NSLog(@"id = %d, name = %@, age = %@  address = %@", Id, name, age, address);
-//        }
-//        [db close];
-//    }
-//
 //}
 
 - (void)inDatabase:(void (^)(DatabaseManager *))block {

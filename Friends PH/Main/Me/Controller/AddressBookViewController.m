@@ -40,23 +40,27 @@ static  NSString *ADDRESS = @"tel";
   
     NSMutableArray *arr1 = [[NSMutableArray alloc]initWithCapacity:0];
      NSMutableArray *arr2 = [[NSMutableArray alloc]initWithCapacity:0];
-    for(int i=0;i<1000;i++){
-//        NSLog(@"ID:%d",i);
-        AddressBookTable *model = [[AddressBookTable alloc]init];
-        model.tel = [NSString stringWithFormat:@"ss %d",i];
-        model.name = @"zxx";
-        [arr1 addObject:model];
-        }
-    
-    [handler.db insertWithModels:arr1];
-//    for(int i=0;i<500;i++){
-//        //        NSLog(@"ID:%d",i);
+//    for(int i=0;i<50000;i++){
+////        NSLog(@"ID:%d",i);
 //        AddressBookTable *model = [[AddressBookTable alloc]init];
 //        model.tel = [NSString stringWithFormat:@"ss %d",i];
 //        model.name = @"zxx";
-//        [arr2 addObject:model];
-//    }
-//    [handler.db insertWithModels:arr2];
+//        [arr1 addObject:model];
+//        }
+    
+    //[handler.db insertWithModels:arr1];
+    
+    NSString * sql = [NSString stringWithFormat:
+                      @"SELECT * FROM %@",TABLENAME];
+   // [handler.db selectWithSQL:sql];
+    for(int i=0;i<2000;i++){
+        //        NSLog(@"ID:%d",i);
+        AddressBookTable *model = [[AddressBookTable alloc]init];
+        model.tel = [NSString stringWithFormat:@"ss %d",i];
+        model.name = @"zxx";
+        [arr2 addObject:model];
+    }
+    [handler.db insertWithModels:arr2 Transaction:YES];
     
     
     //[[DatabaseManager shareDatabaseQueue] openDatabaseWithPath:@"myAddress.db"];
