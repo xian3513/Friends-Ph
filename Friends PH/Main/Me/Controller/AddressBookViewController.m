@@ -40,20 +40,11 @@ static  NSString *ADDRESS = @"tel";
   
     NSMutableArray *arr1 = [[NSMutableArray alloc]initWithCapacity:0];
      NSMutableArray *arr2 = [[NSMutableArray alloc]initWithCapacity:0];
-//    for(int i=0;i<50000;i++){
-////        NSLog(@"ID:%d",i);
-//        AddressBookTable *model = [[AddressBookTable alloc]init];
-//        model.tel = [NSString stringWithFormat:@"ss %d",i];
-//        model.name = @"zxx";
-//        [arr1 addObject:model];
-//        }
-    
-    //[handler.db insertWithModels:arr1];
-    
+
     NSString * sql = [NSString stringWithFormat:
                       @"SELECT * FROM %@",TABLENAME];
    // [handler.db selectWithSQL:sql];
-    for(int i=0;i<2000;i++){
+    for(int i=0;i<3;i++){
         //        NSLog(@"ID:%d",i);
         AddressBookTable *model = [[AddressBookTable alloc]init];
         model.tel = [NSString stringWithFormat:@"ss %d",i];
@@ -64,100 +55,9 @@ static  NSString *ADDRESS = @"tel";
     
     
     //[[DatabaseManager shareDatabaseQueue] openDatabaseWithPath:@"myAddress.db"];
-  
-//    FMDatabase *db = [FMDatabase databaseWithPath:[self documentPathWithName:@"myAddress.db"]];
-//    BOOL res = NO;
-//    if ([db open]) {
-//        res = [db executeUpdate:sqlCreateTable];
-//        [db close];
-//        if (!res) {
-//            NSLog(@"error when creating db table");
-//        } else {
-//            NSLog(@"success to creating db table");
-//        }
-//    }
     NSString *insertSql1= [NSString stringWithFormat:
                           @"INSERT INTO '%@' ('%@', '%@', '%@') VALUES ('%@', '%@', '%@')",
                           TABLENAME, NAME, AGE, ADDRESS, @"张三", @"13", @"济南"];
-    
-   // [[DatabaseManager shareDatabaseQueue] createTableWithSQL:sqlCreateTable saveFileName:@"myAddress"];
- // FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[self documentPathWithName:@"myAddress.db"]];
-    
-    
-//    [queue inDatabase:^(FMDatabase *db) {
-//    
-////        for(int i=0;i<2000;i++){
-////            //        AddressBookModel *model = [[AddressBookModel alloc]init];
-////            //        model.recordID = i;
-////            //        [array addObject:model];
-////            //        NSLog(@"ID:%ld",model.recordID);
-////            NSLog(@"ID:%d",i);
-////            [db executeUpdate:insertSql1];
-////        }
-//        if ([db open]) {
-//            NSString * sql = [NSString stringWithFormat:
-//                              @"SELECT * FROM %@",TABLENAME];
-//            FMResultSet * rs = [db executeQuery:sql];
-//            while ([rs next]) {
-//                int Id = [rs intForColumn:ID];
-//                NSString * name = [rs stringForColumn:NAME];
-//                NSString * age = [rs stringForColumn:AGE];
-//                NSString * address = [rs stringForColumn:ADDRESS];
-//                NSLog(@"id = %d, name = %@, age = %@  address = %@", Id, name, age, address);
-//            }
-//            [db close];
-//        }
-//    }];
-    
-//    NSMutableArray *array = [[NSMutableArray alloc]initWithCapacity:0];
-//    for(int i=0;i<2000;i++){
-////        AddressBookModel *model = [[AddressBookModel alloc]init];
-////        model.recordID = i;
-////        [array addObject:model];
-////        NSLog(@"ID:%ld",model.recordID);
-//        NSLog(@"ID:%d",i);
-//    [[DatabaseManager shareDatabaseQueue] insertWithSQL:insertSql1];
-//    }
-    
-    
-    
-    
-    
-    
-//        dispatch_queue_t urls_queue = dispatch_queue_create("blog.devtang.com", NULL);
-//    dispatch_async(urls_queue, ^{
-//        FMDatabase *db = [FMDatabase databaseWithPath:[self documentPathWithName:@"myAddress.db"]];
-//        BOOL res = NO;
-//        if ([db open]) {
-//            res = [db executeUpdate:sqlCreateTable];
-//            [db close];
-//            if (!res) {
-//                NSLog(@"error when creating db table");
-//            } else {
-//                NSLog(@"success to creating db table");
-//            }
-//        }
-//        for(int i=0;i<10000;i++){
-//            NSLog(@"ID:%d",i);
-//            if ([db open]) {
-//                NSString *insertSql1= [NSString stringWithFormat:
-//                                       @"INSERT INTO '%@' ('%@', '%@', '%@') VALUES ('%@', '%@', '%@')",
-//                                       TABLENAME, NAME, AGE, ADDRESS, @"张三", @"13", @"济南"];
-//                BOOL res = [db executeUpdate:insertSql1];
-//                
-//                if (!res) {
-//                    NSLog(@"error when insert db table");
-//                } else {
-//                    NSLog(@"success to insert db table");
-//                }
-//                
-//                [db close];
-//                
-//            }
-//        }
-//
-//       // [self select];
-//    });
 }
 
 - (void)select {

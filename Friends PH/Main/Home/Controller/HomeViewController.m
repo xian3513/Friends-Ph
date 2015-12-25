@@ -29,7 +29,7 @@
     
 }
 
-#pragma mark - lift cycle method
+#pragma mark - lift cycle
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
@@ -37,23 +37,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _model = [[ForecastModel alloc]init];
-    _feModel = [[FonExchangeModel alloc]init];
-    _headerView = [[HomeHeaderView alloc]init];
+  
     [self followScrollView:_tabView];
     _tabView.tableHeaderView = _headerView;
     
     [self.MyNavigationController addCustomNavbarViewWithTitile:@"关注"];
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_night_snow.jpg"]];
-    
-    [self http];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    _model = [[ForecastModel alloc]init];
+    _feModel = [[FonExchangeModel alloc]init];
+    _headerView = [[HomeHeaderView alloc]init];
+    [self http];
+}
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 }

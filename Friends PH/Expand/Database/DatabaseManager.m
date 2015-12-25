@@ -8,6 +8,7 @@
 
 #import "DatabaseManager.h"
 #import "NSObject+Method.h"
+#import "DatabaseModel.h"
 static DatabaseManager *manager = nil;
 
 @interface DatabaseManager() {
@@ -117,8 +118,10 @@ static DatabaseManager *manager = nil;
         if(useTransaction){
             [_queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
                 for(NSObject *tmpObj in models){
+                    NSAssert([[tmpObj class]isSubclassOfClass:[DatabaseModel class]], @"非法的插入数据");
+                    
                     modelsCount++;
-                    BOOL res = [db executeUpdate:[self produceSQLWithModel:tmpObj operate:@"INSERT"]];
+                    BOOL res = [db executeUpdate:[self SQLqueryCommandWithModel:tmpObj operate:@"INSERT"]];
                     
                     if (!res) {
                         NSLog(@"error when insert db table");
@@ -149,7 +152,9 @@ static DatabaseManager *manager = nil;
 //            [_db close];
             [_queue inDatabase:^(FMDatabase *db) {
                 for(NSObject *tmpObj in models){
-                    BOOL res = [db executeUpdate:[self produceSQLWithModel:tmpObj operate:@"INSERT"]];
+                    
+                    NSAssert([[tmpObj class]isSubclassOfClass:[DatabaseModel class]], @"非法的插入数据");
+                    BOOL res = [db executeUpdate:[self SQLqueryCommandWithModel:tmpObj operate:@"INSERT"]];
                     
                     if (!res) {
                         NSLog(@"error when insert db table");
@@ -164,32 +169,53 @@ static DatabaseManager *manager = nil;
 }
 
 /**
- *
- *
+ *  通过传入的model 封装sql语句
+ *  封装原则： model类名 为表名，model属性为表字段
  */
-- (NSString *)produceSQLWithModel:(NSObject *)model operate:(NSString *)operate {
+- (NSString *)SQLqueryCommandWithModel:(NSObject *)model operate:(NSString *)operate {
     NSArray *parArray = [model allParameters];
-    NSMutableString *parStr = [[NSMutableString alloc]initWithCapacity:0];
-    NSMutableString *valuesStr = [[NSMutableString alloc]initWithCapacity:0];
-    [parStr appendFormat:@"INSERT INTO '%@' (",NSStringFromClass([model class])];
-    [valuesStr appendString:@" VALUES ("];
-    NSInteger flog = parArray.count;
-    for(NSString *tmpStr in parArray){
-        [parStr appendFormat:@"'%@'",tmpStr];
-        [valuesStr appendFormat:@"'%@'",[model valueForKey:tmpStr]];
-        if(flog != 1){
-            [parStr appendString:@", "];
-            [valuesStr appendString:@", "];
+    
+    //保证存在表字段
+    if(parArray.count >0) {
+        NSMutableString *parStr = [[NSMutableString alloc]initWithCapacity:0];
+        NSMutableString *valuesStr = [[NSMutableString alloc]initWithCapacity:0];
+        [parStr appendFormat:@"INSERT INTO '%@' (",NSStringFromClass([model class])];
+        [valuesStr appendString:@" VALUES ("];
+        NSInteger flog = parArray.count;//去除最后一个字段
+        for(NSString *tmpStr in parArray){
+            
+            //在这里可以添加条件 去除属性为空的值（表字段为空 则不插入）
+#warning 在这里可以添加条件 去除属性为空的值（表字段为空 则不插入）
+            //        if([model valueForKey:tmpStr]) {
+            [parStr appendFormat:@"'%@'",tmpStr];
+            [valuesStr appendFormat:@"'%@'",[model valueForKey:tmpStr]];
+            
+            if(flog != 1){
+                [parStr appendString:@", "];
+                [valuesStr appendString:@", "];
+            }
+            //  }
+            flog--;
         }
-        flog--;
+        [parStr appendString:@")"];
+        [valuesStr appendString:@")"];
+        [parStr appendString:valuesStr];
+        return parStr;
+
     }
-    [parStr appendString:@")"];
-    [valuesStr appendString:@")"];
-    [parStr appendString:valuesStr];
-    return parStr;
+    return nil;
 }
 
-#pragma mark - UPDATE
+//- (NSString *)value:(NSString *)value AtLocation:(NSRange)location{
+//    NSMutableString *mstr = [[NSMutableString alloc]initWithString:value];
+//    if(location.location != 1&& location.length != 1){
+//    
+//    }
+//    return mstr;
+//}
+
+
+#pragma mark - SELECT
 
 - (void)selectWithSQL:(NSString *)sql {
     dispatch_async(_db_sync_queue, ^(){
