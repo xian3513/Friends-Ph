@@ -39,6 +39,7 @@
     [super viewDidLoad];
   
     [self followScrollView:_tabView];
+    _headerView = [[HomeHeaderView alloc]init];
     _tabView.tableHeaderView = _headerView;
     
     [self.MyNavigationController addCustomNavbarViewWithTitile:@"关注"];
@@ -53,7 +54,7 @@
     [super viewDidAppear:animated];
     _model = [[ForecastModel alloc]init];
     _feModel = [[FonExchangeModel alloc]init];
-    _headerView = [[HomeHeaderView alloc]init];
+    
     [self http];
 }
 - (void)viewWillDisappear:(BOOL)animated {
