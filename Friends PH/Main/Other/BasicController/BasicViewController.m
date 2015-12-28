@@ -71,7 +71,7 @@ typedef enum {
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     CGFloat delta = scrollView.contentOffset.y;
-     NSLog(@"lastpace:%f  delta:%f  = %f",lastpace,delta,lastpace-delta);
+    // NSLog(@"lastpace:%f  delta:%f  = %f",lastpace,delta,lastpace-delta);
     if(delta <= 0){
         return;
     }
