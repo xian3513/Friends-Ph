@@ -81,7 +81,8 @@
 		90F764801C30E0880096CFB5 /* ZZPersistanceDataBasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F7647E1C30E0880096CFB5 /* ZZPersistanceDataBasePool.m */; };
 		90F764831C30E4AB0096CFB5 /* ZZPersistanceTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F764821C30E4AB0096CFB5 /* ZZPersistanceTable.m */; };
 		90F764861C30E6060096CFB5 /* ZZPersistanceQueryCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F764851C30E6060096CFB5 /* ZZPersistanceQueryCommand.m */; };
-		90F7648C1C3132F60096CFB5 /* UIViewController+TabbarAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F7648B1C3132F60096CFB5 /* UIViewController+TabbarAnimation.m */; };
+		90F7648F1C3141110096CFB5 /* ZZPersistanceRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F7648E1C3141110096CFB5 /* ZZPersistanceRecord.m */; };
+		90F764931C314C700096CFB5 /* LFCGzipUtillity.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F764921C314C700096CFB5 /* LFCGzipUtillity.m */; };
 		90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */; };
 /* End PBXBuildFile section */
 
@@ -242,8 +243,10 @@
 		90F764821C30E4AB0096CFB5 /* ZZPersistanceTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPersistanceTable.m; sourceTree = "<group>"; };
 		90F764841C30E6060096CFB5 /* ZZPersistanceQueryCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPersistanceQueryCommand.h; sourceTree = "<group>"; };
 		90F764851C30E6060096CFB5 /* ZZPersistanceQueryCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPersistanceQueryCommand.m; sourceTree = "<group>"; };
-		90F7648A1C3132F60096CFB5 /* UIViewController+TabbarAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TabbarAnimation.h"; sourceTree = "<group>"; };
-		90F7648B1C3132F60096CFB5 /* UIViewController+TabbarAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TabbarAnimation.m"; sourceTree = "<group>"; };
+		90F7648D1C3141110096CFB5 /* ZZPersistanceRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPersistanceRecord.h; sourceTree = "<group>"; };
+		90F7648E1C3141110096CFB5 /* ZZPersistanceRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPersistanceRecord.m; sourceTree = "<group>"; };
+		90F764911C314C700096CFB5 /* LFCGzipUtillity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCGzipUtillity.h; sourceTree = "<group>"; };
+		90F764921C314C700096CFB5 /* LFCGzipUtillity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFCGzipUtillity.m; sourceTree = "<group>"; };
 		90FCA7391C1C2138001751C8 /* FonExchangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FonExchangeModel.h; sourceTree = "<group>"; };
 		90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FonExchangeModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -496,6 +499,7 @@
 		90E0C74E1C16D82D003B41A2 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				90F764901C314C670096CFB5 /* GZIP */,
 				90D0C9631C2A65C000A9925E /* FMDB */,
 				90AFB40D1C1AC4AB00B70395 /* MJExtension */,
 				90AED03D1C17CA8100D10D40 /* Masonry */,
@@ -576,6 +580,8 @@
 			children = (
 				90F764811C30E4AB0096CFB5 /* ZZPersistanceTable.h */,
 				90F764821C30E4AB0096CFB5 /* ZZPersistanceTable.m */,
+				90F7648D1C3141110096CFB5 /* ZZPersistanceRecord.h */,
+				90F7648E1C3141110096CFB5 /* ZZPersistanceRecord.m */,
 				90F7647D1C30E0880096CFB5 /* ZZPersistanceDatabasePool.h */,
 				90F7647E1C30E0880096CFB5 /* ZZPersistanceDataBasePool.m */,
 				90F764841C30E6060096CFB5 /* ZZPersistanceQueryCommand.h */,
@@ -631,8 +637,6 @@
 				90E0C75C1C16D87C003B41A2 /* BasicNavigationController.m */,
 				90E0C75D1C16D87C003B41A2 /* BasicTabBarViewController.h */,
 				90E0C75E1C16D87C003B41A2 /* BasicTabBarViewController.m */,
-				90F7648A1C3132F60096CFB5 /* UIViewController+TabbarAnimation.h */,
-				90F7648B1C3132F60096CFB5 /* UIViewController+TabbarAnimation.m */,
 			);
 			path = BasicController;
 			sourceTree = "<group>";
@@ -666,6 +670,15 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		90F764901C314C670096CFB5 /* GZIP */ = {
+			isa = PBXGroup;
+			children = (
+				90F764911C314C700096CFB5 /* LFCGzipUtillity.h */,
+				90F764921C314C700096CFB5 /* LFCGzipUtillity.m */,
+			);
+			path = GZIP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -758,6 +771,7 @@
 				90E0C7841C16D8AC003B41A2 /* AFURLConnectionOperation.m in Sources */,
 				90E0C78A1C16DE65003B41A2 /* TabbarView.m in Sources */,
 				90E0C77F1C16D8AC003B41A2 /* AFHTTPRequestOperation.m in Sources */,
+				90F7648F1C3141110096CFB5 /* ZZPersistanceRecord.m in Sources */,
 				90D0C95F1C2A51A200A9925E /* AddressBookModel.m in Sources */,
 				9025BCF31C1AF3DE002CE5D5 /* NSObject+Method.m in Sources */,
 				90F764771C30E0400096CFB5 /* UserHandler.m in Sources */,
@@ -765,7 +779,6 @@
 				90C124261C25612200D02FDC /* EmergencyPhoneViewController.m in Sources */,
 				908007BE1C21A6A800557DF5 /* RentViewController.m in Sources */,
 				90AFB4351C1ACC7000B70395 /* ForecastModel.m in Sources */,
-				90F7648C1C3132F60096CFB5 /* UIViewController+TabbarAnimation.m in Sources */,
 				90AED0591C17CA8900D10D40 /* MASConstraintMaker.m in Sources */,
 				90D0C97E1C2AABFD00A9925E /* AddressBookTable.m in Sources */,
 				90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */,
@@ -808,6 +821,7 @@
 				90D0C9621C2A652300A9925E /* DatabaseManager.m in Sources */,
 				90AFB4251C1AC4B100B70395 /* MJDictionaryCache.m in Sources */,
 				90D0C9701C2A65CB00A9925E /* FMDatabaseAdditions.m in Sources */,
+				90F764931C314C700096CFB5 /* LFCGzipUtillity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
