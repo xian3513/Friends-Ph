@@ -39,7 +39,7 @@
        // NSLog(@"%@",NSStringFromSelector(_cmd));
         [UIView animateWithDuration:_tabbarAnimationInterval animations:^(){
             CGRect rect = CGRectMake(self.tabbarView.left, self.view.height, self.tabbarView.width, self.tabbarView.height);
-            self.tabbarView.frame = rect;
+            self.tabBar.frame = rect;
         } completion:^(BOOL finish){
             _tabbarDown = YES;
         }];
@@ -49,10 +49,10 @@
 
 - (void)showAnimation {
     if(_tabbarDown){
-       //  NSLog(@"%@",NSStringFromSelector(_cmd));
+        // NSLog(@"%@",NSStringFromSelector(_cmd));
         [UIView animateWithDuration:_tabbarAnimationInterval animations:^(){
             CGRect rect = CGRectMake(self.tabbarView.left, self.view.height-49, self.tabbarView.width, self.tabbarView.height);
-            self.tabbarView.frame = rect;
+            self.tabBar.frame = rect;
         } completion:^(BOOL finish){
             _tabbarDown = NO;
         }];

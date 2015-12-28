@@ -7,9 +7,13 @@
 //
 
 #import "BasicViewController.h"
-#import <objc/runtime.h>
-#import "BasicTabBarViewController.h"
-#import "BasicNavigationController.h"
+
+typedef enum {
+    BasicAnimationTypeNone,
+    BasicAnimationTypeNavgationGradient,
+    BasicAnimationTypeTabbarMove
+}BasicAnimationType;
+
 @interface BasicViewController ()<UIScrollViewDelegate>
 
 @end
@@ -17,6 +21,7 @@
 @implementation BasicViewController {
     
     CGFloat lastpace;
+    BasicAnimationType animationType;
     UIScrollView *_scrollView;
 }
 
@@ -42,6 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    animationType = BasicAnimationTypeNone;
     self.view.backgroundColor = RGBA(235, 235, 235, 1);
 }
 
@@ -58,23 +64,36 @@
 }
 #pragma mark - tabbarAnimation method
 - (void)followScrollView:(UIScrollView *)scrollableView {
+    animationType = BasicAnimationTypeTabbarMove;
     _scrollView = scrollableView;
     _scrollView.delegate = self;
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     CGFloat delta = scrollView.contentOffset.y;
-    // NSLog(@"lastpace:%f  delta:%f  = %f",lastpace,delta,lastpace-delta);
+     NSLog(@"lastpace:%f  delta:%f  = %f",lastpace,delta,lastpace-delta);
     if(delta <= 0){
         return;
     }
     if((lastpace - delta) > 0){
-     //   [self.myTabBarController showAnimation];
+           [self.myTabBarController showAnimation];
         
     } else {
-       // [self.myTabBarController hideAnimation];
+         [self.myTabBarController hideAnimation];
     }
     lastpace = delta;
+
+    switch (animationType) {
+        case BasicAnimationTypeTabbarMove:{
+            
+            break;
+        }
+        case BasicAnimationTypeNavgationGradient:{
+         break;
+        }
+        default:
+            break;
+    }
     
 //    if(_gradientOffset){
 //        
@@ -83,19 +102,20 @@
 //    }
 }
 
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-//{
-//    return YES;
-//}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if(!decelerate) {
+       // NSLog(@"%@",NSStringFromSelector(_cmd));
         [self.myTabBarController showAnimation];
     }
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self.myTabBarController showAnimation];
-   // NSLog(@"%@",NSStringFromSelector(_cmd));
+    //NSLog(@"%@",NSStringFromSelector(_cmd));
 }
 
 
@@ -110,17 +130,9 @@
 */
 
 @end
-const NSString *hidesCustomBottomBarWhenPushedKey = @"hidesCustomBottomBarWhenPushedKey";
+
 @implementation UIViewController (MyController)
 
-- (void)setHidesCustomBottomBarWhenPushed:(BOOL)hidesCustomBottomBarWhenPushed {
-      objc_setAssociatedObject(self, &hidesCustomBottomBarWhenPushedKey, [NSNumber numberWithBool:hidesCustomBottomBarWhenPushed], OBJC_ASSOCIATION_ASSIGN);
-    self.navigationController.hidesCustomBottomBarWhenPushed = hidesCustomBottomBarWhenPushed;
-}
-- (BOOL)hidesCustomBottomBarWhenPushed {
-    NSNumber *number = objc_getAssociatedObject(self, &hidesCustomBottomBarWhenPushedKey);
-    return [number boolValue];
-}
 -(BasicTabBarViewController *)myTabBarController
 {
     if ([self.tabBarController isMemberOfClass:[BasicTabBarViewController class]]) {

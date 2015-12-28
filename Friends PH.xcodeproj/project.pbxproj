@@ -52,7 +52,6 @@
 		90D0C9721C2A65CB00A9925E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C96B1C2A65CB00A9925E /* FMDatabaseQueue.m */; };
 		90D0C9731C2A65CB00A9925E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C96E1C2A65CB00A9925E /* FMResultSet.m */; };
 		90D0C9751C2A7E2900A9925E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D0C9741C2A7E2900A9925E /* libsqlite3.tbd */; };
-		90D0C9781C2AA4A200A9925E /* UserHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C9771C2AA4A200A9925E /* UserHandler.m */; };
 		90D0C97E1C2AABFD00A9925E /* AddressBookTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C97D1C2AABFD00A9925E /* AddressBookTable.m */; };
 		90E0C71C1C16D2EE003B41A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C71B1C16D2EE003B41A2 /* main.m */; };
 		90E0C71F1C16D2EE003B41A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C71E1C16D2EE003B41A2 /* AppDelegate.m */; };
@@ -77,6 +76,12 @@
 		90E0C7871C16D8AC003B41A2 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C77E1C16D8AC003B41A2 /* AFURLSessionManager.m */; };
 		90E0C78A1C16DE65003B41A2 /* TabbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E0C7891C16DE65003B41A2 /* TabbarView.m */; };
 		90E54A711C2170F9008B1B42 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E54A6E1C2170F9008B1B42 /* MeViewController.m */; };
+		90F764771C30E0400096CFB5 /* UserHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F764761C30E0400096CFB5 /* UserHandler.m */; };
+		90F7647A1C30E0720096CFB5 /* DatabaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F764791C30E0720096CFB5 /* DatabaseModel.m */; };
+		90F764801C30E0880096CFB5 /* ZZPersistanceDataBasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F7647E1C30E0880096CFB5 /* ZZPersistanceDataBasePool.m */; };
+		90F764831C30E4AB0096CFB5 /* ZZPersistanceTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F764821C30E4AB0096CFB5 /* ZZPersistanceTable.m */; };
+		90F764861C30E6060096CFB5 /* ZZPersistanceQueryCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F764851C30E6060096CFB5 /* ZZPersistanceQueryCommand.m */; };
+		90F7648C1C3132F60096CFB5 /* UIViewController+TabbarAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F7648B1C3132F60096CFB5 /* UIViewController+TabbarAnimation.m */; };
 		90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */; };
 /* End PBXBuildFile section */
 
@@ -175,8 +180,6 @@
 		90D0C96D1C2A65CB00A9925E /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		90D0C96E1C2A65CB00A9925E /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		90D0C9741C2A7E2900A9925E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		90D0C9761C2AA4A200A9925E /* UserHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserHandler.h; path = ../../Expand/Database/UserHandler.h; sourceTree = "<group>"; };
-		90D0C9771C2AA4A200A9925E /* UserHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserHandler.m; path = ../../Expand/Database/UserHandler.m; sourceTree = "<group>"; };
 		90D0C97C1C2AABFD00A9925E /* AddressBookTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookTable.h; sourceTree = "<group>"; };
 		90D0C97D1C2AABFD00A9925E /* AddressBookTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookTable.m; sourceTree = "<group>"; };
 		90E0C7171C16D2EE003B41A2 /* Friends PH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friends PH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +232,18 @@
 		90E0C7891C16DE65003B41A2 /* TabbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarView.m; sourceTree = "<group>"; };
 		90E54A6D1C2170F9008B1B42 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		90E54A6E1C2170F9008B1B42 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		90F764751C30E0400096CFB5 /* UserHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHandler.h; sourceTree = "<group>"; };
+		90F764761C30E0400096CFB5 /* UserHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHandler.m; sourceTree = "<group>"; };
+		90F764781C30E0720096CFB5 /* DatabaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseModel.h; sourceTree = "<group>"; };
+		90F764791C30E0720096CFB5 /* DatabaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseModel.m; sourceTree = "<group>"; };
+		90F7647D1C30E0880096CFB5 /* ZZPersistanceDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPersistanceDatabasePool.h; sourceTree = "<group>"; };
+		90F7647E1C30E0880096CFB5 /* ZZPersistanceDataBasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPersistanceDataBasePool.m; sourceTree = "<group>"; };
+		90F764811C30E4AB0096CFB5 /* ZZPersistanceTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPersistanceTable.h; sourceTree = "<group>"; };
+		90F764821C30E4AB0096CFB5 /* ZZPersistanceTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPersistanceTable.m; sourceTree = "<group>"; };
+		90F764841C30E6060096CFB5 /* ZZPersistanceQueryCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPersistanceQueryCommand.h; sourceTree = "<group>"; };
+		90F764851C30E6060096CFB5 /* ZZPersistanceQueryCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPersistanceQueryCommand.m; sourceTree = "<group>"; };
+		90F7648A1C3132F60096CFB5 /* UIViewController+TabbarAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TabbarAnimation.h"; sourceTree = "<group>"; };
+		90F7648B1C3132F60096CFB5 /* UIViewController+TabbarAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TabbarAnimation.m"; sourceTree = "<group>"; };
 		90FCA7391C1C2138001751C8 /* FonExchangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FonExchangeModel.h; sourceTree = "<group>"; };
 		90FCA73A1C1C2138001751C8 /* FonExchangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FonExchangeModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -559,6 +574,14 @@
 		90E0C7541C16D840003B41A2 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				90F764811C30E4AB0096CFB5 /* ZZPersistanceTable.h */,
+				90F764821C30E4AB0096CFB5 /* ZZPersistanceTable.m */,
+				90F7647D1C30E0880096CFB5 /* ZZPersistanceDatabasePool.h */,
+				90F7647E1C30E0880096CFB5 /* ZZPersistanceDataBasePool.m */,
+				90F764841C30E6060096CFB5 /* ZZPersistanceQueryCommand.h */,
+				90F764851C30E6060096CFB5 /* ZZPersistanceQueryCommand.m */,
+				90F764781C30E0720096CFB5 /* DatabaseModel.h */,
+				90F764791C30E0720096CFB5 /* DatabaseModel.m */,
 				90D0C9601C2A652300A9925E /* DatabaseManager.h */,
 				90D0C9611C2A652300A9925E /* DatabaseManager.m */,
 			);
@@ -589,8 +612,8 @@
 		90E0C7571C16D870003B41A2 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				90D0C9761C2AA4A200A9925E /* UserHandler.h */,
-				90D0C9771C2AA4A200A9925E /* UserHandler.m */,
+				90F764751C30E0400096CFB5 /* UserHandler.h */,
+				90F764761C30E0400096CFB5 /* UserHandler.m */,
 				90AFB4001C1AAB1D00B70395 /* BasicModel */,
 				90E0C7881C16DE65003B41A2 /* TabbarView.h */,
 				90E0C7891C16DE65003B41A2 /* TabbarView.m */,
@@ -608,6 +631,8 @@
 				90E0C75C1C16D87C003B41A2 /* BasicNavigationController.m */,
 				90E0C75D1C16D87C003B41A2 /* BasicTabBarViewController.h */,
 				90E0C75E1C16D87C003B41A2 /* BasicTabBarViewController.m */,
+				90F7648A1C3132F60096CFB5 /* UIViewController+TabbarAnimation.h */,
+				90F7648B1C3132F60096CFB5 /* UIViewController+TabbarAnimation.m */,
 			);
 			path = BasicController;
 			sourceTree = "<group>";
@@ -718,7 +743,7 @@
 				90AED05D1C17CA8900D10D40 /* NSArray+MASAdditions.m in Sources */,
 				90AFB42D1C1AC4B100B70395 /* NSObject+MJKeyValue.m in Sources */,
 				90AFB4281C1AC4B100B70395 /* MJProperty.m in Sources */,
-				90D0C9781C2AA4A200A9925E /* UserHandler.m in Sources */,
+				90F764801C30E0880096CFB5 /* ZZPersistanceDataBasePool.m in Sources */,
 				90D0C9711C2A65CB00A9925E /* FMDatabasePool.m in Sources */,
 				90E0C7821C16D8AC003B41A2 /* AFNetworkReachabilityManager.m in Sources */,
 				90D0C9581C2A3F1C00A9925E /* AddressBookViewController.m in Sources */,
@@ -735,15 +760,18 @@
 				90E0C77F1C16D8AC003B41A2 /* AFHTTPRequestOperation.m in Sources */,
 				90D0C95F1C2A51A200A9925E /* AddressBookModel.m in Sources */,
 				9025BCF31C1AF3DE002CE5D5 /* NSObject+Method.m in Sources */,
+				90F764771C30E0400096CFB5 /* UserHandler.m in Sources */,
 				90AED05E1C17CA8900D10D40 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				90C124261C25612200D02FDC /* EmergencyPhoneViewController.m in Sources */,
 				908007BE1C21A6A800557DF5 /* RentViewController.m in Sources */,
 				90AFB4351C1ACC7000B70395 /* ForecastModel.m in Sources */,
+				90F7648C1C3132F60096CFB5 /* UIViewController+TabbarAnimation.m in Sources */,
 				90AED0591C17CA8900D10D40 /* MASConstraintMaker.m in Sources */,
 				90D0C97E1C2AABFD00A9925E /* AddressBookTable.m in Sources */,
 				90FCA73B1C1C2138001751C8 /* FonExchangeModel.m in Sources */,
 				90D0C9721C2A65CB00A9925E /* FMDatabaseQueue.m in Sources */,
 				90E54A711C2170F9008B1B42 /* MeViewController.m in Sources */,
+				90F764861C30E6060096CFB5 /* ZZPersistanceQueryCommand.m in Sources */,
 				90E0C7811C16D8AC003B41A2 /* AFHTTPSessionManager.m in Sources */,
 				90E0C7851C16D8AC003B41A2 /* AFURLRequestSerialization.m in Sources */,
 				90AED05A1C17CA8900D10D40 /* MASLayoutConstraint.m in Sources */,
@@ -756,6 +784,7 @@
 				90E0C7801C16D8AC003B41A2 /* AFHTTPRequestOperationManager.m in Sources */,
 				90E0C7661C16D88B003B41A2 /* UIView+Frame.m in Sources */,
 				90B379021C192C1300305870 /* HomeHeaderView.m in Sources */,
+				90F764831C30E4AB0096CFB5 /* ZZPersistanceTable.m in Sources */,
 				90AFB42A1C1AC4B100B70395 /* MJPropertyType.m in Sources */,
 				90AFB42C1C1AC4B100B70395 /* NSObject+MJCoding.m in Sources */,
 				90E0C7861C16D8AC003B41A2 /* AFURLResponseSerialization.m in Sources */,
@@ -775,6 +804,7 @@
 				90B0668B1C1FEB5A00E8A464 /* ColorTransformRGB.m in Sources */,
 				90AFB4261C1AC4B100B70395 /* MJExtensionConst.m in Sources */,
 				90E0C7601C16D87C003B41A2 /* BasicNavigationController.m in Sources */,
+				90F7647A1C30E0720096CFB5 /* DatabaseModel.m in Sources */,
 				90D0C9621C2A652300A9925E /* DatabaseManager.m in Sources */,
 				90AFB4251C1AC4B100B70395 /* MJDictionaryCache.m in Sources */,
 				90D0C9701C2A65CB00A9925E /* FMDatabaseAdditions.m in Sources */,

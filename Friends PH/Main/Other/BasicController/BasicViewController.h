@@ -24,7 +24,7 @@
 @end
 
 @interface UIViewController (MyController)
-@property(nonatomic) BOOL hidesCustomBottomBarWhenPushed;
+
 @property (readonly,nonatomic)BasicNavigationController *MyNavigationController;
 @property (readonly,nonatomic,strong)BasicTabBarViewController *myTabBarController;
 
