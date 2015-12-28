@@ -72,34 +72,33 @@ typedef enum {
     
     CGFloat delta = scrollView.contentOffset.y;
     // NSLog(@"lastpace:%f  delta:%f  = %f",lastpace,delta,lastpace-delta);
-    if(delta <= 0){
-        return;
-    }
-    if((lastpace - delta) > 0){
-           [self.myTabBarController showAnimation];
-        
-    } else {
-         [self.myTabBarController hideAnimation];
-    }
-    lastpace = delta;
+    
+   
 
     switch (animationType) {
         case BasicAnimationTypeTabbarMove:{
-            
+            //当scrollView在最顶端时 向下拉动不掉用方法
+            if(delta <= 0){
+                return;
+            }
+            if((lastpace - delta) > 0){
+                [self.myTabBarController showAnimation];
+                
+            } else {
+                [self.myTabBarController hideAnimation];
+            }
+            lastpace = delta;
             break;
         }
         case BasicAnimationTypeNavgationGradient:{
+            if(delta > 0){
+                [self.myNavigationController updateCustomViewColor:[UIColor colorWithRed:232/255.0 green:86/255.0 blue:79/255.0 alpha:MIN(0.6, MAX(0, delta/500.0))]];
+            }
          break;
         }
         default:
             break;
     }
-    
-//    if(_gradientOffset){
-//        
-//        CGFloat value = MAX(0.1, 1-delta/_gradientOffset);
-//        self.MyNavigationController.navigationBar.barTintColor = [UIColor colorWithRed:value green:value blue:value alpha:1];
-//    }
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -141,7 +140,7 @@ typedef enum {
     return nil;
 }
 
--(BasicNavigationController *)MyNavigationController
+-(BasicNavigationController *)myNavigationController
 {
     if ([self.navigationController isMemberOfClass:[BasicNavigationController class]]) {
         return (BasicNavigationController*)self.navigationController;

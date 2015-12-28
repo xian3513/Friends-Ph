@@ -188,11 +188,11 @@
 
 @interface BasicNavigationController ()<UIGestureRecognizerDelegate> {
 
-    CostomNavbarView *costomView;
 }
 
 @property(nonatomic,strong) NSMutableArray *leftArray;
 @property(nonatomic,strong) NSMutableArray *rightArray;
+@property(nonatomic,strong) UIView *alphaView;
 @end
 
 @implementation BasicNavigationController
@@ -201,8 +201,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.leftArray = [[NSMutableArray alloc]initWithCapacity:0];
     self.rightArray = [[NSMutableArray alloc]initWithCapacity:0];
+    self.alphaView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.navigationBar.width, self.navigationBar.height+20)];
     //self.navigationBar.translucent = YES;
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bigShadow.png"] forBarMetrics:UIBarMetricsCompact];
     self.navigationBar.layer.masksToBounds = YES;
@@ -232,8 +234,13 @@
 
 #pragma mark - customNavbar
 
+- (void)updateCustomViewColor:(UIColor *)color {
+    self.alphaView.backgroundColor = color;
+}
+
 - (void)addCustomNavbarViewWithTitile:(NSString *)title {
     CostomNavbarView *navbarView = [[CostomNavbarView alloc]init];
+    [self.view insertSubview:self.alphaView belowSubview:navbarView];
     [self.topViewController.view insertSubview:navbarView belowSubview:self.topViewController.navigationController.navigationBar];
     navbarView.title = title;
 }
@@ -241,6 +248,7 @@
     
     CostomNavbarView *navbarView = [[CostomNavbarView alloc]init];
     [self.topViewController.view insertSubview:navbarView belowSubview:self.topViewController.navigationController.navigationBar];
+    [self.view insertSubview:self.alphaView belowSubview:navbarView];
     navbarView.title = title;
     return navbarView;
 }
@@ -250,7 +258,7 @@
     [leftButton setBackgroundImage:image forState:UIControlStateNormal];
     leftButton.frame = CGRectMake(0, 0, 16, 16);
     
-     UIBarButtonItem* fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil]; fixedSpace.width = 20;
+     UIBarButtonItem* fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil]; fixedSpace.width = 10;
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     
     [self.leftArray addObject:leftItem];
@@ -262,9 +270,9 @@
 - (void)addRightItemTarget:(id)target action:(SEL)action backgroundImage:(UIImage *)image {
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [leftButton setBackgroundImage:image forState:UIControlStateNormal];
-    leftButton.frame = CGRectMake(0, 0, 16, 16);
+    leftButton.frame = CGRectMake(0, 0, 16, 20);
     
-    UIBarButtonItem* fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil]; fixedSpace.width = 20;
+    UIBarButtonItem* fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil]; fixedSpace.width = 10;
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     
     [self.rightArray addObject:leftItem];

@@ -42,7 +42,10 @@
     _headerView = [[HomeHeaderView alloc]init];
     _tabView.tableHeaderView = _headerView;
     
-    [self.MyNavigationController addCustomNavbarViewWithTitile:@"关注"];
+    [self.myNavigationController addCustomNavbarViewWithTitile:@"关注"];
+    [self.myNavigationController addRightItemTarget:self action:@selector(navRightButtonPress:) backgroundImage:
+     [UIImage imageNamed:@"right_button_share"]];
+    
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_night_snow.jpg"]];
 }
 

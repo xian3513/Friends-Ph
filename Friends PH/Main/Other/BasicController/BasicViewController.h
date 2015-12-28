@@ -25,7 +25,7 @@
 
 @interface UIViewController (MyController)
 
-@property (readonly,nonatomic)BasicNavigationController *MyNavigationController;
+@property (readonly,nonatomic)BasicNavigationController *myNavigationController;
 @property (readonly,nonatomic,strong)BasicTabBarViewController *myTabBarController;
 
 @end
