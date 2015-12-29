@@ -240,8 +240,10 @@
 
 - (void)addCustomNavbarViewWithTitile:(NSString *)title {
     CostomNavbarView *navbarView = [[CostomNavbarView alloc]init];
-    [self.view insertSubview:self.alphaView belowSubview:navbarView];
+    navbarView.userInteractionEnabled = YES;
+   
     [self.topViewController.view insertSubview:navbarView belowSubview:self.topViewController.navigationController.navigationBar];
+     [self.topViewController.view insertSubview:self.alphaView belowSubview:navbarView];
     navbarView.title = title;
 }
 - (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title {
@@ -257,7 +259,7 @@
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [leftButton setBackgroundImage:image forState:UIControlStateNormal];
     leftButton.frame = CGRectMake(0, 0, 16, 16);
-    
+     [leftButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
      UIBarButtonItem* fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil]; fixedSpace.width = 10;
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     
@@ -268,14 +270,15 @@
 }
 
 - (void)addRightItemTarget:(id)target action:(SEL)action backgroundImage:(UIImage *)image {
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftButton setBackgroundImage:image forState:UIControlStateNormal];
-    leftButton.frame = CGRectMake(0, 0, 16, 20);
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setBackgroundImage:image forState:UIControlStateNormal];
+    rightButton.frame = CGRectMake(0, 0, 16, 20);
+    [rightButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem* fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil]; fixedSpace.width = 10;
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     
-    [self.rightArray addObject:leftItem];
+    [self.rightArray addObject:rightItem];
     [self.rightArray addObject:fixedSpace];
     self.topViewController.navigationItem.rightBarButtonItems = self.rightArray;
 }
@@ -355,15 +358,14 @@
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setBackgroundImage:[UIImage imageNamed:@"back_normal"] forState:UIControlStateNormal];
-    
     backBtn.frame = CGRectMake(0, 0, 16, 20);
-    [backBtn addTarget:self action:@selector(popBack:) forControlEvents:UIControlEventTouchUpInside];
+    [backBtn addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.topViewController.navigationItem.leftBarButtonItem = item;
 }
 
-- (void)popBack:(UIBarButtonItem *)item {
+- (void)popBack {
    
   [self popViewControllerAnimated:YES];
    

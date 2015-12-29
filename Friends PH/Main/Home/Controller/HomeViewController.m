@@ -189,7 +189,6 @@
     return cell;
 }
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UIViewController *controller = segue.destinationViewController;
      controller.hidesBottomBarWhenPushed = YES;
