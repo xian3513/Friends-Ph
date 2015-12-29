@@ -11,4 +11,24 @@
 @interface ZZPersistanceQueryCommand : NSObject
 
 - (instancetype)initWithDatabaseName:(NSString *)databaseName;
+
+- (ZZPersistanceQueryCommand *)insertTable:(NSString *)tableName withDataList:(NSArray *)dataList;
+
+/**
+ *  execute SQL with sqlString
+ *
+ *  @param error error if fails
+ *
+ *  @return return NO if fails, and YES for success
+ */
+- (BOOL)executeWithError:(NSError **)error;
+
+/**
+ *  fetch data with sqlString
+ *
+ *  @param error error if fails
+ *
+ *  @return return fetched data list
+ */
+- (NSArray <NSDictionary *> *)fetchWithError:(NSError **)error;
 @end

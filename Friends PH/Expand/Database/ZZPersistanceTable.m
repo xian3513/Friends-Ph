@@ -18,7 +18,48 @@
 @implementation ZZPersistanceTable
 
 
+///**
+// *  execute sql in database of this table.
+// *
+// *  @param sqlString the sql string to be executed
+// *  @param error     error if fails
+// *
+// *  @return return NO if fails
+// */
+//- (BOOL)executeSQL:(NSString *)sqlString error:(NSError **)error {
+//    BOOL res = NO;
+//    if ([_db open]) {
+//        res = [_db executeUpdate:@""];
+//        [_db close];
+//        if (!res) {
+//            NSLog(@"error when creating db table");
+//        } else {
+//            NSLog(@"success to creating db table");
+//        }
+//    }
+//    
+//    return res;
+//}
+//
+///**
+// *  fetch data with sql in database of this table
+// *
+// *  @param sqlString the sql string to fetch
+// *  @param error     error if fails
+// *
+// *  @return return NO if fails
+// */
+//- (NSArray *)fetchWithSQL:(NSString *)sqlString error:(NSError **)error {
+//
+//}
 
+- (BOOL)insertRecord:(ZZPersistanceRecord *)record error:(NSError *__autoreleasing *)error {
+
+}
+
+- (BOOL)insertRecordList:(NSArray<ZZPersistanceRecord *> *)recordList error:(NSError *__autoreleasing *)error {
+
+}
 #pragma mark - life cycle
 -(instancetype)init {
 
