@@ -65,6 +65,7 @@
                            completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
                                if (error) {
                                    failure(error);
+//                                              The request timed out.-1001
                                    NSLog(@"Httperror: %@%ld", error.localizedDescription, error.code);
                                } else {
                                   // NSInteger responseCode = [(NSHTTPURLResponse *)response statusCode];

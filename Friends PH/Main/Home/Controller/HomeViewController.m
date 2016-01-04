@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-    [self followScrollView:_tabView];
+    [self tabbarAnimationFollowScrollView:_tabView];
     _headerView = [[HomeHeaderView alloc]init];
     _tabView.tableHeaderView = _headerView;
     

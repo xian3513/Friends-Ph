@@ -39,6 +39,7 @@
 		90B0668B1C1FEB5A00E8A464 /* ColorTransformRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B0668A1C1FEB5A00E8A464 /* ColorTransformRGB.m */; };
 		90B0668E1C1FF6DF00E8A464 /* X_DrawExcelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B0668D1C1FF6DF00E8A464 /* X_DrawExcelView.m */; };
 		90B379021C192C1300305870 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B379011C192C1300305870 /* HomeHeaderView.m */; };
+		90BA75F41C322146008A5CF5 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 90BA75F31C322146008A5CF5 /* libz.1.2.5.tbd */; };
 		90C124261C25612200D02FDC /* EmergencyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C124251C25612200D02FDC /* EmergencyPhoneViewController.m */; };
 		90CC64FD1C187DFE00E4F454 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CC64FC1C187DFE00E4F454 /* HomeViewController.m */; };
 		90D0C9581C2A3F1C00A9925E /* AddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D0C9571C2A3F1C00A9925E /* AddressBookViewController.m */; };
@@ -157,6 +158,8 @@
 		90B0668D1C1FF6DF00E8A464 /* X_DrawExcelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X_DrawExcelView.m; sourceTree = "<group>"; };
 		90B379001C192C1300305870 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		90B379011C192C1300305870 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
+		90BA75F31C322146008A5CF5 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		90BA75F81C322BCF008A5CF5 /* ZZPersistanceRecordProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPersistanceRecordProtocol.h; sourceTree = "<group>"; };
 		90C124241C25612200D02FDC /* EmergencyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyPhoneViewController.h; sourceTree = "<group>"; };
 		90C124251C25612200D02FDC /* EmergencyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyPhoneViewController.m; sourceTree = "<group>"; };
 		90CC64FB1C187DFE00E4F454 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -256,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90BA75F41C322146008A5CF5 /* libz.1.2.5.tbd in Frameworks */,
 				90D0C9751C2A7E2900A9925E /* libsqlite3.tbd in Frameworks */,
 				90D0C95C1C2A438100A9925E /* AddressBookUI.framework in Frameworks */,
 				90D0C95A1C2A437B00A9925E /* AddressBook.framework in Frameworks */,
@@ -421,6 +425,7 @@
 		90E0C70E1C16D2EE003B41A2 = {
 			isa = PBXGroup;
 			children = (
+				90BA75F31C322146008A5CF5 /* libz.1.2.5.tbd */,
 				90D0C9741C2A7E2900A9925E /* libsqlite3.tbd */,
 				90D0C95B1C2A438100A9925E /* AddressBookUI.framework */,
 				90D0C9591C2A437B00A9925E /* AddressBook.framework */,
@@ -586,6 +591,7 @@
 				90F7647E1C30E0880096CFB5 /* ZZPersistanceDataBasePool.m */,
 				90F764841C30E6060096CFB5 /* ZZPersistanceQueryCommand.h */,
 				90F764851C30E6060096CFB5 /* ZZPersistanceQueryCommand.m */,
+				90BA75F81C322BCF008A5CF5 /* ZZPersistanceRecordProtocol.h */,
 				90F764781C30E0720096CFB5 /* DatabaseModel.h */,
 				90F764791C30E0720096CFB5 /* DatabaseModel.m */,
 				90D0C9601C2A652300A9925E /* DatabaseManager.h */,

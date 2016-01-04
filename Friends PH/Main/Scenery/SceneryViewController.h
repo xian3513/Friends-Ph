@@ -6,8 +6,8 @@
 //  Copyright © 2015年 xian. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BasicViewController.h"
 
-@interface SceneryViewController : UIViewController
+@interface SceneryViewController : BasicViewController
 
 @end

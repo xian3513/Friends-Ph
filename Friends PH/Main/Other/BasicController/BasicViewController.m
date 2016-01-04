@@ -22,7 +22,8 @@ typedef enum {
     
     CGFloat lastpace;
     BasicAnimationType animationType;
-    UIScrollView *_scrollView;
+    UIScrollView *tabbar_scrollView;
+    UIScrollView *navbar_scrollView;
 }
 
 #pragma mark - lift cycle method
@@ -63,41 +64,41 @@ typedef enum {
     
 }
 #pragma mark - tabbarAnimation method
-- (void)followScrollView:(UIScrollView *)scrollableView {
+- (void)tabbarAnimationFollowScrollView:(UIScrollView *)scrollableView {
     animationType = BasicAnimationTypeTabbarMove;
-    _scrollView = scrollableView;
-    _scrollView.delegate = self;
+    tabbar_scrollView = scrollableView;
+    tabbar_scrollView.delegate = self;
 }
+
+- (void)navbarAnimationFollowScrollView:(UIScrollView *)scrollableView {
+    animationType = BasicAnimationTypeNavgationGradient;
+    navbar_scrollView = scrollableView;
+    navbar_scrollView.delegate = self;
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     CGFloat delta = scrollView.contentOffset.y;
     // NSLog(@"lastpace:%f  delta:%f  = %f",lastpace,delta,lastpace-delta);
     
-   
-
-    switch (animationType) {
-        case BasicAnimationTypeTabbarMove:{
-            //当scrollView在最顶端时 向下拉动不掉用方法
-            if(delta <= 0){
-                return;
-            }
-            if((lastpace - delta) > 0){
-                [self.myTabBarController showAnimation];
-                
-            } else {
-                [self.myTabBarController hideAnimation];
-            }
-            lastpace = delta;
-            break;
+    if([scrollView isEqual:tabbar_scrollView]){
+        //当scrollView在最顶端时 向下拉动不掉用方法
+        if(delta <= 0){
+            return;
         }
-        case BasicAnimationTypeNavgationGradient:{
-            if(delta > 0){
-                [self.myNavigationController updateCustomViewColor:[UIColor colorWithRed:232/255.0 green:86/255.0 blue:79/255.0 alpha:MIN(0.6, MAX(0, delta/500.0))]];
-            }
-         break;
+        if((lastpace - delta) > 0){
+            [self.myTabBarController showAnimation];
+            
+        } else {
+            [self.myTabBarController hideAnimation];
         }
-        default:
-            break;
+        lastpace = delta;
+    }else if ([scrollView isEqual:navbar_scrollView]){
+//        NSLog(@"%f",delta);
+//        if(delta > -64){
+//            
+//            [self.myNavigationController updateCustomViewColor:[UIColor colorWithRed:232/255.0 green:86/255.0 blue:79/255.0 alpha:MIN(0.6, MAX(0, delta/500.0))]];
+//        }
     }
 }
 

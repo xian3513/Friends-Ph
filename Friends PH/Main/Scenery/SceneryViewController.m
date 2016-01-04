@@ -8,8 +8,7 @@
 
 #import "SceneryViewController.h"
 
-@interface SceneryViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@interface SceneryViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -18,22 +17,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    // self.title = @"sfafdafsaf";
+    
+    UITableView *tab = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    tab.delegate = self;
+    tab.dataSource = self;
+    [self.view addSubview:tab];
+    [self navbarAnimationFollowScrollView:tab];
 }
 
-- (void)aa {
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"bg_night_snow"]];
-    // create gaussian blur filter
-    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
-    [filter setValue:inputImage forKey:kCIInputImageKey];
-    [filter setValue:[NSNumber numberWithFloat:10.0] forKey:@"inputRadius"];
-    // blur image
-    CIImage *result = [filter valueForKey:kCIOutputImageKey];
-    CGImageRef cgImage = [context createCGImage:result fromRect:[result extent]];
-    UIImage *image = [UIImage imageWithCGImage:cgImage];
-    CGImageRelease(cgImage);
-    self.imageView.image = image;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell.textLabel.text = @"aa";
+    return cell;
+}
+//- (void)aa {
+//    CIContext *context = [CIContext contextWithOptions:nil];
+//    CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageNamed:@"bg_night_snow"]];
+//    // create gaussian blur filter
+//    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+//    [filter setValue:inputImage forKey:kCIInputImageKey];
+//    [filter setValue:[NSNumber numberWithFloat:10.0] forKey:@"inputRadius"];
+//    // blur image
+//    CIImage *result = [filter valueForKey:kCIOutputImageKey];
+//    CGImageRef cgImage = [context createCGImage:result fromRect:[result extent]];
+//    UIImage *image = [UIImage imageWithCGImage:cgImage];
+//    CGImageRelease(cgImage);
+//    self.imageView.image = image;
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

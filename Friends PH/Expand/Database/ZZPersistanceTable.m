@@ -53,13 +53,13 @@
 //
 //}
 
-- (BOOL)insertRecord:(ZZPersistanceRecord *)record error:(NSError *__autoreleasing *)error {
-
-}
-
-- (BOOL)insertRecordList:(NSArray<ZZPersistanceRecord *> *)recordList error:(NSError *__autoreleasing *)error {
-
-}
+//- (BOOL)insertRecord:(ZZPersistanceRecord *)record error:(NSError *__autoreleasing *)error {
+//
+//}
+//
+//- (BOOL)insertRecordList:(NSArray<ZZPersistanceRecord *> *)recordList error:(NSError *__autoreleasing *)error {
+//
+//}
 #pragma mark - life cycle
 -(instancetype)init {
 

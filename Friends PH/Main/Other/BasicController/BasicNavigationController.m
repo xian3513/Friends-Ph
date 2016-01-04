@@ -205,10 +205,12 @@
     self.leftArray = [[NSMutableArray alloc]initWithCapacity:0];
     self.rightArray = [[NSMutableArray alloc]initWithCapacity:0];
     self.alphaView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.navigationBar.width, self.navigationBar.height+20)];
+    self.alphaView.backgroundColor = [UIColor colorWithRed:0.9 green:0.6 blue:0.5 alpha:0];
+    [self.navigationBar addSubview:self.alphaView];
     //self.navigationBar.translucent = YES;
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bigShadow.png"] forBarMetrics:UIBarMetricsCompact];
     self.navigationBar.layer.masksToBounds = YES;
-    //如果自定义了返回按钮 需要实现这些操作。
+    //如果自定义了返回按钮 需要实现这些操作，才能支持滑动返回
     __weak typeof(self) weakSelf = self;
     if([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.interactivePopGestureRecognizer.delegate = weakSelf;
@@ -234,26 +236,26 @@
 
 #pragma mark - customNavbar
 
-- (void)updateCustomViewColor:(UIColor *)color {
-    self.alphaView.backgroundColor = color;
-}
+//- (void)updateCustomViewColor:(UIColor *)color {
+//    self.alphaView.backgroundColor = color;
+//}
 
 - (void)addCustomNavbarViewWithTitile:(NSString *)title {
     CostomNavbarView *navbarView = [[CostomNavbarView alloc]init];
-    navbarView.userInteractionEnabled = YES;
+   // navbarView.userInteractionEnabled = YES;
    
     [self.topViewController.view insertSubview:navbarView belowSubview:self.topViewController.navigationController.navigationBar];
-     [self.topViewController.view insertSubview:self.alphaView belowSubview:navbarView];
+     //[self.topViewController.view insertSubview:self.alphaView belowSubview:navbarView];
     navbarView.title = title;
 }
-- (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title {
-    
-    CostomNavbarView *navbarView = [[CostomNavbarView alloc]init];
-    [self.topViewController.view insertSubview:navbarView belowSubview:self.topViewController.navigationController.navigationBar];
-    [self.view insertSubview:self.alphaView belowSubview:navbarView];
-    navbarView.title = title;
-    return navbarView;
-}
+//- (CostomNavbarView *)showCustomNavbarViewWithTitle:(NSString *)title {
+//    
+//    CostomNavbarView *navbarView = [[CostomNavbarView alloc]init];
+//    [self.topViewController.view insertSubview:navbarView belowSubview:self.topViewController.navigationController.navigationBar];
+//    [self.view insertSubview:self.alphaView belowSubview:navbarView];
+//    navbarView.title = title;
+//    return navbarView;
+//}
 
 - (void)addLeftItemTarget:(id)target action:(SEL)action backgroundImage:(UIImage *)image {
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];

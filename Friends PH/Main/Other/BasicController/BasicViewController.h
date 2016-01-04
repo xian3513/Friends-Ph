@@ -18,7 +18,8 @@
 
 #pragma mark - tabbarAnimation method
 
-- (void)followScrollView:(UIScrollView *)scrollableView;
+- (void)tabbarAnimationFollowScrollView:(UIScrollView *)scrollableView;
+- (void)navbarAnimationFollowScrollView:(UIScrollView *)scrollableView;
 
 @property(nonatomic,strong) UIView *backgroundView;
 @end

@@ -25,7 +25,7 @@ typedef enum {
 
 @interface BasicNavigationController : UINavigationController
 
-- (void)updateCustomViewColor:(UIColor *)color;
+//- (void)updateCustomViewColor:(UIColor *)color;
 
 - (void)addCustomNavbarWith:(UIView *)navView title:(NSString *)title;
 
