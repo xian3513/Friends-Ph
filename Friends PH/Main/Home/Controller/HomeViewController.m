@@ -16,6 +16,8 @@
 #import "FonExchangeModel.h"
 #import "Home_Job_TableViewCell.h"
 #import "JobViewController.h"
+
+#import "UIViewController+tabbarAnimation.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tabView;
 
@@ -39,6 +41,7 @@
     [super viewDidLoad];
   
     [self tabbarAnimationFollowScrollView:_tabView];
+    //[self followScrollView:_tabView];
     _headerView = [[HomeHeaderView alloc]init];
     _tabView.tableHeaderView = _headerView;
     
