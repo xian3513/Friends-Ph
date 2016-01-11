@@ -204,10 +204,12 @@
 
     self.leftArray = [[NSMutableArray alloc]initWithCapacity:0];
     self.rightArray = [[NSMutableArray alloc]initWithCapacity:0];
-    self.alphaView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.navigationBar.width, self.navigationBar.height+20)];
-    self.alphaView.backgroundColor = [UIColor colorWithRed:0.9 green:0.6 blue:0.5 alpha:0];
-    [self.navigationBar addSubview:self.alphaView];
+    self.alphaView = [[UIView alloc]initWithFrame:CGRectMake(0, -20, self.navigationBar.width, self.navigationBar.height+20)];
+    self.alphaView.backgroundColor = [UIColor colorWithRed:0.9 green:0.6 blue:0.5 alpha:0.5];
+    self.alphaView.userInteractionEnabled = YES;
+    //[self.navigationBar addSubview:self.alphaView];
     //self.navigationBar.translucent = YES;
+
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bigShadow.png"] forBarMetrics:UIBarMetricsCompact];
     self.navigationBar.layer.masksToBounds = YES;
     //如果自定义了返回按钮 需要实现这些操作，才能支持滑动返回
@@ -215,7 +217,7 @@
     if([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.interactivePopGestureRecognizer.delegate = weakSelf;
     }
-}
+   }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];

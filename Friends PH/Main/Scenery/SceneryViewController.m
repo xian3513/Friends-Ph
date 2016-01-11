@@ -22,7 +22,7 @@
     tab.delegate = self;
     tab.dataSource = self;
     [self.view addSubview:tab];
-    [self navbarAnimationFollowScrollView:tab];
+    //[self navbarAnimationFollowScrollView:tab];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

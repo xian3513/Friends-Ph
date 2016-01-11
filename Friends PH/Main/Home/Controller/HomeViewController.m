@@ -18,7 +18,8 @@
 #import "JobViewController.h"
 
 #import "UIViewController+tabbarAnimation.h"
-@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "HomeAPIManager.h"
+@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate,APIManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tabView;
 
 @end
@@ -37,11 +38,13 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (void)apiManagerDidSuccess:(ZZBaseAPIManager *)manager {
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
+    HomeAPIManager *apimanager = [[HomeAPIManager alloc]initWithTargat:self];
     [self tabbarAnimationFollowScrollView:_tabView];
-    //[self followScrollView:_tabView];
     _headerView = [[HomeHeaderView alloc]init];
     _tabView.tableHeaderView = _headerView;
     
@@ -59,7 +62,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     _model = [[ForecastModel alloc]init];
-    _feModel = [[FonExchangeModel alloc]init];
+    _feModel = [[FonExchangeModel alloc] init];
     
     [self http];
 }

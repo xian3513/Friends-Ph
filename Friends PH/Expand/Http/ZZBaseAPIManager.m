@@ -7,6 +7,7 @@
 //
 
 #import "ZZBaseAPIManager.h"
+#import "HttpTool.h"
 
 @interface ZZBaseAPIManager()
 @property(nonatomic,weak) id<ZZBaseAPIManagerDelegate> child;
@@ -17,11 +18,30 @@
 - (instancetype)init
 {
     self = [super init];
-    if ([self conformsToProtocol:@protocol(ZZBaseAPIManagerDelegate)]) {
-        self.child = (id<ZZBaseAPIManagerDelegate>)self;
-    }else {
-        NSAssert(NO, @"子类必须要实现 ZZBaseAPIManagerDelegate 这个protocol。");
+   
+    return self;
+}
+
+-(instancetype)initWithTargat:(id<APIManagerDelegate>)targat {
+    if(self = [super init]){
+        
+        _delegate = targat;
+        
+        if ([self conformsToProtocol:@protocol(ZZBaseAPIManagerDelegate)]) {
+            self.child = (id<ZZBaseAPIManagerDelegate>)self;
+        }else {
+            NSAssert(NO, @"子类必须要实现 ZZBaseAPIManagerDelegate 这个protocol。");
+        }
     }
     return self;
 }
+
+- (void)requestWithAPIName:(NSString *)name {
+    [HttpTool getWeatherSuccess:^(id responseObject) {
+    
+    } failure:^(NSError *error) {
+    
+    }];
+}
+
 @end
